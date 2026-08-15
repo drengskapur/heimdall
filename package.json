@@ -1,6 +1,6 @@
 {
   "name": "heimdall",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "Heimdall — an installable, offline-first Progressive Web App port of Freelens, the open-source Kubernetes IDE (a Lens fork).",
   "keywords": [
     "kubernetes",
