@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/drengskapur/heimdall/compare/v0.8.1...v0.9.0) (2026-08-15)
+
+
+### Features
+
+* Heimdall — an offline-first Kubernetes IDE in the browser ([9d441d9](https://github.com/drengskapur/heimdall/commit/9d441d98df67f472bfeb058fd9979e85105d253c))
+
 ## [0.8.1](https://github.com/jonathanagustin/freelens-offline-pwa/compare/v0.8.0...v0.8.1) (2026-08-15)
 
 
