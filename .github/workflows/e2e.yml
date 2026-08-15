@@ -56,8 +56,21 @@ jobs:
           node-version: 22
           cache: npm
 
+      # Pinned by commit and verified by hash, rather than piping whatever is on
+      # k3d's main branch into a shell. The URL said `main`, so the script this
+      # job executed could change under us between runs — the one unpinned
+      # dependency OpenSSF Scorecard reported against this repository, and the
+      # only `downloadThenRun` here. The commit is install.sh as of tag v5.7.4,
+      # which is the version the script then installs.
       - name: Install k3d
-        run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.7.4 bash
+        env:
+          K3D_INSTALL_SHA: fc6ad34825803cc8d3eab4ac5854f3c3d2e026b3
+          K3D_INSTALL_SHA256: 0f6bd9a3ab8ea8625843b21657a6538f117975bb2823b73200dc8b92ccc626de
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://raw.githubusercontent.com/k3d-io/k3d/${K3D_INSTALL_SHA}/install.sh" -o /tmp/k3d-install.sh
+          echo "${K3D_INSTALL_SHA256}  /tmp/k3d-install.sh" | sha256sum -c -
+          TAG=v5.7.4 bash /tmp/k3d-install.sh
 
       - name: Create k3d cluster
         run: |
