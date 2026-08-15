@@ -7,7 +7,7 @@
 //   HEIMDALL_API_PORT   (default 3000)
 //   HEIMDALL_SPA_DIR    (default ./dist) — the Vite SPA build output
 
-import { readFile, stat } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, relative, resolve, sep } from "node:path";
 import { Readable } from "node:stream";
@@ -352,11 +352,15 @@ async function serveStatic(req, res) {
   const within = relative(SPA_DIR, candidate);
   if (within !== "" && (within.startsWith("..") || within.startsWith(sep))) return send(res, 403, "Forbidden");
   try {
-    const info = await stat(candidate);
-    if (info.isFile())
-      return send(res, 200, await readFile(candidate), {
-        "content-type": MIME[extname(candidate)] || "application/octet-stream",
-      });
+    // One read, not a `stat` then a read. The two-call form asks about one
+    // path and then opens another — whatever the name resolves to the second
+    // time — and the `isFile()` it checked is subsumed by the read anyway: a
+    // directory fails with EISDIR and takes the same SPA fallback a missing
+    // file does. Fewer syscalls, less code, and no window in between.
+    const body = await readFile(candidate);
+    return send(res, 200, body, {
+      "content-type": MIME[extname(candidate)] || "application/octet-stream",
+    });
   } catch {
     /* fall through to SPA index */
   }

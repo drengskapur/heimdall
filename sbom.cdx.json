@@ -7,8 +7,8 @@
     "component": {
       "type": "application",
       "name": "heimdall",
-      "version": "0.8.0",
-      "bom-ref": "heimdall@0.8.0",
+      "version": "0.9.0",
+      "bom-ref": "heimdall@0.9.0",
       "author": "Drengskapur",
       "description": "Heimdall — an installable, offline-first Progressive Web App port of Freelens, the open-source Kubernetes IDE (a Lens fork).",
       "licenses": [
@@ -19,7 +19,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/heimdall@0.8.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fdrengskapur%2Fheimdall.git",
+      "purl": "pkg:npm/heimdall@0.9.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fdrengskapur%2Fheimdall.git",
       "externalReferences": [
         {
           "url": "https://github.com/drengskapur/heimdall/issues",
@@ -61,7 +61,7 @@
       "name": "runtime",
       "group": "@babel",
       "version": "7.29.7",
-      "bom-ref": "heimdall@0.8.0|@babel/runtime@7.29.7",
+      "bom-ref": "heimdall@0.9.0|@babel/runtime@7.29.7",
       "licenses": [
         {
           "license": {
@@ -90,7 +90,7 @@
       "name": "colors",
       "group": "@blueprintjs",
       "version": "5.1.16",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
       "licenses": [
         {
           "license": {
@@ -118,7 +118,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -155,7 +155,7 @@
       "name": "core",
       "group": "@blueprintjs",
       "version": "6.18.0",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/core@6.18.0",
       "licenses": [
         {
           "license": {
@@ -183,7 +183,7 @@
           "type": "library",
           "name": "react-popper",
           "version": "2.3.0",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
           "licenses": [
             {
               "license": {
@@ -217,7 +217,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -254,7 +254,7 @@
       "name": "icons",
       "group": "@blueprintjs",
       "version": "6.13.0",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/icons@6.13.0",
       "licenses": [
         {
           "license": {
@@ -282,7 +282,7 @@
           "type": "library",
           "name": "change-case",
           "version": "4.1.2",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
           "licenses": [
             {
               "license": {
@@ -316,7 +316,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -353,7 +353,7 @@
       "name": "select",
       "group": "@blueprintjs",
       "version": "6.3.4",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/select@6.3.4",
       "licenses": [
         {
           "license": {
@@ -381,7 +381,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -418,7 +418,7 @@
       "name": "table",
       "group": "@blueprintjs",
       "version": "6.2.4",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/table@6.2.4",
       "licenses": [
         {
           "license": {
@@ -446,7 +446,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -483,7 +483,7 @@
       "name": "core",
       "group": "@floating-ui",
       "version": "1.8.0",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/core@1.8.0",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/core@1.8.0",
       "licenses": [
         {
           "license": {
@@ -512,7 +512,7 @@
       "name": "dom",
       "group": "@floating-ui",
       "version": "1.8.0",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/dom@1.8.0",
       "licenses": [
         {
           "license": {
@@ -541,7 +541,7 @@
       "name": "react-dom",
       "group": "@floating-ui",
       "version": "2.1.9",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/react-dom@2.1.9",
       "licenses": [
         {
           "license": {
@@ -570,7 +570,7 @@
       "name": "react",
       "group": "@floating-ui",
       "version": "0.27.20",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/react@0.27.20",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/react@0.27.20",
       "licenses": [
         {
           "license": {
@@ -599,7 +599,7 @@
       "name": "utils",
       "group": "@floating-ui",
       "version": "0.2.12",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/utils@0.2.12",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/utils@0.2.12",
       "licenses": [
         {
           "license": {
@@ -628,7 +628,7 @@
       "name": "core",
       "group": "@popperjs",
       "version": "2.11.8",
-      "bom-ref": "heimdall@0.8.0|@popperjs/core@2.11.8",
+      "bom-ref": "heimdall@0.9.0|@popperjs/core@2.11.8",
       "licenses": [
         {
           "license": {
@@ -657,7 +657,7 @@
       "name": "react",
       "group": "@types",
       "version": "19.2.18",
-      "bom-ref": "heimdall@0.8.0|@types/react@19.2.18",
+      "bom-ref": "heimdall@0.9.0|@types/react@19.2.18",
       "licenses": [
         {
           "license": {
@@ -686,7 +686,7 @@
       "name": "addon-fit",
       "group": "@xterm",
       "version": "0.11.0",
-      "bom-ref": "heimdall@0.8.0|@xterm/addon-fit@0.11.0",
+      "bom-ref": "heimdall@0.9.0|@xterm/addon-fit@0.11.0",
       "licenses": [
         {
           "license": {
@@ -715,7 +715,7 @@
       "name": "addon-web-links",
       "group": "@xterm",
       "version": "0.12.0",
-      "bom-ref": "heimdall@0.8.0|@xterm/addon-web-links@0.12.0",
+      "bom-ref": "heimdall@0.9.0|@xterm/addon-web-links@0.12.0",
       "licenses": [
         {
           "license": {
@@ -744,7 +744,7 @@
       "name": "xterm",
       "group": "@xterm",
       "version": "6.0.0",
-      "bom-ref": "heimdall@0.8.0|@xterm/xterm@6.0.0",
+      "bom-ref": "heimdall@0.9.0|@xterm/xterm@6.0.0",
       "licenses": [
         {
           "license": {
@@ -772,7 +772,7 @@
       "type": "library",
       "name": "camel-case",
       "version": "4.1.2",
-      "bom-ref": "heimdall@0.8.0|camel-case@4.1.2",
+      "bom-ref": "heimdall@0.9.0|camel-case@4.1.2",
       "licenses": [
         {
           "license": {
@@ -800,7 +800,7 @@
       "type": "library",
       "name": "capital-case",
       "version": "1.0.4",
-      "bom-ref": "heimdall@0.8.0|capital-case@1.0.4",
+      "bom-ref": "heimdall@0.9.0|capital-case@1.0.4",
       "licenses": [
         {
           "license": {
@@ -828,7 +828,7 @@
       "type": "library",
       "name": "classnames",
       "version": "2.5.1",
-      "bom-ref": "heimdall@0.8.0|classnames@2.5.1",
+      "bom-ref": "heimdall@0.9.0|classnames@2.5.1",
       "licenses": [
         {
           "license": {
@@ -856,7 +856,7 @@
       "type": "library",
       "name": "constant-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|constant-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|constant-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -884,7 +884,7 @@
       "type": "library",
       "name": "csstype",
       "version": "3.2.3",
-      "bom-ref": "heimdall@0.8.0|csstype@3.2.3",
+      "bom-ref": "heimdall@0.9.0|csstype@3.2.3",
       "licenses": [
         {
           "license": {
@@ -912,7 +912,7 @@
       "type": "library",
       "name": "dom-helpers",
       "version": "5.2.1",
-      "bom-ref": "heimdall@0.8.0|dom-helpers@5.2.1",
+      "bom-ref": "heimdall@0.9.0|dom-helpers@5.2.1",
       "licenses": [
         {
           "license": {
@@ -940,7 +940,7 @@
       "type": "library",
       "name": "dot-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|dot-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|dot-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -968,7 +968,7 @@
       "type": "library",
       "name": "header-case",
       "version": "2.0.4",
-      "bom-ref": "heimdall@0.8.0|header-case@2.0.4",
+      "bom-ref": "heimdall@0.9.0|header-case@2.0.4",
       "licenses": [
         {
           "license": {
@@ -996,7 +996,7 @@
       "type": "library",
       "name": "js-tokens",
       "version": "4.0.0",
-      "bom-ref": "heimdall@0.8.0|js-tokens@4.0.0",
+      "bom-ref": "heimdall@0.9.0|js-tokens@4.0.0",
       "licenses": [
         {
           "license": {
@@ -1024,7 +1024,7 @@
       "type": "library",
       "name": "loose-envify",
       "version": "1.4.0",
-      "bom-ref": "heimdall@0.8.0|loose-envify@1.4.0",
+      "bom-ref": "heimdall@0.9.0|loose-envify@1.4.0",
       "licenses": [
         {
           "license": {
@@ -1052,7 +1052,7 @@
       "type": "library",
       "name": "lower-case",
       "version": "2.0.2",
-      "bom-ref": "heimdall@0.8.0|lower-case@2.0.2",
+      "bom-ref": "heimdall@0.9.0|lower-case@2.0.2",
       "licenses": [
         {
           "license": {
@@ -1080,7 +1080,7 @@
       "type": "library",
       "name": "no-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|no-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|no-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1108,7 +1108,7 @@
       "type": "library",
       "name": "normalize.css",
       "version": "8.0.1",
-      "bom-ref": "heimdall@0.8.0|normalize.css@8.0.1",
+      "bom-ref": "heimdall@0.9.0|normalize.css@8.0.1",
       "licenses": [
         {
           "license": {
@@ -1136,7 +1136,7 @@
       "type": "library",
       "name": "object-assign",
       "version": "4.1.1",
-      "bom-ref": "heimdall@0.8.0|object-assign@4.1.1",
+      "bom-ref": "heimdall@0.9.0|object-assign@4.1.1",
       "licenses": [
         {
           "license": {
@@ -1164,7 +1164,7 @@
       "type": "library",
       "name": "param-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|param-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|param-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1192,7 +1192,7 @@
       "type": "library",
       "name": "pascal-case",
       "version": "3.1.2",
-      "bom-ref": "heimdall@0.8.0|pascal-case@3.1.2",
+      "bom-ref": "heimdall@0.9.0|pascal-case@3.1.2",
       "licenses": [
         {
           "license": {
@@ -1220,7 +1220,7 @@
       "type": "library",
       "name": "path-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|path-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|path-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1248,7 +1248,7 @@
       "type": "library",
       "name": "prop-types",
       "version": "15.8.1",
-      "bom-ref": "heimdall@0.8.0|prop-types@15.8.1",
+      "bom-ref": "heimdall@0.9.0|prop-types@15.8.1",
       "licenses": [
         {
           "license": {
@@ -1276,7 +1276,7 @@
       "type": "library",
       "name": "react-dom",
       "version": "19.2.8",
-      "bom-ref": "heimdall@0.8.0|react-dom@19.2.8",
+      "bom-ref": "heimdall@0.9.0|react-dom@19.2.8",
       "licenses": [
         {
           "license": {
@@ -1304,7 +1304,7 @@
       "type": "library",
       "name": "react-fast-compare",
       "version": "3.2.2",
-      "bom-ref": "heimdall@0.8.0|react-fast-compare@3.2.2",
+      "bom-ref": "heimdall@0.9.0|react-fast-compare@3.2.2",
       "licenses": [
         {
           "license": {
@@ -1332,7 +1332,7 @@
       "type": "library",
       "name": "react-innertext",
       "version": "1.1.5",
-      "bom-ref": "heimdall@0.8.0|react-innertext@1.1.5",
+      "bom-ref": "heimdall@0.9.0|react-innertext@1.1.5",
       "licenses": [
         {
           "license": {
@@ -1360,7 +1360,7 @@
       "type": "library",
       "name": "react-is",
       "version": "16.13.1",
-      "bom-ref": "heimdall@0.8.0|react-is@16.13.1",
+      "bom-ref": "heimdall@0.9.0|react-is@16.13.1",
       "licenses": [
         {
           "license": {
@@ -1388,7 +1388,7 @@
       "type": "library",
       "name": "react-transition-group",
       "version": "4.4.5",
-      "bom-ref": "heimdall@0.8.0|react-transition-group@4.4.5",
+      "bom-ref": "heimdall@0.9.0|react-transition-group@4.4.5",
       "licenses": [
         {
           "license": {
@@ -1416,7 +1416,7 @@
       "type": "library",
       "name": "react",
       "version": "19.2.8",
-      "bom-ref": "heimdall@0.8.0|react@19.2.8",
+      "bom-ref": "heimdall@0.9.0|react@19.2.8",
       "licenses": [
         {
           "license": {
@@ -1444,7 +1444,7 @@
       "type": "library",
       "name": "scheduler",
       "version": "0.27.0",
-      "bom-ref": "heimdall@0.8.0|scheduler@0.27.0",
+      "bom-ref": "heimdall@0.9.0|scheduler@0.27.0",
       "licenses": [
         {
           "license": {
@@ -1472,7 +1472,7 @@
       "type": "library",
       "name": "sentence-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|sentence-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|sentence-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1500,7 +1500,7 @@
       "type": "library",
       "name": "snake-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|snake-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|snake-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1528,7 +1528,7 @@
       "type": "library",
       "name": "tabbable",
       "version": "6.5.0",
-      "bom-ref": "heimdall@0.8.0|tabbable@6.5.0",
+      "bom-ref": "heimdall@0.9.0|tabbable@6.5.0",
       "licenses": [
         {
           "license": {
@@ -1556,7 +1556,7 @@
       "type": "library",
       "name": "tslib",
       "version": "2.8.1",
-      "bom-ref": "heimdall@0.8.0|tslib@2.8.1",
+      "bom-ref": "heimdall@0.9.0|tslib@2.8.1",
       "licenses": [
         {
           "license": {
@@ -1584,7 +1584,7 @@
       "type": "library",
       "name": "undici",
       "version": "8.10.0",
-      "bom-ref": "heimdall@0.8.0|undici@8.10.0",
+      "bom-ref": "heimdall@0.9.0|undici@8.10.0",
       "licenses": [
         {
           "license": {
@@ -1612,7 +1612,7 @@
       "type": "library",
       "name": "upper-case-first",
       "version": "2.0.2",
-      "bom-ref": "heimdall@0.8.0|upper-case-first@2.0.2",
+      "bom-ref": "heimdall@0.9.0|upper-case-first@2.0.2",
       "licenses": [
         {
           "license": {
@@ -1640,7 +1640,7 @@
       "type": "library",
       "name": "upper-case",
       "version": "2.0.2",
-      "bom-ref": "heimdall@0.8.0|upper-case@2.0.2",
+      "bom-ref": "heimdall@0.9.0|upper-case@2.0.2",
       "licenses": [
         {
           "license": {
@@ -1668,7 +1668,7 @@
       "type": "library",
       "name": "warning",
       "version": "4.0.3",
-      "bom-ref": "heimdall@0.8.0|warning@4.0.3",
+      "bom-ref": "heimdall@0.9.0|warning@4.0.3",
       "licenses": [
         {
           "license": {
@@ -1696,7 +1696,7 @@
       "type": "library",
       "name": "ws",
       "version": "8.21.3",
-      "bom-ref": "heimdall@0.8.0|ws@8.21.3",
+      "bom-ref": "heimdall@0.9.0|ws@8.21.3",
       "licenses": [
         {
           "license": {
@@ -1724,7 +1724,7 @@
       "type": "library",
       "name": "yaml",
       "version": "2.9.0",
-      "bom-ref": "heimdall@0.8.0|yaml@2.9.0",
+      "bom-ref": "heimdall@0.9.0|yaml@2.9.0",
       "licenses": [
         {
           "license": {
@@ -1751,370 +1751,370 @@
   ],
   "dependencies": [
     {
-      "ref": "heimdall@0.8.0",
+      "ref": "heimdall@0.9.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@blueprintjs/select@6.3.4",
-        "heimdall@0.8.0|@blueprintjs/table@6.2.4",
-        "heimdall@0.8.0|@xterm/addon-fit@0.11.0",
-        "heimdall@0.8.0|@xterm/addon-web-links@0.12.0",
-        "heimdall@0.8.0|@xterm/xterm@6.0.0",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|undici@8.10.0",
-        "heimdall@0.8.0|ws@8.21.3",
-        "heimdall@0.8.0|yaml@2.9.0"
+        "heimdall@0.9.0|@blueprintjs/core@6.18.0",
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.9.0|@blueprintjs/select@6.3.4",
+        "heimdall@0.9.0|@blueprintjs/table@6.2.4",
+        "heimdall@0.9.0|@xterm/addon-fit@0.11.0",
+        "heimdall@0.9.0|@xterm/addon-web-links@0.12.0",
+        "heimdall@0.9.0|@xterm/xterm@6.0.0",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react@19.2.8",
+        "heimdall@0.9.0|undici@8.10.0",
+        "heimdall@0.9.0|ws@8.21.3",
+        "heimdall@0.9.0|yaml@2.9.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@babel/runtime@7.29.7"
+      "ref": "heimdall@0.9.0|@babel/runtime@7.29.7"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+      "ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
+        "heimdall@0.9.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+      "ref": "heimdall@0.9.0|@blueprintjs/core@6.18.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@floating-ui/react@0.27.20",
-        "heimdall@0.8.0|@popperjs/core@2.11.8",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|normalize.css@8.0.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react-transition-group@4.4.5",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
+        "heimdall@0.9.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+        "heimdall@0.9.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.9.0|@floating-ui/react@0.27.20",
+        "heimdall@0.9.0|@popperjs/core@2.11.8",
+        "heimdall@0.9.0|@types/react@19.2.18",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|normalize.css@8.0.1",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react-transition-group@4.4.5",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+      "ref": "heimdall@0.9.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
       "dependsOn": [
-        "heimdall@0.8.0|@popperjs/core@2.11.8",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react-fast-compare@3.2.2",
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|warning@4.0.3"
+        "heimdall@0.9.0|@popperjs/core@2.11.8",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react-fast-compare@3.2.2",
+        "heimdall@0.9.0|react@19.2.8",
+        "heimdall@0.9.0|warning@4.0.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/core@6.18.0|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+      "ref": "heimdall@0.9.0|@blueprintjs/icons@6.13.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+        "heimdall@0.9.0|@types/react@19.2.18",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+      "ref": "heimdall@0.9.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
-        "heimdall@0.8.0|camel-case@4.1.2",
-        "heimdall@0.8.0|capital-case@1.0.4",
-        "heimdall@0.8.0|constant-case@3.0.4",
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|header-case@2.0.4",
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|param-case@3.0.4",
-        "heimdall@0.8.0|pascal-case@3.1.2",
-        "heimdall@0.8.0|path-case@3.0.4",
-        "heimdall@0.8.0|sentence-case@3.0.4",
-        "heimdall@0.8.0|snake-case@3.0.4"
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+        "heimdall@0.9.0|camel-case@4.1.2",
+        "heimdall@0.9.0|capital-case@1.0.4",
+        "heimdall@0.9.0|constant-case@3.0.4",
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|header-case@2.0.4",
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|param-case@3.0.4",
+        "heimdall@0.9.0|pascal-case@3.1.2",
+        "heimdall@0.9.0|path-case@3.0.4",
+        "heimdall@0.9.0|sentence-case@3.0.4",
+        "heimdall@0.9.0|snake-case@3.0.4"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/icons@6.13.0|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+      "ref": "heimdall@0.9.0|@blueprintjs/select@6.3.4",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
+        "heimdall@0.9.0|@blueprintjs/core@6.18.0",
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.9.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
+        "heimdall@0.9.0|@types/react@19.2.18",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/select@6.3.4|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+      "ref": "heimdall@0.9.0|@blueprintjs/table@6.2.4",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react-innertext@1.1.5",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/core@6.18.0",
+        "heimdall@0.9.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.9.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
+        "heimdall@0.9.0|@types/react@19.2.18",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react-innertext@1.1.5",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/table@6.2.4|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/core@1.8.0",
+      "ref": "heimdall@0.9.0|@floating-ui/core@1.8.0",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+        "heimdall@0.9.0|@floating-ui/utils@0.2.12"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+      "ref": "heimdall@0.9.0|@floating-ui/dom@1.8.0",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/core@1.8.0",
-        "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+        "heimdall@0.9.0|@floating-ui/core@1.8.0",
+        "heimdall@0.9.0|@floating-ui/utils@0.2.12"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+      "ref": "heimdall@0.9.0|@floating-ui/react-dom@2.1.9",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/dom@1.8.0",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@floating-ui/dom@1.8.0",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/react@0.27.20",
+      "ref": "heimdall@0.9.0|@floating-ui/react@0.27.20",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
-        "heimdall@0.8.0|@floating-ui/utils@0.2.12",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|tabbable@6.5.0"
+        "heimdall@0.9.0|@floating-ui/react-dom@2.1.9",
+        "heimdall@0.9.0|@floating-ui/utils@0.2.12",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react@19.2.8",
+        "heimdall@0.9.0|tabbable@6.5.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+      "ref": "heimdall@0.9.0|@floating-ui/utils@0.2.12"
     },
     {
-      "ref": "heimdall@0.8.0|@popperjs/core@2.11.8"
+      "ref": "heimdall@0.9.0|@popperjs/core@2.11.8"
     },
     {
-      "ref": "heimdall@0.8.0|@types/react@19.2.18",
+      "ref": "heimdall@0.9.0|@types/react@19.2.18",
       "dependsOn": [
-        "heimdall@0.8.0|csstype@3.2.3"
+        "heimdall@0.9.0|csstype@3.2.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@xterm/addon-fit@0.11.0"
+      "ref": "heimdall@0.9.0|@xterm/addon-fit@0.11.0"
     },
     {
-      "ref": "heimdall@0.8.0|@xterm/addon-web-links@0.12.0"
+      "ref": "heimdall@0.9.0|@xterm/addon-web-links@0.12.0"
     },
     {
-      "ref": "heimdall@0.8.0|@xterm/xterm@6.0.0"
+      "ref": "heimdall@0.9.0|@xterm/xterm@6.0.0"
     },
     {
-      "ref": "heimdall@0.8.0|camel-case@4.1.2",
+      "ref": "heimdall@0.9.0|camel-case@4.1.2",
       "dependsOn": [
-        "heimdall@0.8.0|pascal-case@3.1.2",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|pascal-case@3.1.2",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|capital-case@1.0.4",
+      "ref": "heimdall@0.9.0|capital-case@1.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1",
-        "heimdall@0.8.0|upper-case-first@2.0.2"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1",
+        "heimdall@0.9.0|upper-case-first@2.0.2"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|classnames@2.5.1"
+      "ref": "heimdall@0.9.0|classnames@2.5.1"
     },
     {
-      "ref": "heimdall@0.8.0|constant-case@3.0.4",
+      "ref": "heimdall@0.9.0|constant-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1",
-        "heimdall@0.8.0|upper-case@2.0.2"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1",
+        "heimdall@0.9.0|upper-case@2.0.2"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|csstype@3.2.3"
+      "ref": "heimdall@0.9.0|csstype@3.2.3"
     },
     {
-      "ref": "heimdall@0.8.0|dom-helpers@5.2.1",
+      "ref": "heimdall@0.9.0|dom-helpers@5.2.1",
       "dependsOn": [
-        "heimdall@0.8.0|@babel/runtime@7.29.7",
-        "heimdall@0.8.0|csstype@3.2.3"
+        "heimdall@0.9.0|@babel/runtime@7.29.7",
+        "heimdall@0.9.0|csstype@3.2.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|dot-case@3.0.4",
+      "ref": "heimdall@0.9.0|dot-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|header-case@2.0.4",
+      "ref": "heimdall@0.9.0|header-case@2.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|capital-case@1.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|capital-case@1.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|js-tokens@4.0.0"
+      "ref": "heimdall@0.9.0|js-tokens@4.0.0"
     },
     {
-      "ref": "heimdall@0.8.0|loose-envify@1.4.0",
+      "ref": "heimdall@0.9.0|loose-envify@1.4.0",
       "dependsOn": [
-        "heimdall@0.8.0|js-tokens@4.0.0"
+        "heimdall@0.9.0|js-tokens@4.0.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|lower-case@2.0.2",
+      "ref": "heimdall@0.9.0|lower-case@2.0.2",
       "dependsOn": [
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|no-case@3.0.4",
+      "ref": "heimdall@0.9.0|no-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|lower-case@2.0.2",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|lower-case@2.0.2",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|normalize.css@8.0.1"
+      "ref": "heimdall@0.9.0|normalize.css@8.0.1"
     },
     {
-      "ref": "heimdall@0.8.0|object-assign@4.1.1"
+      "ref": "heimdall@0.9.0|object-assign@4.1.1"
     },
     {
-      "ref": "heimdall@0.8.0|param-case@3.0.4",
+      "ref": "heimdall@0.9.0|param-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|pascal-case@3.1.2",
+      "ref": "heimdall@0.9.0|pascal-case@3.1.2",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|path-case@3.0.4",
+      "ref": "heimdall@0.9.0|path-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|prop-types@15.8.1",
+      "ref": "heimdall@0.9.0|prop-types@15.8.1",
       "dependsOn": [
-        "heimdall@0.8.0|loose-envify@1.4.0",
-        "heimdall@0.8.0|object-assign@4.1.1",
-        "heimdall@0.8.0|react-is@16.13.1"
+        "heimdall@0.9.0|loose-envify@1.4.0",
+        "heimdall@0.9.0|object-assign@4.1.1",
+        "heimdall@0.9.0|react-is@16.13.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react-dom@19.2.8",
+      "ref": "heimdall@0.9.0|react-dom@19.2.8",
       "dependsOn": [
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|scheduler@0.27.0"
+        "heimdall@0.9.0|react@19.2.8",
+        "heimdall@0.9.0|scheduler@0.27.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react-fast-compare@3.2.2"
+      "ref": "heimdall@0.9.0|react-fast-compare@3.2.2"
     },
     {
-      "ref": "heimdall@0.8.0|react-innertext@1.1.5",
+      "ref": "heimdall@0.9.0|react-innertext@1.1.5",
       "dependsOn": [
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@types/react@19.2.18",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react-is@16.13.1"
+      "ref": "heimdall@0.9.0|react-is@16.13.1"
     },
     {
-      "ref": "heimdall@0.8.0|react-transition-group@4.4.5",
+      "ref": "heimdall@0.9.0|react-transition-group@4.4.5",
       "dependsOn": [
-        "heimdall@0.8.0|@babel/runtime@7.29.7",
-        "heimdall@0.8.0|dom-helpers@5.2.1",
-        "heimdall@0.8.0|loose-envify@1.4.0",
-        "heimdall@0.8.0|prop-types@15.8.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@babel/runtime@7.29.7",
+        "heimdall@0.9.0|dom-helpers@5.2.1",
+        "heimdall@0.9.0|loose-envify@1.4.0",
+        "heimdall@0.9.0|prop-types@15.8.1",
+        "heimdall@0.9.0|react-dom@19.2.8",
+        "heimdall@0.9.0|react@19.2.8"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react@19.2.8"
+      "ref": "heimdall@0.9.0|react@19.2.8"
     },
     {
-      "ref": "heimdall@0.8.0|scheduler@0.27.0"
+      "ref": "heimdall@0.9.0|scheduler@0.27.0"
     },
     {
-      "ref": "heimdall@0.8.0|sentence-case@3.0.4",
+      "ref": "heimdall@0.9.0|sentence-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1",
-        "heimdall@0.8.0|upper-case-first@2.0.2"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1",
+        "heimdall@0.9.0|upper-case-first@2.0.2"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|snake-case@3.0.4",
+      "ref": "heimdall@0.9.0|snake-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|tabbable@6.5.0"
+      "ref": "heimdall@0.9.0|tabbable@6.5.0"
     },
     {
-      "ref": "heimdall@0.8.0|tslib@2.8.1"
+      "ref": "heimdall@0.9.0|tslib@2.8.1"
     },
     {
-      "ref": "heimdall@0.8.0|undici@8.10.0"
+      "ref": "heimdall@0.9.0|undici@8.10.0"
     },
     {
-      "ref": "heimdall@0.8.0|upper-case-first@2.0.2",
+      "ref": "heimdall@0.9.0|upper-case-first@2.0.2",
       "dependsOn": [
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|upper-case@2.0.2",
+      "ref": "heimdall@0.9.0|upper-case@2.0.2",
       "dependsOn": [
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|warning@4.0.3",
+      "ref": "heimdall@0.9.0|warning@4.0.3",
       "dependsOn": [
-        "heimdall@0.8.0|loose-envify@1.4.0"
+        "heimdall@0.9.0|loose-envify@1.4.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|ws@8.21.3"
+      "ref": "heimdall@0.9.0|ws@8.21.3"
     },
     {
-      "ref": "heimdall@0.8.0|yaml@2.9.0"
+      "ref": "heimdall@0.9.0|yaml@2.9.0"
     }
   ]
 }
