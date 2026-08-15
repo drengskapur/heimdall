@@ -2,11 +2,15 @@ import { spawn } from "node:child_process";
 import { createHash, randomBytes, randomUUID, timingSafeEqual } from "node:crypto";
 import {
   chmodSync,
+  closeSync,
   cpSync,
   existsSync,
+  constants as fsConstants,
+  fstatSync,
   lstatSync,
   mkdirSync,
   mkdtempSync,
+  openSync,
   readdirSync,
   readFileSync,
   renameSync,
@@ -23,6 +27,8 @@ import { Readable } from "node:stream";
 import { StringDecoder } from "node:string_decoder";
 import { Agent, ProxyAgent, fetch as undiciFetch } from "undici";
 import { respondJson } from "./http-responses.mjs";
+
+const { O_RDONLY, O_NONBLOCK } = fsConstants;
 
 const env = name => process.env[`HEIMDALL_COMPANION_${name}`];
 const host = env("HOST") || "127.0.0.1",
@@ -639,24 +645,39 @@ function readDirectory(path, withFileTypes = false) {
     );
   return { path: resolvedPath, entries };
 }
+/** Read a file through one descriptor, so the size guard describes the bytes
+ *  the caller actually gets.
+ *
+ *  `statSync(path)` followed by `readFileSync(path)` resolves the name twice,
+ *  and the second lookup can land somewhere else — the guard then measures one
+ *  file while the read drains another, which is how a limit gets walked past
+ *  by swapping a small file for a large one (or for a symlink to `/dev/zero`)
+ *  in between. `fstatSync` on an open descriptor asks about the same inode the
+ *  read is about to consume, so there is no interval to win. */
+function readThroughDescriptor(resolvedPath, { encoding = "utf8", maximum = 8 * 1024 * 1024, subject = "File" } = {}) {
+  // O_NONBLOCK because opening now precedes the is-it-a-file test that used to
+  // precede the open: a read-open of a FIFO blocks until someone writes, so a
+  // named pipe left at ~/.kube/config would hang the scan rather than be
+  // rejected by the fstat below. The flag is a no-op for regular files, and
+  // absent on Windows, which has no filesystem FIFOs to begin with.
+  const fd = openSync(resolvedPath, O_RDONLY | (O_NONBLOCK ?? 0));
+  try {
+    const stats = fstatSync(fd);
+    if (!stats.isFile()) throw new Error("Path is not a file");
+    if (stats.size > maximum) throw new Error(`${subject} exceeds ${Math.round(maximum / 1024 / 1024)} MiB limit`);
+    return { content: readFileSync(fd, encoding), size: stats.size, mtimeMs: stats.mtimeMs };
+  } finally {
+    closeSync(fd);
+  }
+}
 function readTextFile(path) {
-  const resolvedPath = requiredPath(path),
-    stats = statSync(resolvedPath);
-  if (!stats.isFile()) throw new Error("Path is not a file");
-  if (stats.size > 8 * 1024 * 1024) throw new Error("File exceeds 8 MiB limit");
-  return { path: resolvedPath, content: readFileSync(resolvedPath, "utf8"), size: stats.size, mtimeMs: stats.mtimeMs };
+  const resolvedPath = requiredPath(path);
+  return { path: resolvedPath, ...readThroughDescriptor(resolvedPath) };
 }
 function readBinaryFile(path) {
   const resolvedPath = requiredPath(path),
-    stats = statSync(resolvedPath);
-  if (!stats.isFile()) throw new Error("Path is not a file");
-  if (stats.size > 8 * 1024 * 1024) throw new Error("File exceeds 8 MiB limit");
-  return {
-    path: resolvedPath,
-    contentBase64: readFileSync(resolvedPath).toString("base64"),
-    size: stats.size,
-    mtimeMs: stats.mtimeMs,
-  };
+    { content, size, mtimeMs } = readThroughDescriptor(resolvedPath, { encoding: null });
+  return { path: resolvedPath, contentBase64: content.toString("base64"), size, mtimeMs };
 }
 function writeFile(input) {
   const path = safeMutationPath(input.path),
@@ -779,12 +800,10 @@ function scanKubeconfigs(input = {}) {
   let total = 0;
   const read = (path, root, maximum) => {
     try {
-      const stats = statSync(path);
-      if (!stats.isFile()) return;
-      if (stats.size > maximum) throw new Error(`Kubeconfig exceeds ${Math.round(maximum / 1024 / 1024)} MiB limit`);
-      total += stats.size;
+      const file = readThroughDescriptor(path, { maximum, subject: "Kubeconfig" });
+      total += file.size;
       if (total > 64 * 1024 * 1024) throw new Error("Combined kubeconfig sources exceed 64 MiB");
-      items.push({ path, root, content: readFileSync(path, "utf8"), size: stats.size, mtimeMs: stats.mtimeMs });
+      items.push({ path, root, ...file });
     } catch (error) {
       errors.push({ path, error: error instanceof Error ? error.message : String(error) });
     }
