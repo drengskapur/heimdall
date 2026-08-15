@@ -1,0 +1,347 @@
+/* Drawer header: title on the left, the object's action buttons on the right
+   (Freelens renders KubeObjectMenu actions as a toolbar next to the × close). */
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.headTitle {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The drawer's own actions, which sit inside Blueprint's header alongside its
+   close button. The trailing margin is the important part: this cluster ended
+   at exactly the x where the close button began — zero gap — so Actions and
+   Close read as one welded control and it was easy to hit the wrong one. 8px
+   matches the spacing used between the buttons within the cluster.
+
+   `min-height` matches Blueprint's 30px close button. Without it the row held a
+   24px cluster next to a 30px control, so the drawer's own actions looked like a
+   different, smaller class of button than the one closing the drawer. */
+.headActions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* was 2px — the app spaces button clusters at 8px everywhere else */
+  min-height: 30px;
+  margin-right: 8px;
+}
+
+/* `flex: 1`, not `height: 100%`. Blueprint's drawer is a flex column holding a
+   40px header and then this, so asking for the full height made the content
+   exactly one header too tall and the drawer overflowed by 40px at the foot of
+   every object. Taking the remaining space instead makes it fit exactly, and
+   `min-height: 0` is what allows the columns inside to scroll rather than
+   pushing the container open. */
+.tabs {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 16px;
+}
+
+.list {
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+.yamlPane {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 12px 0;
+}
+
+.editor {
+  flex: 1;
+  min-height: 320px;
+  font-family: var(--bp-font-family-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre;
+  overflow: auto;
+  resize: none;
+}
+
+.yamlActions {
+  display: flex;
+  gap: 8px; /* 2 × $pt-spacing — Copy and Save were touching */
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* A tab panel's loading / error / empty state should sit in the middle of the
+   space it is given rather than clinging to the top of it. */
+.panelFill {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.events {
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.eventMsg {
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.eventMeta {
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.key {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Related-resource sections (child Pods, ReplicaSets, Endpoints, …). */
+/* A bar standing in for a linked object's name while the relations resolve. */
+.relSkeleton {
+  display: inline-block;
+  height: 12px;
+}
+
+/* Panels: 4px radius, separated by a shadow ring rather than a border, with a
+   titled header row. */
+.relPanel {
+  border-radius: var(--hd-radius);
+  box-shadow: var(--hd-elevation-resting);
+}
+
+.relPanelHead {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.relPanel .relSection:last-child {
+  border-bottom: none;
+}
+
+.relSection {
+  padding: 10px 16px 4px;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.relTitle {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  opacity: 0.6;
+}
+
+.relRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.relDot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bp-surface-border-color-default);
+}
+
+.dotOk {
+  background: #29a634;
+}
+.dotInfo {
+  background: #2d72d2;
+}
+.dotWarn {
+  background: #ec9a3c;
+}
+.dotError {
+  background: #cd4246;
+}
+.dotIdle {
+  background: var(--bp-surface-border-color-default);
+}
+
+.relName {
+  flex: 1;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The linked name is a real <button> now (an <a role="button"> with no href
+   never fired on Enter), so strip the button chrome and keep it left-aligned. */
+button.relName {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--hd-link);
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.relName:hover {
+  text-decoration: underline;
+}
+
+.relMeta {
+  flex: none;
+  font-size: 11px;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.value {
+  font-size: 13px;
+  word-break: break-word;
+}
+
+/* Full ConfigMap/data values — scrollable monospace block (Freelens shows the
+   whole value, not a truncated preview). */
+.dataBlock {
+  margin: 0;
+  padding: 8px 10px;
+  max-height: 220px;
+  border-radius: var(--hd-radius);
+  background: rgba(143, 153, 168, 0.15);
+  font-family: var(--bp-font-family-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+}
+
+/* Details, then linked objects — related objects belong in a column beside the
+   properties rather than after them. 280px for that column;
+   the drawer is 725px, so the properties keep the larger share. */
+/* Blueprint's tab panel is an ordinary flex child with no grow and no
+   min-height, so it sized to its content — 1359px inside a 713px drawer with
+   `overflow: visible` the whole way up, which meant nothing scrolled and the
+   foot of a long details view was simply unreachable. Giving the panel the
+   remaining height is what lets either column scroll at all. Matched on the
+   ARIA role because our CSS may not name Blueprint's classes
+   (tests/ui/blueprint-conventions.test.ts). */
+:root .tabs > [role="tabpanel"] {
+  flex: 1;
+  min-height: 0;
+}
+
+.detailsLayout {
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  min-height: 0;
+}
+
+.detailsLayout .list {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.linkedColumn {
+  flex: 0 0 280px;
+  min-height: 0;
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+/* No links, no gutter. RelatedResources returns null when there is nothing to
+   show, which leaves this element genuinely empty. */
+.linkedColumn:empty {
+  display: none;
+}
+
+/* The diff panel. A unified diff, so the two sides share one column and a
+   changed field reads as a pair of adjacent lines rather than something to hunt
+   for across a split. Argo's is side-by-side, which needs width a drawer does
+   not have.
+
+   The gutter character carries the meaning as well as the colour: +/- survive a
+   screenshot, a colour-blind reader and a printout, none of which a red/green
+   background does on its own. */
+.diff {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 8px 0;
+  overflow: auto;
+  font-family: var(--bp-font-family-monospace, monospace);
+  font-size: 12px;
+  line-height: 18px;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.diff > span {
+  padding: 0 12px;
+}
+
+.diffSame {
+  color: var(--hd-text-muted);
+}
+
+/* Tinted rather than saturated: a diff of forty lines with two changed should
+   read as forty calm lines and two loud ones, not as a wall of colour. */
+.diffAdd {
+  background: rgb(29 195 141 / 12%);
+  color: var(--bp-intent-success-rest, #1c6e42);
+}
+
+.diffDel {
+  background: rgb(205 66 70 / 12%);
+  color: var(--bp-intent-danger-rest, #cd4246);
+}
+
+:root[data-theme="dark"] .diffAdd {
+  color: var(--bp-palette-green-4, #72ca9b);
+}
+
+:root[data-theme="dark"] .diffDel {
+  color: var(--bp-palette-red-4, #fa999c);
+}
+
+/* A collapsed run. Quiet, and it states the count so the diff never implies the
+   file is shorter than it is. */
+.diffSkip {
+  color: var(--hd-text-muted);
+  opacity: 0.6;
+  font-style: italic;
+}

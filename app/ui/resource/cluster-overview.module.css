@@ -1,0 +1,169 @@
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  padding: 4px;
+  min-height: 0;
+  max-width: 1080px;
+}
+
+/* --- Stat tiles --- */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.tile {
+  display: flex;
+  background: var(--hd-elevated-bg);
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+}
+
+.tileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--hd-radius);
+  flex: 0 0 auto;
+}
+
+.tileText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tileValue {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tileLabel {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+/* Icon chip tones — soft tinted background + saturated glyph. */
+.blue {
+  background: rgba(45, 114, 210, 0.15);
+  color: #4c90f0;
+}
+.violet {
+  background: rgba(147, 112, 219, 0.15);
+  color: #9881f3;
+}
+.teal {
+  background: rgba(0, 160, 160, 0.15);
+  color: #2ee6d6;
+}
+.green {
+  background: rgba(41, 166, 52, 0.15);
+  color: #32a467;
+}
+
+/* --- Sections --- */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* The metrics section takes the leftover page height so its body has somewhere
+   to centre within. */
+.metricsSection {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Layout-stable metrics area: spinner, "unavailable", and a rendered chart all
+   occupy this same box, so nothing below it moves as metrics resolve. */
+.metricsBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  /* Enough that a spinner resolving into a chart does not shove the page, but
+     not so much that the common case — no metrics-server, one muted line — is a
+     block of nothing. It was 260px, which read as a hole in the page. */
+  min-height: 120px;
+}
+
+.metricsBody > * {
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- Cluster issues --- */
+
+.issues {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--bp-surface-border-color-default);
+  border-radius: var(--hd-radius);
+  overflow: hidden;
+}
+
+.issueRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.issueRow:not(:last-child) {
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.issueMsg {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.issueObj {
+  font-size: 12px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.issueAge {
+  font-size: 12px;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+/* A stand-in for the tile's number while it loads. Blueprint's skeleton forces
+   transparent text, so the element needs a width of its own — 2.5ch is about
+   the width of the values these tiles actually hold. */
+.tileValueSkeleton {
+  display: inline-block;
+  width: 2.5ch;
+}

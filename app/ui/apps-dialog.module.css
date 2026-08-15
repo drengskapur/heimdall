@@ -1,0 +1,128 @@
+/* 90% of the viewport, capped so it does not become a wall on a large
+   monitor. See docs/design/chrome-spec.md. */
+.dialog {
+  width: 90vw;
+  max-width: 1152px;
+  height: 90vh;
+  max-height: 648px;
+  padding: 0;
+  background: var(--bp-palette-dark-gray-1, #1c2127);
+  border-radius: var(--hd-radius);
+}
+
+/* The search field is the header — the portal has no title bar. */
+.head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  height: 49px;
+  padding: 0 12px 0 36px;
+}
+
+.search {
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* 250px behind a 1px hairline at 20% white — measured. */
+.left {
+  flex: none;
+  width: 250px;
+  padding: 12px 0;
+  border-right: 1px solid rgb(255 255 255 / 20%);
+  overflow-y: auto;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding: 0 17px;
+  cursor: default;
+}
+
+.categoryActive {
+  background: var(--bp-palette-dark-gray-3, #2f343c);
+  font-weight: 600;
+}
+
+.count {
+  color: var(--hd-text-muted);
+  font-size: 12px;
+}
+
+.right {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0 24px 0 26px;
+}
+
+.row:hover {
+  background: var(--bp-palette-dark-gray-3, #2f343c);
+}
+
+/* The whole row opens the app; the star is the only thing that does not. */
+.open {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 30px, measured. The same wash treatment as the sidebar's tile and the
+   header's — one colour at 10% behind the glyph at full strength. */
+.tile {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--hd-radius);
+  background: color-mix(in srgb, var(--c, var(--bp-palette-blue-3)) 10%, transparent);
+  color: var(--c, var(--bp-palette-blue-3));
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+/* 14px/400 for the name, 12px muted for the sentence — measured off the portal. */
+.name {
+  font-size: 14px;
+}
+
+.description {
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.star {
+  flex: none;
+}

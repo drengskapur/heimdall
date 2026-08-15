@@ -1,0 +1,39 @@
+name: fuzz
+
+# Coverage-guided fuzzing over the parsers that take input this project does not
+# control — a Helm chart archive from a third-party repository, resource strings
+# and objects from an API server, a path from the address bar.
+#
+# Short on pull requests, so a new parser gets exercised before it merges; longer
+# on a schedule, because coverage-guided fuzzing finds things in the tail.
+permissions:
+  contents: read
+
+on:
+  pull_request:
+  schedule:
+    - cron: "43 3 * * 2"
+  workflow_dispatch:
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Fuzz
+        # A pull request gets a quick pass; the weekly run goes deeper. The
+        # committed corpus means neither starts from nothing.
+        run: npm run fuzz -- --runs ${{ github.event_name == 'pull_request' && 25000 || 500000 }}
+      - name: Upload crashing inputs
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fuzz-findings
+          path: crash-*
+          retention-days: 30

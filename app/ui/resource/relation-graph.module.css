@@ -1,0 +1,138 @@
+.wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* The graph legend: a card in the canvas corner at 4px
+   radius with the *resting* elevation — the tight ring, not the floating pair,
+   because it sits in the view rather than over it — and 5px 10px of padding. */
+.legend {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: var(--hd-radius);
+  background: var(--hd-elevated-bg);
+  box-shadow: var(--hd-elevation-resting);
+  list-style: none;
+  font-size: 12px;
+  line-height: 18px;
+  pointer-events: none;
+}
+
+.legendRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* A 10px dot: large enough to read a hue from, small enough not to become a
+   second bullet column. */
+.swatch {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.svg {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  /* Text and marks inherit the theme's own text colour rather than naming one,
+     so the graph follows light and dark without a second palette. */
+  color: var(--bp-typography-color-default-rest);
+  font-size: 12px;
+}
+
+.edges line {
+  stroke: var(--bp-surface-border-color-default);
+  stroke-width: 1;
+}
+
+.centre circle {
+  fill: var(--bp-intent-primary-rest);
+}
+
+.centre text {
+  fill: currentcolor;
+  font-weight: 600;
+}
+
+.kind {
+  fill: var(--hd-text-muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: var(--bp-surface-border-color-default);
+  stroke: var(--bp-typography-color-default-rest);
+  stroke-width: 1;
+}
+
+.node text {
+  fill: currentcolor;
+}
+
+/* Hover thickens the ring rather than repainting the node. The fill now
+   carries the object's kind, so replacing it on hover would throw away the one
+   thing the colour is there to say. */
+.node:hover circle,
+.node:focus-visible circle {
+  stroke-width: 2.5;
+}
+
+.node:hover text,
+.node:focus-visible text {
+  fill: var(--hd-link);
+}
+
+/* Keep the keyboard ring on the group rather than the individual shapes, so a
+   focused node reads as one control. */
+.node:focus-visible {
+  outline: 2px solid var(--bp-intent-primary-rest);
+  outline-offset: 2px;
+}
+
+/* The "+N more" summary is not navigable, so it must not look clickable. */
+.more circle {
+  fill: none;
+  stroke: var(--bp-surface-border-color-default);
+  stroke-dasharray: 2 2;
+}
+
+.more text {
+  fill: var(--hd-text-muted);
+}
+
+/* Clipped text is the only text that offers a tooltip, and the cursor says so
+   before the pointer settles. */
+.truncated {
+  cursor: help;
+}
+
+/* The glyph inside a node's disc. `pointer-events: none` so the foreignObject
+   never intercepts the click meant for the node group under it — the node is
+   the navigable thing. */
+.glyph {
+  pointer-events: none;
+  overflow: visible;
+}
+
+.glyphBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

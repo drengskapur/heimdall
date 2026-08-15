@@ -1,0 +1,76 @@
+name: test
+
+# Least privilege by default; a job that needs more says so.
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # Fast levels: unit (hexagon), adapter integration, streaming, lint — no browser.
+  unit-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # The same commands a developer runs, rather than a hand-picked subset of
+      # them. The enumerated steps this replaces left real gaps: `test:ui` — 18
+      # files covering the whole UI layer — was never run here at all, lint was
+      # narrowed to three directories, and nothing checked formatting.
+      - name: Format, lint, typecheck
+        run: npm run check
+      - name: Tests (unit, integration, streaming, statechart, UI)
+        run: npm test
+
+  # End-to-end: the PWA against the in-memory Kubernetes simulator (no Docker).
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: E2E (simulator)
+        run: npm run test:e2e:sim
+      - name: Offline / PWA (built SPA)
+        run: npm run test:e2e:spa
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: e2e-report
+          path: playwright-report
+          retention-days: 7
+
+  # Mutation testing — heavier, so gated to manual/scheduled runs.
+  mutation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Stryker mutation testing (hexagon)
+        run: npm run test:mutation
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: mutation-report
+          path: reports/mutation
+          retention-days: 7

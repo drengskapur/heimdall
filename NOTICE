@@ -1,0 +1,39 @@
+Heimdall
+Copyright 2026 Drengskapur
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+---
+
+This product includes software derived from Freelens
+(https://github.com/freelensapp/freelens) and, upstream of it, OpenLens
+(https://github.com/lensapp/lens). Both are distributed under the MIT License.
+Portions of this project derived from them are used under its terms, and the
+copyright notices it requires be preserved are reproduced here with it:
+
+    Copyright (c) 2024-2026 Freelens Authors.
+    Copyright (c) 2022 OpenLens Authors.
+
+    MIT License
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+
+"Lens" is a trademark of Mirantis, Inc. This project is an independent port and
+is not affiliated with or endorsed by Mirantis, the Lens team, or the Freelens
+project.

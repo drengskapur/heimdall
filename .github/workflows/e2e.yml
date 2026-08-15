@@ -1,0 +1,110 @@
+name: e2e
+
+# Least privilege by default; a job that needs more says so.
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # Fast, Docker-free job: the PWA runs against the in-memory Kubernetes
+  # simulator (tests/e2e/kube-simulator.mjs). Both the dev server and the
+  # simulator are started by the Playwright config.
+  e2e-sim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - name: Test the simulator streaming subresources (exec / port-forward)
+        run: npm run test:streaming
+
+      - name: Run E2E tests against the simulator
+        env:
+          CI: "true"
+        run: npm run test:e2e:sim
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: e2e-sim-report
+          path: playwright-report
+          retention-days: 7
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install k3d
+        run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.7.4 bash
+
+      - name: Create k3d cluster
+        run: |
+          k3d cluster create fl-e2e \
+            --api-port 127.0.0.1:6445 \
+            --no-lb --wait --timeout 180s
+          # Write a kubeconfig whose server the host-side companion can reach.
+          mkdir -p .e2e
+          k3d kubeconfig get fl-e2e > .e2e/kubeconfig.yaml
+          export KUBECONFIG="$PWD/.e2e/kubeconfig.yaml"
+          kubectl config set-cluster k3d-fl-e2e --server=https://127.0.0.1:6445
+          kubectl wait --for=condition=Ready node --all --timeout=120s
+          kubectl wait --for=condition=Ready pod --all -n kube-system --timeout=180s || kubectl get pods -A
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run build
+
+      - name: Start companion
+        run: |
+          HEIMDALL_COMPANION_TOKEN=e2e-token \
+          HEIMDALL_COMPANION_ORIGINS=http://localhost:3000,http://127.0.0.1:3000 \
+          node companion/server.mjs > companion.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:38431/v1/health -H "authorization: Bearer e2e-token" && break || sleep 1
+          done
+
+      - name: Run E2E tests
+        env:
+          CI: "true"
+          HEIMDALL_E2E_KUBECONFIG: ${{ github.workspace }}/.e2e/kubeconfig.yaml
+          HEIMDALL_COMPANION_URL: http://127.0.0.1:38431
+          HEIMDALL_COMPANION_TOKEN: e2e-token
+        run: npx playwright test --config playwright.config.ts
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: e2e-report
+          path: |
+            playwright-report
+            companion.log
+          retention-days: 7
+
+      - name: Tear down cluster
+        if: always()
+        run: k3d cluster delete fl-e2e || true

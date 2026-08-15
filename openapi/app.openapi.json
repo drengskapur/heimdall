@@ -1,0 +1,845 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Heimdall — Application API",
+    "version": "1.0.0",
+    "description": "The application's own interfaces: cluster profiles and preferences, the metrics.k8s.io shapes the app consumes (an aggregated API not present in the core Kubernetes spec), the /api/kube and /api/kube-stream worker contracts, and the local companion HTTP API. Kubernetes resource types come from the vendored Kubernetes OpenAPI (see openapi/kubernetes). TypeScript interfaces are generated from this file via `npm run codegen`."
+  },
+  "paths": {
+    "/api/kube": {
+      "post": {
+        "operationId": "kubeProxy",
+        "summary": "Proxy a single Kubernetes REST call to the cluster API server.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KubeProxyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The upstream Kubernetes response, streamed through verbatim."
+          },
+          "400": {
+            "description": "Missing or invalid cluster server, authorization, or path."
+          }
+        }
+      }
+    },
+    "/api/kube-stream": {
+      "get": {
+        "operationId": "kubeStream",
+        "summary": "Upgrade to a WebSocket relayed to a Kubernetes streaming subresource (exec / attach / portforward). The first message on the socket is a KubeStreamConfig JSON payload; subsequent frames are channel.k8s.io binary frames.",
+        "responses": {
+          "101": {
+            "description": "Switching Protocols — the relay is established."
+          }
+        }
+      }
+    },
+    "/v1/health": {
+      "get": {
+        "operationId": "companionHealth",
+        "summary": "Companion liveness and capabilities.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanionHealth"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/kube/exec": {
+      "post": {
+        "operationId": "companionKubeExec",
+        "summary": "Start a kubectl exec session against a pod container (client-certificate clusters).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanionExecRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Session created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanionSessionCreated"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/kube/port-forward": {
+      "post": {
+        "operationId": "companionKubePortForward",
+        "summary": "Start a kubectl port-forward session.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanionPortForwardRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Session created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanionSessionCreated"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sessions/{id}/output": {
+      "get": {
+        "operationId": "companionSessionOutput",
+        "summary": "Long-poll the buffered output of a companion session.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "wait",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Output chunks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanionSessionOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials/exec": {
+      "post": {
+        "operationId": "companionCredentialExec",
+        "summary": "Run a client-go exec credential plugin and return the ExecCredential status.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecCredentialPlugin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExecCredentialResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ClusterProfile": {
+        "type": "object",
+        "description": "A persisted connection to a Kubernetes cluster, derived from a kubeconfig context.",
+        "required": ["id", "name", "server", "token"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Stable identifier (sha256 of context:server)."
+          },
+          "name": {
+            "type": "string"
+          },
+          "server": {
+            "type": "string",
+            "description": "Cluster API server URL."
+          },
+          "token": {
+            "type": "string"
+          },
+          "authorization": {
+            "type": "string",
+            "description": "Full Authorization header value, when not a bare token."
+          },
+          "execCredential": {
+            "$ref": "#/components/schemas/ExecCredentialPlugin"
+          },
+          "clientCertificateData": {
+            "type": "string"
+          },
+          "clientKeyData": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "cluster": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "certificateAuthorityData": {
+            "type": "string"
+          },
+          "insecureSkipTlsVerify": {
+            "type": "boolean"
+          },
+          "proxyUrl": {
+            "type": "string"
+          },
+          "authStatus": {
+            "type": "string",
+            "enum": ["ready", "unsupported"]
+          },
+          "authMessage": {
+            "type": "string"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/ClusterPreferences"
+          },
+          "sourcePath": {
+            "type": "string"
+          },
+          "syncManaged": {
+            "type": "boolean"
+          },
+          "labels": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ClusterProfileMetadata"
+          }
+        }
+      },
+      "ClusterProfileMetadata": {
+        "type": "object",
+        "properties": {
+          "distribution": {
+            "type": "string"
+          },
+          "kubernetesVersion": {
+            "type": "string"
+          },
+          "nodeCount": {
+            "type": "integer"
+          },
+          "lastConnected": {
+            "type": "string"
+          },
+          "connectionError": {
+            "type": "string"
+          }
+        }
+      },
+      "ExecCredentialPlugin": {
+        "type": "object",
+        "description": "A client-go exec credential plugin invocation (kubeconfig users[].user.exec).",
+        "required": ["command"],
+        "properties": {
+          "apiVersion": {
+            "type": "string"
+          },
+          "command": {
+            "type": "string"
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "env": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExecEnvVar"
+            }
+          },
+          "interactiveMode": {
+            "type": "string"
+          },
+          "provideClusterInfo": {
+            "type": "boolean"
+          },
+          "installHint": {
+            "type": "string"
+          }
+        }
+      },
+      "ExecEnvVar": {
+        "type": "object",
+        "required": ["name", "value"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "ExecCredentialResult": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "string"
+              },
+              "clientCertificateData": {
+                "type": "string"
+              },
+              "clientKeyData": {
+                "type": "string"
+              },
+              "expirationTimestamp": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ClusterPreferences": {
+        "type": "object",
+        "properties": {
+          "clusterName": {
+            "type": "string"
+          },
+          "accessibleNamespaces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "defaultNamespace": {
+            "type": "string"
+          },
+          "httpsProxy": {
+            "type": "string"
+          },
+          "prometheusProvider": {
+            "type": "string",
+            "enum": ["auto", "prometheus", "openshift"]
+          },
+          "prometheus": {
+            "$ref": "#/components/schemas/PrometheusPreferences"
+          },
+          "prometheusRequestMethod": {
+            "type": "string",
+            "enum": ["GET", "POST"]
+          },
+          "filesystemMountpoints": {
+            "type": "string"
+          },
+          "hiddenMetrics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nodeShellImage": {
+            "type": "string"
+          },
+          "nodeShellWindowsImage": {
+            "type": "string"
+          },
+          "nodeShellImagePullSecret": {
+            "type": "string"
+          },
+          "terminalShell": {
+            "type": "string"
+          },
+          "terminalNamespace": {
+            "type": "string"
+          },
+          "terminalWorkingDirectory": {
+            "type": "string"
+          }
+        }
+      },
+      "PrometheusPreferences": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer"
+          },
+          "https": {
+            "type": "boolean"
+          },
+          "prefix": {
+            "type": "string"
+          },
+          "directUrl": {
+            "type": "string"
+          },
+          "bearerToken": {
+            "type": "string"
+          }
+        }
+      },
+      "PodLogsQuery": {
+        "type": "object",
+        "properties": {
+          "container": {
+            "type": "string"
+          },
+          "follow": {
+            "type": "boolean"
+          },
+          "timestamps": {
+            "type": "boolean"
+          },
+          "previous": {
+            "type": "boolean"
+          },
+          "tailLines": {
+            "type": "integer"
+          },
+          "sinceTime": {
+            "type": "string"
+          },
+          "sinceSeconds": {
+            "type": "integer"
+          },
+          "limitBytes": {
+            "type": "integer"
+          }
+        }
+      },
+      "PodMetrics": {
+        "type": "object",
+        "description": "metrics.k8s.io/v1beta1 PodMetrics (aggregated API, not in the core Kubernetes spec).",
+        "required": ["apiVersion", "kind", "metadata", "timestamp", "window", "containers"],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "enum": ["metrics.k8s.io/v1beta1"]
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["PodMetrics"]
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ObjectMetaLite"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "window": {
+            "type": "string"
+          },
+          "containers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContainerMetrics"
+            }
+          }
+        }
+      },
+      "ContainerMetrics": {
+        "type": "object",
+        "required": ["name", "usage"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ResourceUsage"
+          }
+        }
+      },
+      "ResourceUsage": {
+        "type": "object",
+        "required": ["cpu", "memory"],
+        "properties": {
+          "cpu": {
+            "type": "string"
+          },
+          "memory": {
+            "type": "string"
+          }
+        }
+      },
+      "PodMetricsList": {
+        "type": "object",
+        "required": ["apiVersion", "kind", "items"],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "enum": ["metrics.k8s.io/v1beta1"]
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["PodMetricsList"]
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "resourceVersion": {
+                "type": "string"
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PodMetrics"
+            }
+          }
+        }
+      },
+      "NodeMetrics": {
+        "type": "object",
+        "description": "metrics.k8s.io/v1beta1 NodeMetrics.",
+        "required": ["apiVersion", "kind", "metadata", "usage"],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "enum": ["metrics.k8s.io/v1beta1"]
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["NodeMetrics"]
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ObjectMetaLite"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "window": {
+            "type": "string"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ResourceUsage"
+          }
+        }
+      },
+      "NodeMetricsList": {
+        "type": "object",
+        "required": ["apiVersion", "kind", "items"],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "enum": ["metrics.k8s.io/v1beta1"]
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["NodeMetricsList"]
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "resourceVersion": {
+                "type": "string"
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NodeMetrics"
+            }
+          }
+        }
+      },
+      "KubeProxyRequest": {
+        "type": "object",
+        "description": "Body of a POST /api/kube call. The worker forwards it to `x-kube-server` with the request's Authorization header.",
+        "required": ["path"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Kubernetes API path, e.g. /api/v1/namespaces/default/pods."
+          },
+          "method": {
+            "type": "string",
+            "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+          },
+          "body": {
+            "description": "JSON body to forward, if any."
+          },
+          "raw": {
+            "type": "boolean",
+            "description": "Return text/plain (e.g. pod logs) instead of JSON."
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "certificateAuthorityData": {
+            "type": "string",
+            "description": "PEM CA bundle (base64) for verifying the cluster API server."
+          },
+          "insecureSkipTlsVerify": {
+            "type": "boolean",
+            "description": "Skip TLS verification for the cluster API server."
+          }
+        }
+      },
+      "KubeStreamConfig": {
+        "type": "object",
+        "description": "First message sent over /api/kube-stream to establish the upstream WebSocket to an exec/attach/portforward subresource.",
+        "required": ["server", "path"],
+        "properties": {
+          "server": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "authorization": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "protocols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Requested channel.k8s.io subprotocols."
+          },
+          "certificateAuthorityData": {
+            "type": "string",
+            "description": "PEM CA bundle (base64) for the streaming relay upstream."
+          },
+          "insecureSkipTlsVerify": {
+            "type": "boolean",
+            "description": "Skip TLS verification for the streaming relay upstream."
+          }
+        }
+      },
+      "CompanionHealth": {
+        "type": "object",
+        "required": ["name", "version"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "shell": {
+            "type": "string"
+          }
+        }
+      },
+      "CompanionExecRequest": {
+        "type": "object",
+        "required": ["server", "namespace", "pod"],
+        "properties": {
+          "server": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "pod": {
+            "type": "string"
+          },
+          "container": {
+            "type": "string"
+          },
+          "command": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "certificateAuthorityData": {
+            "type": "string"
+          },
+          "clientCertificateData": {
+            "type": "string"
+          },
+          "clientKeyData": {
+            "type": "string"
+          },
+          "insecureSkipTlsVerify": {
+            "type": "boolean"
+          },
+          "kubectlPath": {
+            "type": "string"
+          }
+        }
+      },
+      "CompanionPortForwardRequest": {
+        "type": "object",
+        "required": ["server", "namespace", "pod", "port"],
+        "properties": {
+          "server": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "pod": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer"
+          },
+          "certificateAuthorityData": {
+            "type": "string"
+          },
+          "clientCertificateData": {
+            "type": "string"
+          },
+          "clientKeyData": {
+            "type": "string"
+          },
+          "insecureSkipTlsVerify": {
+            "type": "boolean"
+          },
+          "kubectlPath": {
+            "type": "string"
+          }
+        }
+      },
+      "CompanionSessionCreated": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "pid": {
+            "type": "integer"
+          }
+        }
+      },
+      "CompanionSessionOutput": {
+        "type": "object",
+        "required": ["items", "state"],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanionSessionChunk"
+            }
+          },
+          "state": {
+            "type": "string",
+            "enum": ["running", "closed"]
+          },
+          "exitCode": {
+            "type": "integer"
+          },
+          "signal": {
+            "type": "string"
+          },
+          "localPort": {
+            "type": "integer"
+          }
+        }
+      },
+      "CompanionSessionChunk": {
+        "type": "object",
+        "required": ["sequence", "stream", "data"],
+        "properties": {
+          "sequence": {
+            "type": "integer"
+          },
+          "stream": {
+            "type": "string",
+            "enum": ["stdout", "stderr"]
+          },
+          "data": {
+            "type": "string"
+          }
+        }
+      },
+      "ObjectMetaLite": {
+        "type": "object",
+        "description": "Minimal ObjectMeta for metrics.k8s.io items (subset used by the app).",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          },
+          "creationTimestamp": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

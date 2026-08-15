@@ -1,0 +1,147 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+/* A muted colour token, not opacity: 0.6 of the body colour on the light theme
+   is under the 4.5:1 AA threshold for 12px text. */
+.count {
+  font-size: 12px;
+  color: var(--hd-text-muted);
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.search {
+  width: 240px;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+}
+
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--hd-radius);
+  background: var(--c, #5c7080);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* Title and star share a row and a baseline. The star is the app's favourite
+   state, so it sits with the page's name rather than off in a toolbar. */
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.titleSpacer {
+  flex: 1;
+}
+
+/* Geometry only. The colour rides on the icon element itself — see the note at
+   the call site for why it cannot live here. */
+:root .titleStar {
+  min-height: 24px;
+  padding: 0 4px;
+}
+
+/* 18px/600 — the listing-title size from docs/design/chrome-spec.md, which is what this
+   page is. Its Files table is titled exactly this way: 18px semibold, line-height
+   23, full-strength text, on a row of its own directly above the table.
+
+   The first attempt used 36px/400, the home-page size. That was
+   the wrong model: a 36px greeting belongs to a zero-state homepage of cards,
+   and nothing like it belongs above a table. Two different surfaces, two
+   different treatments, and the listing is the one this page is.
+
+   `:root` because Blueprint's own heading rule has the same single-class weight
+   and is injected after this module — without the prefix these values silently
+   become Blueprint's H1. */
+:root .title {
+  /* The row owns the space beneath now. */
+  margin: 0;
+  color: var(--hd-text);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.labels {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* One action per row, stacked.
+ *
+ * Three buttons side by side read as equally weighted alternatives. They are
+ * not: connecting from the kubeconfig is what almost everyone wants, pasting
+ * one is the fallback when the companion cannot see it, and configuring the
+ * companion is what you do when neither worked. A column puts them in that
+ * order down the page instead of racing them across it.
+ *
+ * They stretch to a common width so the column has one left edge rather than
+ * three, and the width is capped so the primary action does not become a
+ * banner on a wide window. */
+.emptyActions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  width: 100%;
+  max-width: 17rem;
+  margin: 0 auto;
+}
+
+/* Even lines rather than a long one and a runt.
+ *
+ * The sentence broke after "(via the companion)", leaving "to connect one." on
+ * a line by itself — the ragged shape a paragraph gets when the browser fills
+ * greedily and stops. `text-wrap: balance` asks it to even the lines instead,
+ * which is what this property exists for and what a person setting the type by
+ * hand would do. Browsers cap it at a few lines, which is all this is.
+ *
+ * No fallback needed: without support the text simply wraps greedily, which is
+ * where it started. */
+.emptyText {
+  /* Block, not inline: balancing is done by whichever box lays out the lines,
+     and an inline span leaves that job to Blueprint's description div. As a
+     span it changed nothing at all. */
+  display: block;
+  text-wrap: balance;
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Heimdall compact app icon</title>
+  <desc id="desc">A simplified watchful eye, guardian shield, Bifrost arc, and hexagonal Kubernetes cluster for small display sizes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="100" x2="900" y2="930" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#05080C"/>
+      <stop offset="0.6" stop-color="#0B1118"/>
+      <stop offset="1" stop-color="#18242E"/>
+    </linearGradient>
+    <linearGradient id="bifrost" x1="184" y1="354" x2="840" y2="580" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#43E0FF"/>
+      <stop offset="0.5" stop-color="#777BFF"/>
+      <stop offset="1" stop-color="#F0B84E"/>
+    </linearGradient>
+    <linearGradient id="lower" x1="186" y1="570" x2="838" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#188EAC"/>
+      <stop offset="0.55" stop-color="#304967"/>
+      <stop offset="1" stop-color="#96672C"/>
+    </linearGradient>
+    <linearGradient id="cluster" x1="402" y1="406" x2="624" y2="612" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5DE6FF"/>
+      <stop offset="0.5" stop-color="#8889FF"/>
+      <stop offset="1" stop-color="#F2C15F"/>
+    </linearGradient>
+    <radialGradient id="iris" cx="0" cy="0" r="1" gradientTransform="translate(470 438) rotate(48) scale(270)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#24495E"/>
+      <stop offset="0.55" stop-color="#122735"/>
+      <stop offset="1" stop-color="#08131C"/>
+    </radialGradient>
+    <clipPath id="clip"><rect x="48" y="48" width="928" height="928" rx="208"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="48" y="48" width="928" height="928" rx="208" fill="url(#bg)"/>
+    <path d="M48 800C278 718 458 758 610 844C738 916 850 908 976 862V976H48V800Z" fill="#18242E" opacity="0.58"/>
+
+    <path d="M512 152L808 256V492C808 682 700 818 512 892C324 818 216 682 216 492V256L512 152Z"
+          fill="#071017" fill-opacity="0.56" stroke="#253642" stroke-width="28" stroke-linejoin="round"/>
+
+    <path d="M190 514C278 354 398 280 512 280C626 280 746 354 834 514"
+          fill="none" stroke="url(#bifrost)" stroke-width="50" stroke-linecap="round"/>
+    <path d="M190 514C278 674 398 748 512 748C626 748 746 674 834 514"
+          fill="none" stroke="url(#lower)" stroke-width="35" stroke-linecap="round"/>
+
+    <path d="M512 350L658 434V590L512 674L366 590V434L512 350Z"
+          fill="url(#iris)" stroke="#83D8E6" stroke-opacity="0.55" stroke-width="14"/>
+
+    <g stroke="#70D1E4" stroke-opacity="0.68" stroke-width="15" stroke-linecap="round">
+      <path d="M512 512L512 418"/>
+      <path d="M512 512L593 465"/>
+      <path d="M512 512L593 559"/>
+      <path d="M512 512L512 606"/>
+      <path d="M512 512L431 559"/>
+      <path d="M512 512L431 465"/>
+    </g>
+    <g fill="#08131C" stroke="url(#cluster)" stroke-width="15">
+      <circle cx="512" cy="418" r="23"/>
+      <circle cx="593" cy="465" r="23"/>
+      <circle cx="593" cy="559" r="23"/>
+      <circle cx="512" cy="606" r="23"/>
+      <circle cx="431" cy="559" r="23"/>
+      <circle cx="431" cy="465" r="23"/>
+    </g>
+    <circle cx="512" cy="512" r="51" fill="url(#cluster)"/>
+    <circle cx="512" cy="512" r="28" fill="#07121A"/>
+    <circle cx="512" cy="512" r="10" fill="#F5FCFF"/>
+
+    <!-- A compact horn cue: gold mouthpiece + flared bell, kept clear of the eye. -->
+    <path d="M424 236C486 198 565 197 626 226C654 239 679 256 698 278" fill="none" stroke="#E7B653" stroke-width="24" stroke-linecap="round"/>
+    <g transform="translate(690 260) rotate(49)">
+      <path d="M0 -14C23 -17 44 -25 66 -39V39C44 25 23 17 0 14Z" fill="#F2C15F" stroke="#76501D" stroke-width="6" stroke-linejoin="round"/>
+      <ellipse cx="66" cy="0" rx="10" ry="39" fill="#2D1E0C" stroke="#FFD77A" stroke-width="6"/>
+    </g>
+  </g>
+  <rect x="62" y="62" width="900" height="900" rx="194" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="4"/>
+</svg>

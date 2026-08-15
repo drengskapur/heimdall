@@ -1,0 +1,93 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* The selection bar, over the table and only while a selection exists. Ruled and
+   tinted rather than plain, because it is a mode: everything in it acts on the
+   checked rows and not on what you are pointing at, and a bar that looks like
+   ordinary chrome hides that distinction. */
+.bulkBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  border: 1px solid var(--hd-rule);
+  border-radius: var(--hd-radius);
+  background: var(--bp-surface-background-color-default-hover);
+}
+
+.bulkCount {
+  padding: 0 4px;
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Active-filter chips row (search + namespaces), removable — Freelens's PageFiltersList. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 10px;
+}
+
+/* 220px given the room, narrower when there is not. The field is the elastic
+   part of the toolbar: a fixed width here is what pushed the New button, and
+   then the header itself, past the edge of a narrow window. */
+.search {
+  flex: 0 1 220px;
+  min-width: 7rem;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  /* Clip instead of bleeding. `min-height: 0` lets this shrink to nothing when
+     the dock is dragged tall, but the default `overflow: visible` then paints
+     the child's full height anyway — an empty state's 56px icon rendered on top
+     of the toolbar above it. Scrolling keeps it inside its own box. */
+  overflow: auto;
+}
+
+/* The pre-delete impact warning inside the confirm dialog. */
+.impact {
+  margin-top: 12px;
+}
+
+/* The namespace filter's label. It must not wrap — the chrome row is a fixed
+   50px, and "All namespaces" broke onto two lines inside it once the button
+   started shrinking. */
+.nsLabel {
+  white-space: nowrap;
+}
+
+/* Dropped entirely on a narrow window. The button keeps its aria-label, so the
+   control still announces what it is. */
+@media (width < 900px) {
+  .nsLabel {
+    display: none;
+  }
+
+  /* The field keeps shrinking rather than pushing the New button off the edge.
+     Narrow, but a search box you can still type into beats a chrome row that
+     scrolls the page sideways. */
+  .search {
+    min-width: 4.5rem;
+  }
+}

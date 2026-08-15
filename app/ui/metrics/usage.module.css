@@ -1,0 +1,93 @@
+/* Resource usage charts (inline SVG, no external chart dep).
+   Colored only with real --bp-* design tokens. */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
+  justify-content: start;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+}
+
+/* Full-width trend strip under the gauge. */
+.spark {
+  width: 100%;
+}
+
+.sparkPlaceholder {
+  height: 36px;
+}
+
+/* --- Gauge --- */
+
+.gauge {
+  /* Default arc color; intent modifiers below override it. */
+  --gauge-color: var(--bp-intent-primary-rest);
+  display: block;
+}
+
+.gaugeTrack {
+  fill: none;
+  stroke: var(--bp-surface-border-color-default);
+}
+
+.gaugeArc {
+  fill: none;
+  stroke: var(--gauge-color);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.gaugePercent {
+  fill: var(--bp-typography-color-default-rest);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.success {
+  --gauge-color: var(--bp-intent-success-rest);
+}
+
+.warning {
+  --gauge-color: var(--bp-intent-warning-rest);
+}
+
+.danger {
+  --gauge-color: var(--bp-intent-danger-rest);
+}
+
+.label {
+  font-weight: 600;
+}
+
+.detail {
+  color: var(--hd-text-muted);
+}
+
+/* --- Sparkline --- */
+
+.sparkSvg {
+  display: block;
+  width: 100%;
+}
+
+.sparkLine {
+  fill: none;
+  stroke: var(--bp-intent-primary-rest);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sparkArea {
+  fill: var(--bp-intent-primary-rest);
+  opacity: 0.12;
+  stroke: none;
+}

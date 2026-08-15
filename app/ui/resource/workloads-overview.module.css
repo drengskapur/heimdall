@@ -1,0 +1,117 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 4px;
+  overflow: auto;
+}
+
+/* Four across on anything desktop-sized, rather than as many as fit.
+ *
+ * There are exactly eight workload kinds, and `auto-fill` packed seven into a
+ * 1220px pane — leaving Cron Jobs alone on a second row beside a gap six cards
+ * wide. Eight divides evenly by four, so four is the width that never orphans
+ * one. Below that the auto-fill fallback still applies. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+@media (width >= 900px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px;
+  text-align: center;
+}
+
+.cardLabel {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cardSub {
+  font-size: 12px;
+}
+
+.donut {
+  display: block;
+}
+
+.donutText {
+  font-size: 20px;
+  font-weight: 700;
+  fill: currentColor;
+}
+
+.track {
+  stroke: rgba(128, 128, 128, 0.25);
+}
+
+.healthy {
+  stroke: #29a634; /* bp intent success */
+  stroke-linecap: round;
+}
+
+.issues {
+  stroke: #c87619; /* bp intent warning */
+  stroke-linecap: round;
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eventsTitle {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.eventsEmpty {
+  font-size: 13px;
+}
+
+.eventsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.eventsTable th,
+.eventsTable td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+  vertical-align: top;
+}
+
+.eventsTable th {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.objectCol {
+  white-space: nowrap;
+}
+
+.messageCol {
+  max-width: 480px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ageCol {
+  text-align: right;
+  white-space: nowrap;
+}

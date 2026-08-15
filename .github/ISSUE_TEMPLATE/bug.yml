@@ -1,0 +1,81 @@
+name: Bug report
+description: Something renders wrong, crashes, or does not match the cluster.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not report security vulnerabilities here — follow
+        [SECURITY.md](https://github.com/drengskapur/heimdall/blob/main/SECURITY.md)
+        instead, which routes them privately.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Connect a cluster
+        2. Open Workloads → Pods
+        3. ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: simulator
+    attributes:
+      label: Does it reproduce against the simulator?
+      description: |
+        `npm run test:e2e:sim` runs the app against an in-memory Kubernetes.
+        A bug that reproduces there is one we can fix without your cluster,
+        which is most of the work — so this answer matters more than any other
+        field here.
+      options:
+        - "Yes — it reproduces against the simulator"
+        - "No — only against a real cluster"
+        - "Have not tried"
+    validations:
+      required: true
+
+  - type: input
+    id: kubernetes
+    attributes:
+      label: Kubernetes version
+      description: Output of `kubectl version --short`, server side.
+      placeholder: "v1.34.2"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and OS
+      placeholder: "Firefox 148 on Fedora 43 / installed as a PWA"
+    validations:
+      required: true
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: |
+        Any errors from the browser devtools console, and from the terminal
+        running the API server. Redact cluster names, tokens and hostnames —
+        this issue is public.
+      render: shell
+
+  - type: textarea
+    id: manifest
+    attributes:
+      label: Resource that triggers it
+      description: |
+        Optional, but the single most useful attachment for a rendering bug: the
+        YAML of the object that displays wrong, with anything sensitive removed.
+      render: yaml

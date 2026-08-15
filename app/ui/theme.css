@@ -1,0 +1,186 @@
+/* Layout-only tokens (dimensions the shell owns). Colors come from Blueprint's
+   own design tokens (--bp-*), already bundled in blueprint.css. */
+:root {
+  /* Chrome tokens. Every value maps
+     to a stock Blueprint palette entry — all 206 --bp-* tokens are available,
+     so the chrome is named tokens, never sampled hexes.
+     See docs/design/chrome-spec.md. */
+  --hd-chrome-row: 50px; /* header height; the rail's header aligns to it */
+  --hd-hotbar-width: 50px;
+
+  /* One radius, two elevations — the whole system.
+     4px on every surface that rounds (panels, menus, menu items,
+     buttons, cards) and exactly two box-shadows across a full application: a
+     tight ring for things resting in the page, and a deeper pair for things
+     floating over it. Neither uses a border. Anything reaching for a third
+     value is drifting — an audit found seven radii and six shadows here before
+     these existed. Genuine circles (50%) and pills (999px) are not radii in
+     this sense and stay literal. */
+  --hd-radius: 4px;
+  --hd-elevation-resting: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 2%);
+  --hd-elevation-floating:
+    0 0 0 1px rgb(17 20 24 / 10%), 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 15px -3px rgb(0 0 0 / 10%);
+
+  /* Always-dark chrome (the rail), independent of the app theme — the shell keeps
+     the workspace sidebar dark in both its light and dark apps. */
+  --hd-chrome-bg: var(--bp-palette-dark-gray-2); /* #252a31 — the rail */
+  --hd-chrome-recessed: var(--bp-palette-dark-gray-1); /* #1c2127 — active row */
+  --hd-chrome-border: rgb(17 20 24 / 40%); /* black @ 40% */
+  --hd-chrome-fg: var(--bp-palette-light-gray-5);
+  --hd-chrome-muted: var(--bp-palette-gray-4);
+  /* A sidebar entry hovers to dark-gray-3, one step
+     *lighter* than the dark-gray-2 rail, where the active row recesses one step
+     darker to dark-gray-1. Hover lifts, active sinks, and the two are never
+     confused for each other. A translucent white wash was close to the same
+     value but drifted with whatever it sat on. */
+  --hd-chrome-hover: var(--bp-palette-dark-gray-4); /* #383e47 */
+
+  /* App surfaces. Light keeps Blueprint's own ramp; the dark values below are
+     the spec's. */
+  --hd-page-bg: var(--bp-surface-background-color-default-rest);
+  --hd-elevated-bg: var(--bp-palette-white);
+  --hd-sidebar-bg: rgba(0, 0, 0, 0.07);
+  --hd-sidebar-active-bg: var(--bp-surface-background-color-default-active);
+
+  /* Muted body text. Blueprint ships --bp-typography-color-muted as a *fixed*
+     #5f6b7c ($gray1) that does not flip under the dark theme, so it fails
+     WCAG AA there. Blueprint's SCSS does distinguish the two
+     ($pt-text-color-muted / $pt-dark-text-color-muted); this restores that. */
+  --hd-text-muted: var(--bp-palette-gray-1);
+  /* Full-strength body text, the other end of the muted pair. Blueprint's
+     --bp-typography-color-default-rest resolves dimmer than the text the app
+     actually renders, which left the breadcrumb's current page only slightly
+     brighter than its trail — the spec separates the two by a lot: #5f6b7c
+     against #1c2127. */
+  --hd-text: var(--bp-palette-dark-gray-1);
+  /* The recessed track behind a segmented control. It has to *darken* its
+     surface in both themes, which a single value cannot do: a light wash reads
+     as a recess on white and as a lift on dark, and the lift cost the muted
+     label its contrast (4.27:1 against the 4.5 AA needs, measured by
+     scripts/a11y.mjs on the drawer's metrics tabs). Recessing matches the
+     active nav row in docs/design/chrome-spec.md. */
+  --hd-track-bg: rgb(143 153 168 / 15%);
+  /* A hairline rule. The spec's value is rgba(17,20,24,.15), but that assumes
+     a white header — the same value on a dark surface is a dark line on dark, which is
+     no line at all. Ink on light, and the equivalent lift on dark. */
+  --hd-rule: rgb(17 20 24 / 15%);
+  /* A clickable name. Blueprint's own primary *typography* token is a fixed
+     #2d72d2 that does not flip for dark — the same trap as its muted colour —
+     and on the dark drawer that lands at 2.65:1, failing AA outright. These two
+     are the theme-correct ends: blue-2 is 6.5:1 on white, blue-5 is ~6.9:1 on
+     the dark panel. */
+  --hd-link: var(--bp-palette-blue-2);
+}
+
+/* The surface ramp: content is the darkest
+   surface and everything else steps *up* from it — black -> dark-gray-1
+   (elevated: sidebar, cards, header) -> dark-gray-2 (the rail). Note the
+   direction: the chrome lifts above the page rather than recessing,
+   which is the opposite of the translucent-black sidebar used before.
+   Keyed on the app's own data-theme, not Blueprint's dark class — see
+   applyTheme() in use-theme.ts. */
+:root[data-theme="dark"] {
+  --hd-page-bg: var(--bp-palette-black); /* #111418 */
+  --hd-elevated-bg: var(--bp-palette-dark-gray-1); /* #1c2127 */
+  /* The resource sidebar steps *in* from the workspace rail rather than sharing
+     its surface. Taking dark-gray-2 was right while the rail was 50px of tiles —
+     the left edge read as one chrome column. Now that the rail expands to its
+     own 230px sidebar at dark-gray-2, an identical neighbour makes 460px of
+     undifferentiated slab with no seam between two different navigations.
+
+     The ramp is one gray per step, outward to inward: dark-gray-2 for the
+     outermost chrome, dark-gray-1 next, black for content. The active row keeps
+     recessing by one step, which from dark-gray-1 is black. */
+  --hd-sidebar-bg: var(--bp-palette-dark-gray-1); /* #1c2127 */
+  --hd-sidebar-active-bg: var(--bp-palette-black); /* #111418 */
+  --hd-text-muted: var(--bp-palette-gray-4); /* #abb3bf */
+  --hd-text: var(--bp-palette-light-gray-5); /* #f6f7f9 */
+  --hd-track-bg: rgb(17 20 24 / 35%);
+  --hd-rule: rgb(255 255 255 / 15%);
+  --hd-link: var(--bp-palette-blue-5); /* #8abbff */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Paint the app surface ourselves. Blueprint colors text/components per theme but
+   leaves the page background to the app; without this the page is transparent and
+   shows through to whatever is behind it (dark in light mode). Token is theme-aware. */
+body {
+  background-color: var(--hd-page-bg);
+}
+
+#root {
+  display: flex;
+}
+
+/* Thin scrollbars, everywhere. The trick is that nothing sets a width: the bar keeps its natural size and the *thumb*
+   is inset by a 4px transparent border with `background-clip: padding-box`, so
+   what you see is thin while what you can grab is not. Narrowing the bar itself
+   would have shrunk the hit target with it.
+
+   Global rather than per-component. This lived on the resource table alone,
+   which left every other scroller in the app — the sidebars, the logs pane, the
+   drawer, the dock — with the platform's default bar, so the app had two kinds
+   of scrollbar depending on where you were.
+
+   `scrollbar-color` inherits and `scrollbar-width` does not — measured, not
+   assumed: with both on :root every scroller reported the inherited colour and
+   `scrollbar-width: auto`. So the colour rides the cascade from :root and the
+   width is declared on `*`. The ::-webkit- rules are unscoped for the same reach
+   in Chromium and WebKit, where the 15px there is the box the 4px-inset thumb
+   sits inside rather than the thumb's own width. */
+:root {
+  scrollbar-color: rgb(17 20 24 / 25%) transparent;
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+:root[data-theme="dark"] {
+  scrollbar-color: rgb(255 255 255 / 30%) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+  background: transparent;
+}
+
+/* A hairline on the inner edge only, so the bar closes the pane's frame rather
+   than reading as a channel bolted onto it. */
+::-webkit-scrollbar:horizontal {
+  border-top: 1px solid var(--hd-rule);
+}
+
+::-webkit-scrollbar:vertical {
+  border-left: 1px solid var(--hd-rule);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(17 20 24 / 25%);
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(17 20 24 / 40%);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: rgb(255 255 255 / 30%);
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(255 255 255 / 50%);
+}

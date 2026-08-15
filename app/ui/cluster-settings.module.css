@@ -1,0 +1,9 @@
+.dialog {
+  width: 620px;
+  max-width: 90vw;
+}
+
+.panel {
+  min-width: 360px;
+  padding-left: 12px;
+}

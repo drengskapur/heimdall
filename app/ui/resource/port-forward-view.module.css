@@ -1,0 +1,54 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+/* A spaced row, not Blueprint's ControlGroup. ControlGroup exists to butt
+   controls flush into one segmented unit, but an InputGroup next to a primary
+   action button left a 2px seam — neither flush nor spaced. 8px matches the
+   button spacing used elsewhere (yamlActions, .row below). */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+  font-size: 13px;
+}
+
+.route {
+  font-family: var(--bp-font-family-monospace, monospace);
+  font-size: 12px;
+}
+
+.pod {
+  opacity: 0.7;
+}
+
+.error {
+  color: var(--bp-intent-danger-rest, #cd4246);
+  font-size: 11px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.empty {
+  padding: 12px 0;
+  opacity: 0.6;
+  font-size: 13px;
+}

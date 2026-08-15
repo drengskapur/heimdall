@@ -1,0 +1,34 @@
+# Keeps dependencies and pinned action SHAs current. Pinning without an update
+# tool is how a repository ends up frozen on a version with a known hole, so the
+# two belong together.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: tuesday
+    open-pull-requests-limit: 10
+    groups:
+      # One pull request per ecosystem-ish concern rather than per package;
+      # twenty single-package PRs a week get ignored, which defeats the point.
+      dev-tooling:
+        dependency-type: development
+        update-types: [minor, patch]
+      runtime:
+        dependency-type: production
+        update-types: [minor, patch]
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: tuesday
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci(deps)"

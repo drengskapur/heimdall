@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": ["server/**/*.mjs", "scripts/*.mjs", "tests/**/*.{ts,tsx,mjs}", "fuzz/*.mjs"],
+  "project": ["app/**/*.{ts,tsx}", "server/**/*.mjs", "scripts/*.mjs"],
+  "ignoreDependencies": [
+    "axe-core",
+    "openapi-typescript",
+    "swagger2openapi",
+    "@jazzer.js/core",
+    "@cyclonedx/cyclonedx-npm",
+    "@stryker-mutator/command-runner"
+  ],
+  "ignoreExportsUsedInFile": true
+}

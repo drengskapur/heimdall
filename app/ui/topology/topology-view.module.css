@@ -1,0 +1,216 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Over the canvas rather than in the app header: these act on the view, not on
+   the resources, and the header slot is where a page puts the controls that act
+   on its data. */
+.controls {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 8px;
+}
+
+.count {
+  margin-left: 4px;
+  color: var(--hd-text-muted);
+  font-size: 12px;
+}
+
+/* Scrolls in both directions and inherits the app's thin scrollbars. A graph is
+   the one view that legitimately exceeds its pane. */
+.canvas {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid var(--hd-rule);
+  border-radius: var(--hd-radius);
+}
+
+.edges path {
+  fill: none;
+  stroke: var(--hd-rule);
+  stroke-width: 1.5;
+}
+
+.node {
+  cursor: default;
+}
+
+.box {
+  fill: var(--hd-elevated-bg);
+  stroke: var(--hd-rule);
+  stroke-width: 1;
+}
+
+.node:hover .box {
+  stroke: var(--bp-palette-blue-3);
+}
+
+/* Focus has to be visible on an SVG group, and the browser's default outline
+   does not follow a transformed <g> reliably — so the ring is drawn on the box. */
+.node:focus-visible {
+  outline: none;
+}
+
+.node:focus-visible .box {
+  stroke: var(--bp-palette-blue-3);
+  stroke-width: 2;
+}
+
+/* A health bar down the leading edge rather than a tinted node: the fill has to
+   stay the surface colour for the text on it to keep its contrast, and a 4px bar
+   carries the same information without touching the label. */
+.health {
+  fill: var(--bp-palette-gray-3);
+}
+
+.intent-success {
+  fill: var(--bp-palette-green-3);
+}
+
+.intent-primary {
+  fill: var(--bp-palette-blue-3);
+}
+
+.intent-warning {
+  fill: var(--bp-palette-orange-3);
+}
+
+.intent-danger {
+  fill: var(--bp-palette-red-3);
+}
+
+.intent-none {
+  fill: var(--bp-palette-gray-3);
+}
+
+/* The kind badge. Filled from the kind's own colour, which the relation graph
+   already assigns — so a Pod is the same colour wherever it is drawn. */
+.badge {
+  stroke: none;
+}
+
+/* The foreignObject's content box. Centring here rather than on the
+   foreignObject itself, which does not participate in flex layout. */
+.badgeGlyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.badgeText {
+  fill: #fff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.kind {
+  fill: var(--hd-text-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.name {
+  fill: var(--hd-text);
+  font-size: 12px;
+}
+
+.gap {
+  flex: 1;
+}
+
+/* Allocation mode. A list of nodes rather than a table: each node is three
+   lines that belong together, and a table would put CPU and Memory in columns
+   whose widths are set by the widest node's name. */
+.alloc {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.allocRow {
+  padding: 10px 12px;
+  border: 1px solid var(--hd-rule);
+  border-radius: var(--hd-radius);
+}
+
+.allocHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.allocDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bp-palette-gray-3);
+}
+
+.allocName {
+  font-weight: 600;
+}
+
+.allocPods {
+  margin-left: auto;
+  color: var(--hd-text-muted);
+  font-size: 12px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.barLabel {
+  width: 56px;
+  flex: none;
+  color: var(--hd-text-muted);
+  font-size: 12px;
+}
+
+.barTrack {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--hd-rule);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--bp-palette-blue-3);
+}
+
+/* Over-committed. The bar is already pinned at 100%, so the colour is the only
+   thing left that can say it went past. */
+.barOver {
+  background: var(--bp-palette-red-3);
+}
+
+.barText {
+  width: 140px;
+  flex: none;
+  text-align: right;
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}

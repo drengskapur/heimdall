@@ -1,0 +1,6 @@
+# Every change requests review from both maintainers. GitHub enforces this when
+# "Require review from Code Owners" is on for the protected branch.
+#
+# Deliberately not split by directory: the project is small, and two people who
+# each only see half of it review worse than two who see all of it.
+*       @jonathanagustin @davidagustin

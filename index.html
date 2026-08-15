@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Heimdall — an offline-first Kubernetes IDE that runs in your browser." />
+    <meta name="theme-color" content="#111418" />
+    <!-- The compact cut, not the full mark: a favicon is 16px, and the primary
+         icon's horn, shield inset and six-node cluster turn to mush at that
+         size. Same identity, fewer parts. -->
+    <link rel="icon" href="/heimdall-icon-compact.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>Heimdall</title>
+    <!-- Set the theme before first paint so there's no flash of the wrong theme (FOUC). -->
+    <script>
+      (function () {
+        try {
+          // Same validation as getThemeChoice(); accepting garbage here made a
+          // corrupted key flash light before the app snapped it back to dark.
+          var saved = localStorage.getItem("hd-theme");
+          var c = saved === "light" || saved === "dark" || saved === "system" ? saved : "dark";
+          var dark = c === "dark" || (c === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("bp6-dark", dark);
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+          document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        } catch (e) {
+          /* storage/matchMedia unavailable — fall through to default */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/app/ui/main.tsx"></script>
+  </body>
+</html>

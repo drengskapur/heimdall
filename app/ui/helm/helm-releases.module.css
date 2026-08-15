@@ -1,0 +1,88 @@
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  color: var(--bp-intent-danger-rest, #cd4246);
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.headTitle {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headActions {
+  flex: none;
+  display: flex;
+  gap: 2px;
+}
+
+.drawerTabs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 16px;
+}
+
+.kv {
+  padding: 12px 0;
+}
+
+.kvRow {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.kvKey {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.kvVal {
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.pre {
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: var(--hd-radius);
+  background: rgba(143, 153, 168, 0.15);
+  font-family: var(--bp-font-family-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+}
+
+.resTable {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.copyable {
+  position: relative;
+}
+
+.copyBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}

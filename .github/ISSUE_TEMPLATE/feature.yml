@@ -1,0 +1,47 @@
+name: Feature request
+description: A capability Heimdall does not have yet.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Heimdall is a port and does not match Freelens surface for surface yet,
+        so "Freelens does X and Heimdall does not" is a useful report rather
+        than an unwelcome comparison. Say so plainly if that is the case.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: |
+        The task, not the solution. Knowing what you are actually trying to
+        accomplish often surfaces a better answer than the one being asked for.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like it to do
+    validations:
+      required: true
+
+  - type: input
+    id: prior-art
+    attributes:
+      label: Prior art
+      description: |
+        Where this exists already — Freelens, Lens, k9s, Rancher, Argo CD, the
+        Kubernetes dashboard. A screenshot or a link to the implementation saves
+        a lot of guessing about the intended behaviour.
+
+  - type: dropdown
+    id: workaround
+    attributes:
+      label: Is there a workaround today?
+      options:
+        - "No — this is blocking"
+        - "Yes, but it is awkward"
+        - "Yes, this is a convenience"
+    validations:
+      required: true

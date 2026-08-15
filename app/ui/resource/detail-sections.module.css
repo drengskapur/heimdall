@@ -1,0 +1,93 @@
+.section {
+  padding: 8px 0 12px;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.sectionTitle {
+  margin: 4px 0 8px;
+  color: var(--hd-text-muted);
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px;
+  padding: 5px 0;
+  align-items: baseline;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--hd-text-muted);
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.valueText {
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* Copy button: revealed on row hover, so value rows stay clean. */
+.copy {
+  flex: none;
+  opacity: 0;
+  transition: opacity 120ms;
+}
+
+.item:hover .copy {
+  opacity: 0.7;
+}
+
+.copy:hover {
+  opacity: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.code {
+  font-family: var(--bp-font-family-monospace, monospace);
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.secretRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.secretRow .code {
+  flex: 1;
+  min-width: 0;
+}
+
+/* A field whose CRD schema carries a description: hint that the label has docs
+   behind it without turning the whole list into a field of underlines. */
+.documented {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+.propDoc {
+  display: block;
+  max-width: 320px;
+}

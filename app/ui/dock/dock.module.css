@@ -1,0 +1,90 @@
+.dock {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--bp-surface-border-color-default);
+  background: var(--hd-elevated-bg);
+  position: relative;
+  flex: none;
+}
+
+.resize {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  cursor: ns-resize;
+  z-index: 2;
+}
+
+/* `center`, not `stretch`: the buttons in this bar carry their own fixed height
+   (Blueprint's small button is 24px), and a fixed-height item under `stretch`
+   pins to the top of the row instead of centering — which left the "+" 3.5px
+   above the toggle buttons beside it. Tabs opt back into full height below. */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  height: 32px;
+  padding: 0 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--bp-surface-border-color-default);
+}
+
+.tab {
+  display: flex;
+  align-self: stretch; /* full-height hover target + bottom-edge active marker */
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px 0 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  /* An inset shadow rather than a border: a 2px bottom border would eat 2px of
+     the tab's box and push its label up off the row's centerline. */
+  box-shadow: inset 0 -2px 0 transparent;
+  opacity: 0.75;
+}
+
+.tab:hover {
+  background: var(--bp-surface-background-color-default-hover);
+  opacity: 1;
+}
+
+.tabActive {
+  opacity: 1;
+  box-shadow: inset 0 -2px 0 var(--bp-intent-primary-rest);
+}
+
+.tabTitle {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabRename {
+  width: 120px;
+  padding: 0 4px;
+  border: 1px solid var(--bp-intent-primary-rest);
+  border-radius: var(--hd-radius);
+  background: var(--hd-elevated-bg);
+  color: inherit;
+  font: inherit;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 12px;
+}
+
+/* `display: flex` from the rule above would otherwise defeat the hidden
+   attribute that keeps inactive dock items mounted but off-screen. */
+.body[hidden] {
+  display: none;
+}

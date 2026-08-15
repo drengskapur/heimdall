@@ -1,0 +1,191 @@
+/* No width here on purpose: the width is drag-resizable, so sidebar.tsx owns it
+   as an inline style (DEFAULT_WIDTH) and a rule here would only ever be dead. */
+.sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  background: var(--hd-sidebar-bg);
+  border-right: 1px solid var(--bp-surface-border-color-default);
+  overflow: hidden;
+}
+
+/* Drag-to-resize handle on the trailing edge (Freelens ResizingAnchor). */
+.resize {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 3;
+}
+
+.resize:hover {
+  background: var(--bp-intent-primary-rest);
+  opacity: 0.4;
+}
+
+.caret {
+  opacity: 0.55;
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+/* A nav row is a wrapper, not a button. The favourites pin is a real control,
+   and nesting it inside the row's button is invalid (axe: nested-interactive)
+   and breaks tab order — so the wrapper carries the paint and holds the nav
+   button and the pin as siblings. */
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.row:hover {
+  background: var(--bp-surface-background-color-default-hover);
+}
+
+/* The active entry is marked by *recessing* it — a step darker than the
+   sidebar plus weight 600 — not by tinting it or adding an edge accent. On the
+   dark theme that step is dark-gray-1 under the sidebar's dark-gray-2, which is
+   exactly what the spec calls for. */
+.rowActive {
+  background: var(--hd-sidebar-active-bg);
+}
+
+.rowActive .item,
+.rowActive .child {
+  font-weight: 600;
+}
+
+/* Nav rows follow the spec's sidebar entry: 32px tall, full-bleed (no
+   radius, no floating pill), inset 17px, 14px/400.
+   See docs/design/chrome-spec.md. */
+.item,
+.child {
+  display: flex;
+  flex: 1;
+  min-width: 0; /* not width:100% — that pushed the sibling pin onto a second line */
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+  padding: 0 17px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Children sit one step in from the section header, and carry their own glyph. */
+.child {
+  padding-left: 29px;
+}
+
+/* Separates the ungrouped pages from the headed sections below them. */
+.blockDivider {
+  height: 1px;
+  margin: 8px 0;
+  background: var(--bp-surface-border-color-default);
+}
+
+/* A group is a section header, not an entry: 12px muted caps at the same 32px
+   row height.
+   See docs/design/chrome-spec.md. */
+.section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 17px;
+  border: none;
+  background: transparent;
+  color: var(--hd-text-muted);
+  text-align: left;
+  cursor: pointer;
+}
+
+.section:hover {
+  background: var(--bp-surface-background-color-default-hover);
+}
+
+/* A section header that does not collapse — same type and metrics as .section,
+   without the button chrome. Favorites used to render as a nav *entry*: 14px
+   with a star icon and no onClick, so it looked like a row you could click and
+   couldn't, and it read as a peer of the pages beneath it rather than as their
+   heading. */
+.sectionStatic {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 17px;
+  color: var(--hd-text-muted);
+}
+
+.sectionLabel {
+  flex: 1;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Favorites pin (star) — hidden until row hover or keyboard focus; always shown
+   when pinned. A real <button>, so it needs the chrome stripped. */
+.pin {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  /* Matches the row's own 17px inset. The pin sits outside the nav button (it is
+     a separate control), so it does not inherit that button's padding and would
+     otherwise sit flush against the sidebar's edge. */
+  margin-right: 17px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 120ms;
+}
+
+.row:hover .pin,
+.pin:focus-visible {
+  opacity: 0.55;
+}
+
+.pin:hover {
+  opacity: 1;
+}
+
+/* A favourited row is marked by *colour*, not by opacity. The star is filled
+   gold-5 (#fbd065) and the unfavourited one is an outline at 60% — so
+   state reads at a glance and does not depend on noticing that one grey star is
+   slightly more opaque than another. Full opacity, because gold at 85% on the
+   dark rail is muddy rather than subtle. */
+.pinned {
+  opacity: 1;
+  color: var(--bp-palette-gold-5);
+}
+
+/* Hovering a gold star must not wash it back to the inherited grey. */
+.pinned:hover {
+  color: var(--bp-palette-gold-5);
+}

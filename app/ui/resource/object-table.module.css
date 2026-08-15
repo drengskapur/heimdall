@@ -1,0 +1,241 @@
+.wrap {
+  height: 100%;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+}
+
+/* Column headers read as headers, not as data: 30px tall, 12px uppercase at
+   weight 400 in the muted colour (docs/design/chrome-spec.md).
+
+   The `:root .wrap` prefix is load-bearing. This spec was written once already
+   and silently did not apply: Blueprint's own table rules qualify the element
+   with both a table class and a density/theme class, landing at (0,2,2) against
+   a bare `.table th`'s (0,2,1). Its compact rule kept the 6px block padding and
+   its dark rule kept the full-strength text colour, so the rendered header was
+   36px at weight 600 in the same colour as the data it labels — chrome shouting
+   as loudly as the content, while this file claimed otherwise.
+
+   Two class names in the prefix put these rules at (0,3,1), which wins on class
+   count rather than on source order — so it does not depend on which stylesheet
+   the bundler injects last. */
+:root .wrap .table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 30px;
+  padding: 0 11px;
+  background: var(--hd-page-bg);
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* 42px rows and a 20px inset on the leading column, also measured. */
+:root .wrap .table td {
+  height: 42px;
+  padding: 0 11px;
+  white-space: nowrap;
+}
+
+/* No single value may widen the table past the pane.
+ *
+ * The columns size to their content, so one long string set the width of the
+ * whole table: an event's generated name, or a "Pod/kube-apiserver-…" owner
+ * reference, pushed everything after it off the right edge. Measured before
+ * this: the Events table overflowed its pane by 703px at 1500px wide, which put
+ * MESSAGE — the only column anyone opens that page for — out of view. Pods lost
+ * STATUS the same way.
+ *
+ * It scrolled, technically. But the scrollbar is a thin inset thumb with no
+ * track until you hover it, so the table read as truncated rather than as
+ * scrollable, and nothing suggested the missing columns existed.
+ *
+ * A cap plus an ellipsis means a long value costs its own cell rather than
+ * every column after it. 12rem is where the tables measured here stop
+ * overflowing at 1280px; a column that genuinely needs more can be dragged
+ * wider by its trailing edge, and that width is remembered. */
+:root .wrap .table td {
+  max-width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:root .wrap .table th:first-child,
+:root .wrap .table td:first-child {
+  padding-left: 20px;
+}
+
+/* Centre every cell's content on the row. The `:root` prefix is load-bearing:
+   Blueprint's own table rule sets `vertical-align: top` at the same specificity
+   as `.table td`, and its stylesheet is injected after this module — so the bare
+   selector lost, and checkboxes, kind icons and namespace links all rendered
+   3.5–4.5px above the row's centreline. */
+:root .wrap .table th,
+:root .wrap .table td {
+  vertical-align: middle;
+}
+
+/* Blueprint renders a checkbox as a <label> carrying an 8px bottom margin, so
+   stacked form controls breathe. In a table cell that margin is part of the
+   cell's box, so middle-alignment centres the box and leaves the tick 4px high.
+   Matched on the element rather than Blueprint's class name, which our CSS is
+   not allowed to reference (tests/ui/blueprint-conventions.test.ts). */
+:root .table th label,
+:root .table td label {
+  margin-bottom: 0;
+}
+
+.end {
+  text-align: right;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortIcon {
+  margin-left: 4px;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+/* Actions column (row ⋮ + column-visibility menu) stays pinned to the right edge
+   so it's reachable even when the table scrolls horizontally. */
+.menu {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+  background: var(--hd-page-bg);
+}
+
+/* The header's own corner cell, above both the sticky body cells and the sticky
+   header row. The `:root .wrap` prefix is load-bearing and was missing: the
+   general header rule above is (0,3,1) and this was (0,2,1), so the corner lost
+   its z-index:2 and sat at 1 with the body's sticky cells — which come later in
+   the document and therefore painted over it. The symptom was the Columns
+   control vanishing as soon as the table scrolled under it. */
+:root .wrap .table th.menu {
+  z-index: 2;
+}
+
+/* The sticky column has to paint its own opaque background, or the cells
+   scrolling underneath show through it. At rest it did; on hover it did not
+   match, because the row's hover colour came from Blueprint's interactive-table
+   rule while this cell used a different token — so the pinned column appeared
+   as a differently-shaded rectangle sitting over the row, with the text sliding
+   visibly beneath it. Setting both from the same token makes the cell continuous
+   with its row at every state. */
+:root .wrap .table tbody tr:hover {
+  background: var(--bp-surface-background-color-default-hover);
+}
+
+:root .wrap .table tbody tr:hover .menu {
+  background: var(--bp-surface-background-color-default-hover);
+}
+
+.check {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* Column resize (Freelens resizable TableHead cells). */
+.th {
+  position: relative;
+}
+
+.colResize {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 1;
+}
+
+.colResize:hover {
+  background: var(--bp-intent-primary-rest);
+  opacity: 0.4;
+}
+
+.clip {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* A skeleton bar inside a cell. Blueprint's skeleton class supplies the fill,
+   radius and glow; this only gives it a box, since the class forces
+   `color: transparent` and an empty inline element would collapse to nothing. */
+.skeletonBar {
+  display: inline-block;
+  height: 12px;
+  vertical-align: middle;
+}
+
+/* A group header row, Rancher's grouped-table idiom. It spans every column and
+   is sticky under the header rather than scrolling away, so you always know
+   which namespace the rows under the pointer belong to — the reason to group at
+   all. `top: 30px` is the header's own height, measured.
+
+   Quieter than a data row: same 12px uppercase muted treatment as the column
+   headers, because it is a label for rows rather than one of them. */
+:root .wrap .table tbody tr.groupRow > td {
+  position: sticky;
+  top: 30px;
+  z-index: 1;
+  height: 28px;
+  padding: 0;
+  background: var(--hd-page-bg);
+  border-bottom: 1px solid var(--hd-rule);
+}
+
+.groupToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 28px;
+  padding: 0 11px 0 8px;
+  border: none;
+  background: none;
+  color: var(--hd-text-muted);
+  font-family: inherit;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.groupToggle:hover {
+  background: var(--bp-surface-background-color-default-hover);
+}
+
+.groupName {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* The count is the group's size, not a status — same muted weight as the label
+   so the row reads as one thing. */
+.groupCount {
+  opacity: 0.7;
+}
+
+/* A row that opens something says so under the pointer.
+ *
+ * Every table here opens a detail drawer on row click — and a Helm chart row
+ * opens the install drawer — but the cursor stayed an arrow, so nothing
+ * suggested the rows were anything but text. The hover fill was the only hint,
+ * and it reads as tracking rather than as an affordance. */
+:root .wrap .table tbody tr.clickable {
+  cursor: pointer;
+}

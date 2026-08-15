@@ -1,0 +1,45 @@
+name: codeql
+
+# Static analysis. Runs on every pull request so a finding blocks the change
+# that introduced it, and weekly so a newly published query still finds old code.
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Tuesday 04:17 UTC — off the hour, so it does not queue behind everyone
+    # else's midnight cron.
+    - cron: "17 4 * * 2"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    name: analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      security-events: write # upload the SARIF results
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        # The repository is TypeScript and JavaScript, which CodeQL treats as one
+        # language. GitHub Actions is analysed too: workflow injection is the
+        # likeliest supply-chain hole in a repo this size.
+        language: [javascript-typescript, actions]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@5595ccaf912efad79be6eef63a5619ff05969be3 # v3
+        with:
+          languages: ${{ matrix.language }}
+          # security-extended adds the lower-precision security queries. The
+          # noise is worth it on a codebase that proxies cluster credentials.
+          queries: security-extended
+      - name: Analyze
+        uses: github/codeql-action/analyze@5595ccaf912efad79be6eef63a5619ff05969be3 # v3
+        with:
+          category: /language:${{ matrix.language }}

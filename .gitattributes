@@ -1,0 +1,27 @@
+# Normalize line endings to LF on checkin; check out platform-native.
+* text=auto eol=lf
+
+# Fuzzing corpus — arbitrary bytes, never text.
+#
+# `* text=auto eol=lf` above would rewrite any entry containing CRLF: git stores
+# 41 0d 0a 42 as 41 0a 42, silently dropping the CR. That is a different input
+# from the one the fuzzer found interesting, so the coverage it represented is
+# lost and the corpus stops being reproducible. Nothing in the corpus is text
+# even when it happens to look like it.
+fuzz/corpus/** binary
+
+# Binary assets — never normalize or diff as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+# Generated / vendored files — collapse in diffs and reviews.
+package-lock.json linguist-generated=true
+app/lib/generated/** linguist-generated=true
+openapi/kubernetes/** linguist-vendored=true

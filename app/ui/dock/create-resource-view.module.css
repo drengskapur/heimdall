@@ -1,0 +1,24 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.editor {
+  flex: 1;
+  min-height: 0;
+  resize: none;
+  /* Unquoted list — quoting the whole stack names a single family literally
+     called "Menlo, Monaco, Consolas, monospace", which matches nothing, so the
+     YAML editor silently rendered in the default proportional font. */
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  white-space: pre;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}

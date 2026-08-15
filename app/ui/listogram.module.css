@@ -1,0 +1,33 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* measured: the label's trailing margin before the bar group */
+}
+
+/* Tabular figures so the counts form a column instead of jittering by digit
+   width, and a 2ch floor so a 1 and a 10 still right-align against each other. */
+.count {
+  min-width: 2ch;
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* 50 × 12. Transparent — the bar is drawn on nothing rather than in a groove, so an empty facet reads as empty space, not as an empty
+   container. */
+.track {
+  position: relative;
+  flex: 0 0 auto;
+  width: 50px;
+  height: 12px;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: var(--hd-radius);
+  background: var(--bp-palette-blue-3);
+}

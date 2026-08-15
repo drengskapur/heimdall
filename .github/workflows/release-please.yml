@@ -1,0 +1,129 @@
+name: release-please
+
+# Opens (and keeps updating) a release pull request from the Conventional Commits
+# on main, then tags and publishes a GitHub Release when that PR is merged.
+#
+# A PR rather than a direct tag-and-push is the whole reason this tool was chosen
+# over semantic-release: the release goes through the same protected trunk as
+# every other change, so branch protection never has to make an exception for CI.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege at the workflow level; each job widens only what it needs.
+permissions: {}
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # tag and create the release
+      pull-requests: write # open and update the release PR
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      # Pinned to a commit rather than a tag: a moving tag is a supply-chain
+      # hole, and OpenSSF Scorecard's Pinned-Dependencies check looks for this.
+      - id: release
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  # Build the artifact the release describes, and prove where it came from.
+  #
+  # Chained as a dependent job rather than triggered by `on: release`, because a
+  # release published with the default GITHUB_TOKEN does not start a new
+  # workflow run — that trigger would simply never fire. The config declares a
+  # root component (`"."`), which is what makes `release_created` and `tag_name`
+  # available without a path prefix.
+  artifacts:
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write # attach assets to the release
+      id-token: write # OIDC identity for Sigstore
+      attestations: write # record the attestation against the repository
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Nothing here pushes; the upload uses an explicit token below rather
+          # than credentials left behind in .git/config.
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+      # A reproducible archive: without these flags tar records mtimes, uid/gid
+      # and directory order, so two builds of identical sources produce
+      # different bytes and the provenance attests to a digest nobody else can
+      # reproduce. The timestamp is the tagged commit's own.
+      - name: Package the built SPA
+        env:
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p release
+          SOURCE_DATE=$(git log -1 --format=%cI)
+          tar --sort=name --owner=0 --group=0 --numeric-owner \
+              --mtime="${SOURCE_DATE}" --format=gnu \
+              -czf "release/heimdall-${TAG}-dist.tar.gz" -C dist .
+          cp sbom.cdx.json "release/heimdall-${TAG}.cdx.json"
+          # Named explicitly rather than `./*`, which would race with the
+          # redirection that creates SHA256SUMS itself.
+          cd release && sha256sum heimdall-* > SHA256SUMS
+
+      # Uploaded before attestation, deliberately. Attestation can fail for
+      # reasons that say nothing about the build — on a user-owned private
+      # repository GitHub refuses to persist one at all — and when it ran first,
+      # its failure skipped the upload and left the release with no assets
+      # whatsoever. A release carrying the archive, its SBOM and SHA256SUMS is
+      # useful and hash-verifiable even when provenance is unavailable; a release
+      # carrying nothing is not. The attestation steps below stay fatal, so a
+      # failure is still visible rather than quietly downgrading what ships.
+      - name: Attach the build to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: gh release upload "${TAG}" release/* --clobber
+
+      - name: Attest build provenance
+        id: attest
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: release/heimdall-*-dist.tar.gz
+
+      # The action records a Sigstore bundle; this writes the in-toto statement
+      # it wraps out as a release asset. `.intoto.jsonl` is one DSSE envelope per
+      # line — the same format the SLSA generator emits, and what a verifier
+      # (and OpenSSF Scorecard's Signed-Releases check) looks for. Taking the
+      # envelope out of the bundle rather than renaming the bundle matters: they
+      # are different structures, and a file should be the format its name
+      # claims.
+      - name: Write the attestation as an .intoto.jsonl asset
+        env:
+          BUNDLE: ${{ steps.attest.outputs.bundle-path }}
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: |
+          set -euo pipefail
+          node -e '
+            const fs = require("node:fs");
+            const lines = fs.readFileSync(process.env.BUNDLE, "utf8").trim().split("\n");
+            const envelopes = lines.map(line => JSON.stringify(JSON.parse(line).dsseEnvelope));
+            if (envelopes.some(e => e === undefined)) throw new Error("bundle carried no dsseEnvelope");
+            fs.writeFileSync(`release/heimdall-${process.env.TAG}-dist.tar.gz.intoto.jsonl`, envelopes.join("\n") + "\n");
+          '
+
+      - name: Attach the provenance to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: gh release upload "${TAG}" release/*.intoto.jsonl --clobber

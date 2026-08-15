@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "_comment": "Emits CommonJS for the fuzz targets to import. CommonJS because the sources omit file extensions, which Node's ESM resolver will not do; .fuzz-build carries its own package.json marking it commonjs, since the repository is type: module. Jazzer.js installs its own instrumenting module loader, which displaces tsx — so the code under test has to be JavaScript by the time Jazzer sees it.",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": ".fuzz-build",
+    "rootDir": ".",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "declaration": false,
+    "sourceMap": false,
+    "incremental": false,
+    "skipLibCheck": true
+  },
+  "include": ["app/domain/**/*.ts", "app/ui/router.ts", "app/ui/apps.ts", "app/ui/feature-flags.ts"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
+}

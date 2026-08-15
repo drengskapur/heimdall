@@ -1,0 +1,231 @@
+/* Top bar — 50px, the chrome row height (this and the rail's header share one
+   baseline). See docs/design/chrome-spec.md. */
+.topBar {
+  height: var(--hd-chrome-row);
+  /* No left padding: the app tile is flush against the sidebar, with the title
+     area starting 50px later and nothing between. The content after the tile carries the inset instead. */
+  padding: 0 15px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* The application's tile at header scale. Square, not rounded — the sidebar's
+   24px version is a chip in a list, this is a block terminating the chrome — and
+   the same 10% wash of the app's colour behind a full-strength glyph. */
+.appTile {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hd-chrome-row);
+  height: var(--hd-chrome-row);
+  background: color-mix(in srgb, var(--c, var(--bp-palette-blue-3)) 10%, transparent);
+  color: var(--c, var(--bp-palette-blue-3));
+}
+
+/* Blueprint's Navbar ships an elevation — a 1px inset white ring around the
+   whole bar plus a drop shadow — which reads as a border. The header
+   carries no ring and no shadow, so that goes.
+
+   Surface and separator, both measured. Dark is dark-gray-1 against the rail's
+   dark-gray-2 and the content's black, where the step alone is enough. Light is
+   #fff *and* a 1px light-gray-1 hairline beneath: white on light-gray-5 is too
+   near a match to read as a step, which is why the light theme draws the line
+   and the dark one does not. This file previously claimed light needed no rule;
+   it needs one, at rgb(211,216,222).
+
+   --hd-elevated-bg is exactly that pair already: white on light, dark-gray-1 on
+   dark. The `:root` prefix is load-bearing, as Blueprint's own Navbar rule has
+   the same single-class specificity and is injected after this module. */
+:root .topBar {
+  box-shadow: none;
+  background-color: var(--hd-elevated-bg);
+  /* Ruled on all four sides in one colour rather than a light-only hairline
+     underneath. --hd-rule is black at 15% on the light theme and white at 15%
+     on the dark one, so the same declaration draws the same weight of line in
+     both and the bar reads as a bounded module in either. The previous rule was
+     a bottom border in a fixed light-gray, which meant the dark theme had to
+     opt out of it entirely and the bar had no edge at all there. */
+  border: 1px solid var(--hd-rule);
+}
+
+.items {
+  height: var(--hd-chrome-row);
+  /* The tile is flush; everything after it keeps the bar's own inset. */
+  gap: 15px;
+  /* Shrinkable, so the trail inside can be squeezed rather than pushing the
+     menu bar off the end of a narrow window. */
+  min-width: 0;
+}
+
+/* Window drag region + OS control clearance only apply when actually installed
+   as a PWA with window-controls-overlay. Outside that (a normal browser tab or
+   an embedded webview), `-webkit-app-region: drag` is useless and can trigger
+   compositor paint glitches, so it's scoped here rather than always-on. */
+@media (display-mode: window-controls-overlay) {
+  .topBar {
+    -webkit-app-region: drag;
+    app-region: drag;
+  }
+
+  .items :global(button) {
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+  }
+}
+
+/* A named menu bar in place of a single hamburger. Small and minimal so three of them cost less attention than
+   the one icon did, and grouped by question — where am I going, what am I
+   looking at, where do I get help. */
+.menuBar {
+  display: flex;
+  align-items: center;
+  /* No gap: File and Help sit flush, and the 8px of internal
+     padding on each is what separates the labels. */
+  gap: 0;
+}
+
+/* 20px, measured — a dense secondary row, not another rank of 30px controls. */
+:root .menuBar button {
+  min-height: 20px;
+  height: 20px;
+  padding: 0 8px;
+}
+
+/* Breadcrumb over menu bar, both inside the 50px chrome row. */
+.headerStack {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+/* The trail: 14px/400, muted and navigable, 18px tall so it and the 20px menu
+   row both fit the 50px chrome row. See docs/design/chrome-spec.md. */
+/* The trail has to be allowed to shrink or its ellipsis never fires. The rules
+   below already said overflow:hidden and text-overflow:ellipsis, and they were
+   dead: nothing bounded the trail, so a long cluster name simply grew the crumb
+   to 392px and pushed the menu bar instead of truncating.
+
+   The answer is a shrink chain rather than a width on each crumb: the
+   container is flex: 1 1 0 with min-width 0, the path list flex: 0 1 auto with
+   min-width 40px (24px for the collapsed ellipsis plus a 14px chevron, the floor
+   it collapses to), and the name flex: 0 1 auto with min-width 80 and max-width
+   250. Same chain here, at our fixed three levels. */
+.crumbs {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.crumbs ol {
+  display: flex;
+  align-items: center;
+  height: 18px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crumbs li {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.crumbs li:not(:last-child)::after {
+  content: "/";
+  margin: 0 6px;
+  color: var(--hd-text-muted);
+  opacity: 0.5;
+}
+
+.crumbLink,
+.crumbPath,
+.crumbCurrent {
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crumbLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--hd-text-muted);
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.crumbLink:hover {
+  text-decoration: underline;
+}
+
+.crumbPath {
+  color: var(--hd-text-muted);
+}
+
+/* The subject, not another crumb. The two are separated by contrast
+   alone — same 14px/400, but #5f6b7c for the path against #1c2127 for the name,
+   a gap wide enough to read at a glance. Weight is deliberately not used: the
+   spec does not bold it, and a bolder final crumb reads as a heading rather
+   than as the end of a trail. */
+.crumbCurrent {
+  /* 250px, the spec's cap on the resource name. */
+  max-width: 250px;
+  color: var(--hd-text);
+}
+
+.headerDivider {
+  width: 1px;
+  align-self: stretch;
+  margin: 0 8px;
+  background: var(--hd-rule);
+}
+
+/* The page's own controls, portalled in. Right-aligned and shrinkable, so a
+   page with a namespace filter, a search field and a New button coexists with
+   the breadcrumb rather than pushing it — the trail's own shrink chain gives way
+   first, which is the right order: the controls are what you came to use. */
+.actions {
+  display: flex;
+  /* Shrinkable, but only after the trail has given everything it has. The trail
+     collapses to its 40px ellipsis first, which is the right order — the
+     controls are what you came to use. Once it has, these have to yield too:
+     `flex: none` here meant the header simply grew past the window, and the
+     whole page scrolled sideways below about 900px. */
+  flex: 0 1 auto;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  height: var(--hd-chrome-row);
+}
+
+/* Narrow windows: drop the trail, keep the controls.
+ *
+ * Below tablet width the chrome row cannot hold the app tile, the breadcrumb,
+ * three menus and a page's controls at once — at 414px it wanted 501px in a
+ * 364px pane, and the overflow pushed the *page* sideways rather than the
+ * header. Something has to go, and it is the trail — before its crumbs start
+ * being cut mid-word, which is why this triggers at 900 rather than at the point
+ * of overflow. The sidebar already says
+ * which page you are on, and the rail says which cluster.
+ *
+ * Not display:none on the whole stack — the menu bar underneath is the only way
+ * to reach Preferences and About. */
+@media (width < 900px) {
+  .crumbs {
+    display: none;
+  }
+
+  .items {
+    gap: 8px;
+  }
+}

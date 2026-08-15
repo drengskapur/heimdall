@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Heimdall — guardian of the cluster</title>
+  <desc id="desc">A watchful eye and Bifrost arc inside a guardian shield. A simplified hexagonal cluster forms the iris, while a restrained golden Gjallarhorn strengthens the Heimdall reference.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="128" y1="104" x2="896" y2="920" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#05080C"/>
+      <stop offset="0.58" stop-color="#0B1118"/>
+      <stop offset="1" stop-color="#17222C"/>
+    </linearGradient>
+    <linearGradient id="shieldStroke" x1="218" y1="170" x2="808" y2="890" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2B3E4C"/>
+      <stop offset="0.55" stop-color="#1B2A36"/>
+      <stop offset="1" stop-color="#101923"/>
+    </linearGradient>
+    <linearGradient id="bifrost" x1="188" y1="350" x2="838" y2="574" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#43E0FF"/>
+      <stop offset="0.48" stop-color="#777BFF"/>
+      <stop offset="1" stop-color="#F0B84E"/>
+    </linearGradient>
+    <linearGradient id="lowerEye" x1="188" y1="566" x2="838" y2="694" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#168EAD"/>
+      <stop offset="0.5" stop-color="#304866"/>
+      <stop offset="1" stop-color="#9A6C30"/>
+    </linearGradient>
+    <radialGradient id="iris" cx="0" cy="0" r="1" gradientTransform="translate(472 442) rotate(48) scale(260)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23475C"/>
+      <stop offset="0.52" stop-color="#122735"/>
+      <stop offset="1" stop-color="#08131C"/>
+    </radialGradient>
+    <linearGradient id="cluster" x1="408" y1="404" x2="620" y2="608" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5DE6FF"/>
+      <stop offset="0.5" stop-color="#8889FF"/>
+      <stop offset="1" stop-color="#F2C15F"/>
+    </linearGradient>
+    <linearGradient id="horn" x1="392" y1="208" x2="770" y2="370" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B37A24"/>
+      <stop offset="0.52" stop-color="#E7B653"/>
+      <stop offset="1" stop-color="#FFD77A"/>
+    </linearGradient>
+    <filter id="shadow" x="-24%" y="-24%" width="148%" height="148%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="appClip">
+      <rect x="48" y="48" width="928" height="928" rx="208"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#appClip)">
+    <rect x="48" y="48" width="928" height="928" rx="208" fill="url(#bg)"/>
+
+    <!-- Depth without turning the icon into a miniature UI. -->
+    <path d="M48 760C260 688 420 714 576 798C704 866 836 860 976 808V976H48V760Z" fill="#111B24" opacity="0.56"/>
+    <path d="M48 842C246 774 408 798 560 874C706 946 836 930 976 878V976H48V842Z" fill="#1B2833" opacity="0.40"/>
+
+    <!-- Guardian shield: one dominant silhouette and one quiet inset. -->
+    <path d="M512 136L816 244V486C816 682 706 822 512 900C318 822 208 682 208 486V244L512 136Z"
+          fill="#071017" fill-opacity="0.62" stroke="url(#shieldStroke)" stroke-width="26" stroke-linejoin="round" filter="url(#shadow)"/>
+    <path d="M512 178L778 272V486C778 650 690 770 512 844C334 770 246 650 246 486V272L512 178Z"
+          fill="none" stroke="#334754" stroke-width="7" stroke-opacity="0.66"/>
+
+    <!-- Gjallarhorn: deliberately abstract, so it also reads as a signal path. -->
+    <g>
+      <path d="M398 247C455 205 523 191 582 204C633 215 675 238 704 270"
+            fill="none" stroke="#5E3E14" stroke-opacity="0.48" stroke-width="35" stroke-linecap="round"/>
+      <path d="M398 242C455 202 523 190 582 204C633 216 674 238 702 269"
+            fill="none" stroke="url(#horn)" stroke-width="25" stroke-linecap="round"/>
+      <path d="M410 235C462 204 524 196 578 209C624 220 660 239 686 263"
+            fill="none" stroke="#FFF0B2" stroke-opacity="0.38" stroke-width="6" stroke-linecap="round"/>
+      <g transform="translate(694 260) rotate(49)">
+        <path d="M0 -14C24 -17 47 -26 70 -42V42C47 26 24 17 0 14Z"
+              fill="url(#horn)" stroke="#76501D" stroke-width="6" stroke-linejoin="round"/>
+        <ellipse cx="70" cy="0" rx="10" ry="42" fill="#2D1E0C" stroke="#FFD77A" stroke-width="6"/>
+        <path d="M10 -7C31 -10 48 -17 61 -26" fill="none" stroke="#FFF0B2" stroke-opacity="0.42" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <circle cx="398" cy="242" r="8" fill="#FFE29A"/>
+    </g>
+
+    <!-- Heimdall's watch: the upper line is Bifrost, the lower line is the protected boundary. -->
+    <path d="M190 514C278 354 398 280 512 280C626 280 746 354 834 514"
+          fill="none" stroke="url(#bifrost)" stroke-width="44" stroke-linecap="round" filter="url(#softGlow)"/>
+    <path d="M190 514C278 674 398 748 512 748C626 748 746 674 834 514"
+          fill="none" stroke="url(#lowerEye)" stroke-width="31" stroke-linecap="round"/>
+
+    <!-- Hexagonal iris: architecture and cluster visibility, simplified for app-icon scale. -->
+    <path d="M512 348L654 430V594L512 676L370 594V430L512 348Z"
+          fill="url(#iris)" stroke="#91DDE9" stroke-opacity="0.45" stroke-width="12"/>
+    <path d="M512 378L628 445V579L512 646L396 579V445L512 378Z"
+          fill="none" stroke="#34576C" stroke-width="7"/>
+
+    <g stroke="#70D1E4" stroke-opacity="0.60" stroke-width="12" stroke-linecap="round">
+      <path d="M512 512L512 420"/>
+      <path d="M512 512L590 466"/>
+      <path d="M512 512L590 558"/>
+      <path d="M512 512L512 604"/>
+      <path d="M512 512L434 558"/>
+      <path d="M512 512L434 466"/>
+    </g>
+
+    <g fill="#08131C" stroke="url(#cluster)" stroke-width="12">
+      <circle cx="512" cy="420" r="21"/>
+      <circle cx="590" cy="466" r="21"/>
+      <circle cx="590" cy="558" r="21"/>
+      <circle cx="512" cy="604" r="21"/>
+      <circle cx="434" cy="558" r="21"/>
+      <circle cx="434" cy="466" r="21"/>
+    </g>
+
+    <!-- Central control-plane hub. -->
+    <path d="M512 462L555 487V537L512 562L469 537V487L512 462Z"
+          fill="url(#cluster)" stroke="#D8F8FF" stroke-opacity="0.38" stroke-width="7"/>
+    <circle cx="512" cy="512" r="25" fill="#07121A"/>
+    <circle cx="512" cy="512" r="9" fill="#F5FCFF"/>
+  </g>
+
+  <rect x="62" y="62" width="900" height="900" rx="194" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="4"/>
+</svg>

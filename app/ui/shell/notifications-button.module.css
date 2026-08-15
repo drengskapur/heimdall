@@ -1,0 +1,101 @@
+.menu {
+  max-width: 360px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.msg {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* An empty state, not a disabled control — muted text at full strength so it
+   stays legible on the popover's white surface. Padding matches a menu item's
+   so it sits on the same grid as the rows it replaces. */
+.empty {
+  padding: 4px 8px;
+  color: var(--bp-palette-gray-1);
+  line-height: 22px;
+}
+
+/* The positioning context is the button itself, so the badge can overhang its
+   corner without a wrapper element around it — see the note in the component
+   for why a wrapper is not an option here. */
+.bell {
+  position: relative;
+}
+
+/* Overlaid on the bell's top-right, overhanging it slightly. `pointer-events:
+   none` so the badge never swallows a click meant for the button underneath,
+   and the ring in the chrome colour separates the pill from the glyph without
+   needing a gap. */
+.badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 4px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px var(--hd-chrome-bg);
+  background: var(--bp-intent-danger-rest, #cd4246);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Sidebar-entry form: the label takes the row and the count sits at its trailing
+   edge, the way a sidebar badge does rather than overlapping a glyph. */
+.entryLabel {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entryCount {
+  flex: none;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--bp-intent-danger-rest, #cd4246);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  text-align: center;
+}
+
+/* Collapsed rail: the glyph is the positioning context so the count can sit on
+   its corner. inline-flex and flex:none so wrapping the icon does not move it
+   off the 17px inset every other row's glyph shares. */
+.glyph {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+
+/* Anchored to the glyph, not the row. A badge on the row's trailing edge would
+   land around x=40–55 of a 50px rail and hang over its edge — the same mistake
+   the cluster tiles made before theirs was moved onto the glyph. */
+.glyphCount {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 3px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px var(--hd-chrome-bg);
+  background: var(--bp-intent-danger-rest, #cd4246);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 14px;
+  text-align: center;
+  pointer-events: none;
+}

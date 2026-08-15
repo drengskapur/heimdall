@@ -1,0 +1,2120 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "heimdall",
+      "version": "0.8.0",
+      "bom-ref": "heimdall@0.8.0",
+      "author": "Drengskapur",
+      "description": "Heimdall — an installable, offline-first Progressive Web App port of Freelens, the open-source Kubernetes IDE (a Lens fork).",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/heimdall@0.8.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fdrengskapur%2Fheimdall.git",
+      "externalReferences": [
+        {
+          "url": "https://github.com/drengskapur/heimdall/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "git+https://github.com/drengskapur/heimdall.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/drengskapur/heimdall#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": ""
+        },
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "cdx:reproducible",
+        "value": "true"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "runtime",
+      "group": "@babel",
+      "version": "7.29.7",
+      "bom-ref": "heimdall@0.8.0|@babel/runtime@7.29.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/runtime@7.29.7",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "36af0e8465a264864657a84b1e8c8028b2dc26284fff115e04c189a14af14d7da9b08f1d0a27f32e16484856fe5564b7c053110e6086c3947e74ec920aa3cb87"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "colors",
+      "group": "@blueprintjs",
+      "version": "5.1.16",
+      "bom-ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40blueprintjs/colors@5.1.16",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@blueprintjs/colors/-/colors-5.1.16.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3fdb97d008f64cff7ee9a51ca2b8b588f978b27c4cfd582ad0b65b8549759796c74e0371c709bfd3e2284bf4a5420f771c1465f0a4c03357af12ab4f6f0575d0"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "tslib",
+          "version": "2.6.3",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3",
+          "licenses": [
+            {
+              "license": {
+                "id": "0BSD",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/tslib@2.6.3",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/tslib/-/tslib-2.6.3.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "c4dbf12443948963c6854b9475080024f28e3897c69c8c8ac9239cd3d5e42ac81d515ff7136cefc1961d7a38e64603c281cca6d63b8b1f7db6eb203bb0414929"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/colors/node_modules/tslib"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "core",
+      "group": "@blueprintjs",
+      "version": "6.18.0",
+      "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40blueprintjs/core@6.18.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@blueprintjs/core/-/core-6.18.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "11054a5a5fd116b3c77c3e3605c89cbf1ab08f087e3a7352ae85ce7669c9642f853f5c6571ac0e8d3977f1ec2024468267ab7172a8b0fc21807edefff3327845"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "react-popper",
+          "version": "2.3.0",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/react-popper@2.3.0",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/react-popper/-/react-popper-2.3.0.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "7b5863f252f7b8cfac8124782f1ce7e61d46c419696b8090cf45cb17c931e0c0eb0d1598d049dae1cf7b3d47925fd8b95b75007c33f4cf4157093424a17525dd"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/core/node_modules/react-popper"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "tslib",
+          "version": "2.6.3",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
+          "licenses": [
+            {
+              "license": {
+                "id": "0BSD",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/tslib@2.6.3",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/tslib/-/tslib-2.6.3.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "c4dbf12443948963c6854b9475080024f28e3897c69c8c8ac9239cd3d5e42ac81d515ff7136cefc1961d7a38e64603c281cca6d63b8b1f7db6eb203bb0414929"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/core/node_modules/tslib"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "icons",
+      "group": "@blueprintjs",
+      "version": "6.13.0",
+      "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40blueprintjs/icons@6.13.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@blueprintjs/icons/-/icons-6.13.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c0442000314fc2e7ca88a785fcbe4adb56ca828bae21b21d60fbcc3c5bf6b6deeb792b8211fb57d1d66981afb6d496382af109233fb1b55268a8c99705eb22c1"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "change-case",
+          "version": "4.1.2",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/change-case@4.1.2",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/change-case/-/change-case-4.1.2.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "6d2c58db0b3d3adbe220b1b51226392bb34dc64aa0fc99d19c5c4bb4a43de896af8a22318bb76332b49dd04093f400be96db429666302b0e77056a4e31b968ec"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/icons/node_modules/change-case"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "tslib",
+          "version": "2.6.3",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+          "licenses": [
+            {
+              "license": {
+                "id": "0BSD",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/tslib@2.6.3",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/tslib/-/tslib-2.6.3.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "c4dbf12443948963c6854b9475080024f28e3897c69c8c8ac9239cd3d5e42ac81d515ff7136cefc1961d7a38e64603c281cca6d63b8b1f7db6eb203bb0414929"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/icons/node_modules/tslib"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "select",
+      "group": "@blueprintjs",
+      "version": "6.3.4",
+      "bom-ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40blueprintjs/select@6.3.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@blueprintjs/select/-/select-6.3.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "bc96ba32b5e03f242de0f45cf59e9cd6f68700a24c235ce5a15a61e5e28e7efed88d26f55a56c7fdb1562ae9c0371a9296771fba0e857da1e421187b5186755a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "tslib",
+          "version": "2.6.3",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
+          "licenses": [
+            {
+              "license": {
+                "id": "0BSD",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/tslib@2.6.3",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/tslib/-/tslib-2.6.3.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "c4dbf12443948963c6854b9475080024f28e3897c69c8c8ac9239cd3d5e42ac81d515ff7136cefc1961d7a38e64603c281cca6d63b8b1f7db6eb203bb0414929"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/select/node_modules/tslib"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "table",
+      "group": "@blueprintjs",
+      "version": "6.2.4",
+      "bom-ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40blueprintjs/table@6.2.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@blueprintjs/table/-/table-6.2.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "8a04d8d1cd9fc8fabae8043f801564c90d85eeae7b7faaaf2313596bacd52f5cc307380ab21d5ff27ca870c748bfe95ea5de8349f942ef20d083e75f53d59c43"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "tslib",
+          "version": "2.6.3",
+          "bom-ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
+          "licenses": [
+            {
+              "license": {
+                "id": "0BSD",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/tslib@2.6.3",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmjs.org/tslib/-/tslib-2.6.3.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "c4dbf12443948963c6854b9475080024f28e3897c69c8c8ac9239cd3d5e42ac81d515ff7136cefc1961d7a38e64603c281cca6d63b8b1f7db6eb203bb0414929"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@blueprintjs/table/node_modules/tslib"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "core",
+      "group": "@floating-ui",
+      "version": "1.8.0",
+      "bom-ref": "heimdall@0.8.0|@floating-ui/core@1.8.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/core@1.8.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@floating-ui/core/-/core-1.8.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d02219e62b69b3ff31ec11bc744221b39dc1bc2507d8f0a8a20b5a930453badf80ae6e7cb09a2827402e6612f0d87258211e5c30b34f0524bbdbcb0f868da485"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dom",
+      "group": "@floating-ui",
+      "version": "1.8.0",
+      "bom-ref": "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/dom@1.8.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@floating-ui/dom/-/dom-1.8.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c974abcde1d905365a74b3a57f28429091cd78b2671d19d1227c1d678d0bed989a02dac1c28625b03ad7defe7307552d93b08b7f370e5675555a85c4932ec27a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-dom",
+      "group": "@floating-ui",
+      "version": "2.1.9",
+      "bom-ref": "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/react-dom@2.1.9",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@floating-ui/react-dom/-/react-dom-2.1.9.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2438c41460a9226c43080ec924abe203433df91b6625d8f49bf35553920c8012be026668b80410efffb618b1f41975d8d18330f685cf07c84a75b3d883940b62"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "group": "@floating-ui",
+      "version": "0.27.20",
+      "bom-ref": "heimdall@0.8.0|@floating-ui/react@0.27.20",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/react@0.27.20",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@floating-ui/react/-/react-0.27.20.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "08ca8ccbb39a5e5f56d1eab5532ecbee2d98fda9cfbc798598449dd82130d2de58bd985c5427a8e0c05ebc09acc119655fb63674489d038a3318fba72d24d0a7"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "utils",
+      "group": "@floating-ui",
+      "version": "0.2.12",
+      "bom-ref": "heimdall@0.8.0|@floating-ui/utils@0.2.12",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/utils@0.2.12",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.12.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1e90a8f2d996ccb55a779b36775f44840cf9ceaaeb43ab3af6a77a9a83cc42f90eb92c034f562045f59256e7387a79eaae0bf7387a6988e18c43ba02d77c88c3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "core",
+      "group": "@popperjs",
+      "version": "2.11.8",
+      "bom-ref": "heimdall@0.8.0|@popperjs/core@2.11.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40popperjs/core@2.11.8",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3f5b2dd1a92c0ab9fdb06661a7c18c63006742c6ef016b19017e38a1734dbcb1c6a8039ca15c668d98a886cb7043b4aa2a76d1e3b6a474d8beba57960fcfa0e8"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "group": "@types",
+      "version": "19.2.18",
+      "bom-ref": "heimdall@0.8.0|@types/react@19.2.18",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/react@19.2.18",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@types/react/-/react-19.2.18.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "027cdb04446cacb2ad9365d27d36d844b8d03ddcb5d7a4adcb8abe4fe069dc80b897a8cd06fade54f0079a9abdaa15d033b09764f8cb56618cc3db32fa1c50df"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "addon-fit",
+      "group": "@xterm",
+      "version": "0.11.0",
+      "bom-ref": "heimdall@0.8.0|@xterm/addon-fit@0.11.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40xterm/addon-fit@0.11.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@xterm/addon-fit/-/addon-fit-0.11.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "8d87204fac6d558867860c61dd08180e79cd3184dc7fc1256f1c45cd7d08668faf69b42a48f0230b7735c09aca079135f55c107a2f3d40289964ff3a0c23c5ee"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "addon-web-links",
+      "group": "@xterm",
+      "version": "0.12.0",
+      "bom-ref": "heimdall@0.8.0|@xterm/addon-web-links@0.12.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40xterm/addon-web-links@0.12.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@xterm/addon-web-links/-/addon-web-links-0.12.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e129a89b744fc95a7b64c60e603a02ffd78624926a6219cf2c61aa27ac0e05f07c5713d588935229d81161bf0da5a33a6127a510a6c0d924ad0fb946caa6a86f"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "xterm",
+      "group": "@xterm",
+      "version": "6.0.0",
+      "bom-ref": "heimdall@0.8.0|@xterm/xterm@6.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40xterm/xterm@6.0.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@xterm/xterm/-/xterm-6.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4d0c037501adc300edfb67202832e7d0845a4b162ed6d4948e029aad20e450cd193624915c5a63c44b2f73f66073992ae68989f95d1af3f908336583dec30e62"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "camel-case",
+      "version": "4.1.2",
+      "bom-ref": "heimdall@0.8.0|camel-case@4.1.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/camel-case@4.1.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/camel-case/-/camel-case-4.1.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "83119606b4d3d49b8cc7a47ea393d35cc9949e19d5ccb43d48dbad0f862a2ad23a6a9f3deedded28409895aea0096124a655e794dc9b124660f46106c4a14283"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "capital-case",
+      "version": "1.0.4",
+      "bom-ref": "heimdall@0.8.0|capital-case@1.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/capital-case@1.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/capital-case/-/capital-case-1.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "76cdfb5bc0b2b478309e11864e2f3ca5c3f2475e6aa0d90ea58c2630c7e75aaa9680449aa4baaf0f1ea1b858d0e6fa964a7d99d3ad7bdd7340ecbb4c39e521d4"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "classnames",
+      "version": "2.5.1",
+      "bom-ref": "heimdall@0.8.0|classnames@2.5.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/classnames@2.5.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/classnames/-/classnames-2.5.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b1a1d83b384842ceb0cb6b15c5333a6d40ec40ee05e7457d450db6a81a447425be23efd69a47b61ce97a952e9d4e97715616fcf3f23af87b3ee37f1cde57d4a3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "constant-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|constant-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/constant-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/constant-case/-/constant-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "236852062ed5becec112e243af97431dfcdbfd1ba3dc5caf17287b28b8a5023350c3705efb182a5010365bab1c54470bd212f57703d1b48a843d55022a44acc9"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "csstype",
+      "version": "3.2.3",
+      "bom-ref": "heimdall@0.8.0|csstype@3.2.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/csstype@3.2.3",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cf51c629c632db103c00641fc2b9f43c0cbe3c1ed7fc64a3dd45495bda8aca7e37c566be825e675e6538aaa2cc4735952c50bc2aeb145fc4ffd240a2398a4021"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dom-helpers",
+      "version": "5.2.1",
+      "bom-ref": "heimdall@0.8.0|dom-helpers@5.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/dom-helpers@5.2.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "9d109aec22b7553accd8d986908cb871b2bb219960044fcf60c9f9e6bad779faf9c570cfd0b76d7cf9db9450e855d7007ec949ee8afa8aa0149f1d0208621640"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dot-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|dot-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/dot-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/dot-case/-/dot-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2afe672a587ac91addac6bf1789d9ee72d9e454a64528b085b8036012dfccf04b3dbbceeeee7c3c103e2e4986cdd702518d7ad9776e69c6850b0cb642899e3df"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "header-case",
+      "version": "2.0.4",
+      "bom-ref": "heimdall@0.8.0|header-case@2.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/header-case@2.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/header-case/-/header-case-2.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1ffbee9394c4115670ad1d25a76cde77d382a35b8020b325c742443200b6eabcf2249dcdd6fe979301c75c941d4767684a37063cce8e28f6282607f4a65275d5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "js-tokens",
+      "version": "4.0.0",
+      "bom-ref": "heimdall@0.8.0|js-tokens@4.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/js-tokens@4.0.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "45d2547e5704ddc5332a232a420b02bb4e853eef5474824ed1b7986cf84737893a6a9809b627dca02b53f5b7313a9601b690f690233a49bce0e026aeb16fcf29"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "loose-envify",
+      "version": "1.4.0",
+      "bom-ref": "heimdall@0.8.0|loose-envify@1.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/loose-envify@1.4.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "972bb13c6aff59f86b95e9b608bfd472751cd7372a280226043cee918ed8e45ff242235d928ebe7d12debe5c351e03324b0edfeb5d54218e34f04b71452a0add"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lower-case",
+      "version": "2.0.2",
+      "bom-ref": "heimdall@0.8.0|lower-case@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lower-case@2.0.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/lower-case/-/lower-case-2.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "edf9b797734017d59f37a5b724e99fe5daf0a55a97efc26da0627703a5b46ba66795d338d70d9f5790f8f74a6c2854e931db3c4c9b1efde1cb145b0d1c78c782"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "no-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|no-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/no-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/no-case/-/no-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "7e000dde318087e468c541991d348e2c922a51cdb09a8070191e2d6e93402a69a8bc5a16ab439d4646f456495d45e3b66b68814ff384ba51bd5d251cd74af7ce"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "normalize.css",
+      "version": "8.0.1",
+      "bom-ref": "heimdall@0.8.0|normalize.css@8.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/normalize.css@8.0.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/normalize.css/-/normalize.css-8.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "aa2cd234f3bddedd5852e5213f6d9bb463a8ddc85cbc316a15a8f64d1c9b3f40ccc641ce093630a779f7e1f7a5e1adf53915f2e26d57ab41b2aa96f99b7dea22"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "object-assign",
+      "version": "4.1.1",
+      "bom-ref": "heimdall@0.8.0|object-assign@4.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/object-assign@4.1.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ac98134279149c7d6c170f324fa552537cc3dec5a6bbab19848b1e63c557f8646edcfe85ec5bbe24d0e85df9251256cb2529dcdc55101d57b8714e618fe05c52"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "param-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|param-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/param-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/param-case/-/param-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "457963ef3098a2445ea96a4e3c7f68622bd4ccb619e6f00f21f1260933558a8b02efc17c1741fdcbb4fb806d8cdfdca682eb7117981c144b326504a987d069dc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pascal-case",
+      "version": "3.1.2",
+      "bom-ref": "heimdall@0.8.0|pascal-case@3.1.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pascal-case@3.1.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/pascal-case/-/pascal-case-3.1.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b969464f76129caf71dc140968e75c670ae757a84fa5df23147d7fb9ca622d13e1ff6cc2549292d7d1381af607bda09c0029f77e85d9d1c2c1f56af1d4a19ee6"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "path-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|path-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/path-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/path-case/-/path-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a8ee2a0858d7a954eb71b3edfe141f85343e56116ca8d28e3edcad80d2a42b14a8129dd73d443c39b16e78fca5388a24e608e7ebdaf2f178942f10b0a2ddd67e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prop-types",
+      "version": "15.8.1",
+      "bom-ref": "heimdall@0.8.0|prop-types@15.8.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prop-types@15.8.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a23f3b0a064809dba5528868815011ec08e50b4df6ed4e1e9782fa780bcea827ae74c0d553435384d695f9bf437f87578123f58173139cf7617deff6a831f972"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-dom",
+      "version": "19.2.8",
+      "bom-ref": "heimdall@0.8.0|react-dom@19.2.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-dom@19.2.8",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ad5a6b8a67c6046dc347e4ead08406d834f93f12ad8755881839a3e723e6973af86017bbbb213e0eee2856a4c35d948718619746d4c910649278fc9008c06095"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-fast-compare",
+      "version": "3.2.2",
+      "bom-ref": "heimdall@0.8.0|react-fast-compare@3.2.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-fast-compare@3.2.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "9ec3be292360a3549b26a24461113d111ce8ed8b586e8bbf3aa8d240ac55ee370aa31efebac8945593800be5e70ce0015e08104e7a346350a9567b9611cd5ba1"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-innertext",
+      "version": "1.1.5",
+      "bom-ref": "heimdall@0.8.0|react-innertext@1.1.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-innertext@1.1.5",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/react-innertext/-/react-innertext-1.1.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3d602a76a87184722ff34753f739cfd8abd2fa17e46d1a2f169e331581c51653a840b4626b022273cd6029bdd4d7013225980cc20b372682edc2bc8049158fdd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-is",
+      "version": "16.13.1",
+      "bom-ref": "heimdall@0.8.0|react-is@16.13.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-is@16.13.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "db87baca71361fe38ab7892ab0ebcd77c901a55eb9ce8c5b038055b04381dc0455590922fc31f3694a02e4ab8e37f06271c0da0824d906e39c7d9b3bd2447c6d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react-transition-group",
+      "version": "4.4.5",
+      "bom-ref": "heimdall@0.8.0|react-transition-group@4.4.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react-transition-group@4.4.5",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a5971dd4c089a222a2051d8d471782460d77b825dbc9d3e7981e0439e46b63be3cd2a3563bc2088101bace50e49bab9132c5115cfb8aab4196b62339f5ae50ea"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "version": "19.2.8",
+      "bom-ref": "heimdall@0.8.0|react@19.2.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/react@19.2.8",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/react/-/react-19.2.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3d66980352ffabdbb6bbbc58422f98dcbdd87e789eed7c8b79a248095d4c183e8ba6bb01c5c02a1a3632af4798de9f9076c03ec7f22b92de1089ff03eb7f926f"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "scheduler",
+      "version": "0.27.0",
+      "bom-ref": "heimdall@0.8.0|scheduler@0.27.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/scheduler@0.27.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/scheduler/-/scheduler-0.27.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "78dbfe5ab55b2aed5fdef6d8253ff1b62179b320391cf20cb5ff48818fe72a0d2c5aacc0504bea63fc66ece71973fa9a7cbc7f88ef4580e99e480a78bf9b62fd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sentence-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|sentence-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/sentence-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/sentence-case/-/sentence-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f0b4b42489da40c091a10ed8532b40a3fc54bb95b65e74315761c8ffab8ce94ec22134b546a3c496bdf457ab88ab230a33d949191545cb9ff80aecdc8b13584a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "snake-case",
+      "version": "3.0.4",
+      "bom-ref": "heimdall@0.8.0|snake-case@3.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/snake-case@3.0.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/snake-case/-/snake-case-3.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2c03a1e33f3d6c642f97da457cd17c575e3a8bba3bfc2a853dbab36203fec98cc3203792f4768d16d5c005a9915be010cc454e0dcbc4efd96327ef1af5849d32"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tabbable",
+      "version": "6.5.0",
+      "bom-ref": "heimdall@0.8.0|tabbable@6.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tabbable@6.5.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/tabbable/-/tabbable-6.5.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c227811d7ca0226ecec903aee61425924eb6fd6c821581a55a0ecbebf642519c31d28dfdf19927e295663327d885f306f241ab8ff2abb7c78893a50a0ba573c0"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tslib",
+      "version": "2.8.1",
+      "bom-ref": "heimdall@0.8.0|tslib@2.8.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.8.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a0916ef781d06fe29576e49440bef09e99aa9df98bb0e03f9c087a6fa107d30084a0ad3f98f79753a737c0a0d5f373243ae1cf447b525ca294f7d2016b34bfdb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "undici",
+      "version": "8.10.0",
+      "bom-ref": "heimdall@0.8.0|undici@8.10.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/undici@8.10.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/undici/-/undici-8.10.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1ef96d1ddedabcad77408c3fa0b7b8aa838bca8552a1a7ea2768d83abb4c44191b613df57a2050f0ed1e851299884642304c8b150348003a600960b97c02ef61"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "upper-case-first",
+      "version": "2.0.2",
+      "bom-ref": "heimdall@0.8.0|upper-case-first@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/upper-case-first@2.0.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/upper-case-first/-/upper-case-first-2.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e75e29a581c168ac1f2512bfa4d0ba73f3b17c66b4a1b4a7025d74eaef7b11dd08eb6e4d8a7f7a2808edb5917a64bdded572eda61c67aab3a2f625a09bebbe6e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "upper-case",
+      "version": "2.0.2",
+      "bom-ref": "heimdall@0.8.0|upper-case@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/upper-case@2.0.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/upper-case/-/upper-case-2.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2a07600c626dd93a6ec015088e01ba973c36196151096f5091f922bf40f1a871cb6091e6b6675420a71977cac78054a3a29553970ea08330a6d5bf0c150c2292"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "warning",
+      "version": "4.0.3",
+      "bom-ref": "heimdall@0.8.0|warning@4.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/warning@4.0.3",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/warning/-/warning-4.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ae9272376db629622f1c9fc5e775d266fd1997f69c72a1d1f1eb7592968c4c3fdf2c2471b55f225fc73333363bb1566ea53237cdc51383c7b2712da4345f65eb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ws",
+      "version": "8.21.3",
+      "bom-ref": "heimdall@0.8.0|ws@8.21.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ws@8.21.3",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/ws/-/ws-8.21.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "db4d5367f90f5b1a0faff38a5a3aae651d5258a5dcbf1747f9ed71af1f3d6f761b9b32cc1422df9da1b51c52205b324e11667b32fa4afbea1d66e7e0611e7447"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "yaml",
+      "version": "2.9.0",
+      "bom-ref": "heimdall@0.8.0|yaml@2.9.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/yaml@2.9.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/yaml/-/yaml-2.9.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d80be1357de66fccdde99cbb20d4ed4a9975175e475ba5a7aa3d2cad696428b729625fe03083098b2b86ab629e236605c543e376507edcb735d2c78c2ed2f870"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "heimdall@0.8.0",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+        "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+        "heimdall@0.8.0|@xterm/addon-fit@0.11.0",
+        "heimdall@0.8.0|@xterm/addon-web-links@0.12.0",
+        "heimdall@0.8.0|@xterm/xterm@6.0.0",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react@19.2.8",
+        "heimdall@0.8.0|undici@8.10.0",
+        "heimdall@0.8.0|ws@8.21.3",
+        "heimdall@0.8.0|yaml@2.9.0"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@babel/runtime@7.29.7"
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+        "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+        "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.8.0|@floating-ui/react@0.27.20",
+        "heimdall@0.8.0|@popperjs/core@2.11.8",
+        "heimdall@0.8.0|@types/react@19.2.18",
+        "heimdall@0.8.0|classnames@2.5.1",
+        "heimdall@0.8.0|normalize.css@8.0.1",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react-transition-group@4.4.5",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+      "dependsOn": [
+        "heimdall@0.8.0|@popperjs/core@2.11.8",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react-fast-compare@3.2.2",
+        "heimdall@0.8.0|react@19.2.8",
+        "heimdall@0.8.0|warning@4.0.3"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+        "heimdall@0.8.0|@types/react@19.2.18",
+        "heimdall@0.8.0|classnames@2.5.1",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+        "heimdall@0.8.0|camel-case@4.1.2",
+        "heimdall@0.8.0|capital-case@1.0.4",
+        "heimdall@0.8.0|constant-case@3.0.4",
+        "heimdall@0.8.0|dot-case@3.0.4",
+        "heimdall@0.8.0|header-case@2.0.4",
+        "heimdall@0.8.0|no-case@3.0.4",
+        "heimdall@0.8.0|param-case@3.0.4",
+        "heimdall@0.8.0|pascal-case@3.1.2",
+        "heimdall@0.8.0|path-case@3.0.4",
+        "heimdall@0.8.0|sentence-case@3.0.4",
+        "heimdall@0.8.0|snake-case@3.0.4"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
+        "heimdall@0.8.0|@types/react@19.2.18",
+        "heimdall@0.8.0|classnames@2.5.1",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+      "dependsOn": [
+        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+        "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
+        "heimdall@0.8.0|@types/react@19.2.18",
+        "heimdall@0.8.0|classnames@2.5.1",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react-innertext@1.1.5",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|@floating-ui/core@1.8.0",
+      "dependsOn": [
+        "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+      "dependsOn": [
+        "heimdall@0.8.0|@floating-ui/core@1.8.0",
+        "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+      "dependsOn": [
+        "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@floating-ui/react@0.27.20",
+      "dependsOn": [
+        "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+        "heimdall@0.8.0|@floating-ui/utils@0.2.12",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react@19.2.8",
+        "heimdall@0.8.0|tabbable@6.5.0"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+    },
+    {
+      "ref": "heimdall@0.8.0|@popperjs/core@2.11.8"
+    },
+    {
+      "ref": "heimdall@0.8.0|@types/react@19.2.18",
+      "dependsOn": [
+        "heimdall@0.8.0|csstype@3.2.3"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|@xterm/addon-fit@0.11.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|@xterm/addon-web-links@0.12.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|@xterm/xterm@6.0.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|camel-case@4.1.2",
+      "dependsOn": [
+        "heimdall@0.8.0|pascal-case@3.1.2",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|capital-case@1.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|no-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1",
+        "heimdall@0.8.0|upper-case-first@2.0.2"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|classnames@2.5.1"
+    },
+    {
+      "ref": "heimdall@0.8.0|constant-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|no-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1",
+        "heimdall@0.8.0|upper-case@2.0.2"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|csstype@3.2.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|dom-helpers@5.2.1",
+      "dependsOn": [
+        "heimdall@0.8.0|@babel/runtime@7.29.7",
+        "heimdall@0.8.0|csstype@3.2.3"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|dot-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|no-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|header-case@2.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|capital-case@1.0.4",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|js-tokens@4.0.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|loose-envify@1.4.0",
+      "dependsOn": [
+        "heimdall@0.8.0|js-tokens@4.0.0"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|lower-case@2.0.2",
+      "dependsOn": [
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|no-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|lower-case@2.0.2",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|normalize.css@8.0.1"
+    },
+    {
+      "ref": "heimdall@0.8.0|object-assign@4.1.1"
+    },
+    {
+      "ref": "heimdall@0.8.0|param-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|dot-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|pascal-case@3.1.2",
+      "dependsOn": [
+        "heimdall@0.8.0|no-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|path-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|dot-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|prop-types@15.8.1",
+      "dependsOn": [
+        "heimdall@0.8.0|loose-envify@1.4.0",
+        "heimdall@0.8.0|object-assign@4.1.1",
+        "heimdall@0.8.0|react-is@16.13.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|react-dom@19.2.8",
+      "dependsOn": [
+        "heimdall@0.8.0|react@19.2.8",
+        "heimdall@0.8.0|scheduler@0.27.0"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|react-fast-compare@3.2.2"
+    },
+    {
+      "ref": "heimdall@0.8.0|react-innertext@1.1.5",
+      "dependsOn": [
+        "heimdall@0.8.0|@types/react@19.2.18",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|react-is@16.13.1"
+    },
+    {
+      "ref": "heimdall@0.8.0|react-transition-group@4.4.5",
+      "dependsOn": [
+        "heimdall@0.8.0|@babel/runtime@7.29.7",
+        "heimdall@0.8.0|dom-helpers@5.2.1",
+        "heimdall@0.8.0|loose-envify@1.4.0",
+        "heimdall@0.8.0|prop-types@15.8.1",
+        "heimdall@0.8.0|react-dom@19.2.8",
+        "heimdall@0.8.0|react@19.2.8"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|react@19.2.8"
+    },
+    {
+      "ref": "heimdall@0.8.0|scheduler@0.27.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|sentence-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|no-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1",
+        "heimdall@0.8.0|upper-case-first@2.0.2"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|snake-case@3.0.4",
+      "dependsOn": [
+        "heimdall@0.8.0|dot-case@3.0.4",
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|tabbable@6.5.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|tslib@2.8.1"
+    },
+    {
+      "ref": "heimdall@0.8.0|undici@8.10.0"
+    },
+    {
+      "ref": "heimdall@0.8.0|upper-case-first@2.0.2",
+      "dependsOn": [
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|upper-case@2.0.2",
+      "dependsOn": [
+        "heimdall@0.8.0|tslib@2.8.1"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|warning@4.0.3",
+      "dependsOn": [
+        "heimdall@0.8.0|loose-envify@1.4.0"
+      ]
+    },
+    {
+      "ref": "heimdall@0.8.0|ws@8.21.3"
+    },
+    {
+      "ref": "heimdall@0.8.0|yaml@2.9.0"
+    }
+  ]
+}

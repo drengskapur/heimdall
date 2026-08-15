@@ -1,0 +1,553 @@
+/* The rail: narrow and always dark, in both app themes.
+   $pt-spacing (4px) drives the spacing. */
+.hotbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--hd-hotbar-width);
+  background: var(--hd-chrome-bg);
+  border-right: 1px solid var(--hd-chrome-border);
+  color: var(--hd-chrome-fg);
+}
+
+/* The rail's header occupies the 50px chrome row, so its divider lands on the
+   same baseline as the header's bottom edge — the rail header aligns
+   to the app header this way. */
+.railHeader {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: var(--hd-chrome-row);
+}
+
+/* The toggle is a row, not a button floating in a column. The header holds one
+   49x32 control whose glyph sits on the same 17px inset as every entry below
+   it; ours was a 30x30 button centred in the rail, so the one
+   control in the header was the only thing off the rail's own grid. The tooltip
+   wrapper has to stretch too — it sizes to its content otherwise, and the
+   button inside it can then only be as wide as the glyph. */
+.railHeader > * {
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--hd-radius);
+  background: transparent;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background: var(--hd-chrome-hover);
+}
+
+.divider {
+  flex: none;
+  width: 100%;
+  height: 1px;
+  background: var(--hd-chrome-border);
+}
+
+.cells {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  /* The rail centres its children, which shrank this column to its content and
+     left the rows 28px inside a 50px rail. The rows have to span the rail for
+     hover and the active recess to read as rows rather than tiles. */
+  width: 100%;
+}
+
+/* Each row is wrapped by the tooltip's target element, which is inline and
+   sizes to its content — so widening the column alone left the rows 28px. This
+   stretches whatever wrapper sits between. */
+.cells > * {
+  width: 100%;
+}
+
+/* Collapsed entries run at a flat 32px pitch, exactly as the expanded ones do
+   — same rows, narrower — inside a
+   scroll container padded 11px 0. Both of those belong to the *container*: put
+   on `.cells > *` instead, the 11px padded every row to 54px and stretched a
+   32px pitch to 54, while `gap` on a non-flex child did nothing at all. */
+.cells {
+  gap: 0;
+  padding: 11px 0;
+}
+
+/* 21px between groups — a 1px rule
+   with room around it, not a hairline pressed between two rows. The container's
+   padding used to supply this by accident, since it was landing on every child.
+   Both states get it: the divider does the same job at either width. */
+.cells > .divider,
+.wsScroll > .divider {
+  margin: 10px 0;
+}
+
+/* `10px 0` around the collapsed footer. */
+.railFooter {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Popover targets and tooltip wrappers are inline and size to their content, so
+   the rows inside them need stretching from here — the same fix the cells got. */
+.railFooter > * {
+  width: 100%;
+}
+
+/* Quiet chrome, not a wall of colour. A saturated 40px tile per cluster read as
+   the loudest thing on screen, where the rail should be monochrome and let the
+   content carry the colour. Tiles are told apart by their initials; the
+   cluster's colour still shows on the sidebar's cluster avatar. Sized to the
+   32px row rhythm the sidebar uses. */
+:root .tile {
+  padding: 0 17px;
+}
+
+/* Left-inset at 17px rather than centred. Collapsed icons sit at exactly the x
+   the expanded ones do, so collapsing drops the labels without
+   moving a single glyph; centring would have shifted every icon by half a pixel
+   and, more to the point, broken that continuity. */
+
+/* The row itself. Entries paint edge to edge with no radius —
+   the rounded 32px pad this used to be was a tile floating in a rail rather than
+   a row of it.
+
+   The initials stay, and that is the one deliberate divergence: the spec's
+   collapsed entries are distinct applications with distinct glyphs, while these
+   are all clusters and would collapse into a column of identical cloud icons.
+   The letters are what tells dev-us-east1 from dev-us-east2. */
+.tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  height: 32px;
+  padding: 0 17px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--hd-chrome-fg);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: box-shadow 0.1s;
+}
+
+/* An application row keeps its 36px at this width — app rows are the only ones
+   still at 36 once collapsed, because
+   the 24px tile needs the room a 16px glyph does not. */
+.tileApp {
+  height: 36px;
+}
+
+.tile:hover {
+  background: var(--hd-chrome-hover);
+}
+
+/* The active cluster recesses and bolds — the one active idiom this app uses,
+   the same as the sidebar's active row. No edge accent: an active row is marked
+   by recessing it and nothing else, and a stripe on one surface and
+   not the other is just two idioms for one state. */
+.tileActive,
+.tileActive:hover {
+  background: var(--hd-chrome-recessed);
+  font-weight: 600;
+}
+
+/* Sits on the tile's corner, not outside it. At left/top -2px the orb's 2px ring
+   reached 0.5px from the rail's edge while the tile had 4.5px of clear space on
+   the right, so a centred tile read as shoved left. At 0 the ring's outer edge
+   lands at 2.5px — flush with the active tile's own ring, so both sides match. */
+/* Pinned to the glyph, not the row. At left:0 it sat on the rail's edge, which
+   was fine while the tile was a centred 32px pad and wrong once every row's
+   content started at 17 — the dot marks the cluster, so it travels with it. */
+.led {
+  position: absolute;
+  left: 13px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bp-palette-dark-gray-5);
+  box-shadow: 0 0 0 2px var(--hd-chrome-bg);
+}
+
+.ledOn {
+  background: #29a634;
+}
+
+/* Full width (49px of a 50px rail): the row is the
+   hover and active target, not a floating 32px square inside it. */
+.tileWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 32px;
+}
+
+/* Anchored to the glyph's corner, not the row's. These wraps ran the rail's
+   full 49px once the entries did, which put a 15px badge at right:-3 — i.e.
+   x=40 to 55 on a 50px rail, hanging over the edge. A badge belongs on its
+   icon's corner for that reason. */
+.badge {
+  position: absolute;
+  left: 26px;
+  bottom: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  /* The rail is always dark, so its parts use the chrome tokens rather than the
+     theme-following --bp-surface-* ones (which would go light-on-light). */
+  background: var(--hd-chrome-recessed);
+  color: var(--hd-chrome-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 0.1s,
+    color 0.1s;
+}
+
+.tileWrap:hover .badge,
+.badge:focus-visible {
+  opacity: 1; /* it is a real button: reveal it on keyboard focus, not just hover */
+}
+
+.badge:hover {
+  color: var(--bp-palette-blue-4);
+}
+
+.slot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--hd-radius);
+  border: 1px dashed var(--bp-palette-dark-gray-5);
+  opacity: 0.5;
+}
+
+.slotOver {
+  opacity: 1;
+  border-color: var(--bp-palette-blue-4);
+}
+
+.pager {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 1px;
+}
+
+.page {
+  min-width: 18px;
+  padding: 1px 4px;
+  border: none;
+  border-radius: var(--hd-radius);
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  text-align: center;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.page:hover {
+  opacity: 1;
+  background: var(--hd-chrome-hover);
+}
+
+/* ---------------------------------------------------------------------------
+   Expanded: the full sidebar. 230px, dark-gray-2, entries at 32px
+   and favouritable entries at 36px, group headers 12px/600 uppercase in gray-4
+   with a hover-revealed action — all measured from
+   docs/design/chrome-spec.md. Collapsed stays the 50px rail, because
+   this app already spends 230px on the cluster's resource nav.
+   --------------------------------------------------------------------------- */
+.expanded {
+  width: 230px;
+  align-items: stretch;
+}
+
+/* The sidebar header is 50px with 10px of padding; with the logo gone
+   the only control is the collapse toggle, which sits at the trailing edge. */
+.expanded .railHeader {
+  justify-content: flex-end;
+  padding: 0 10px;
+}
+
+/* Collapsed, the toggle is a rail row and stretches like one; expanded, it goes
+   back to being a control at the right edge. Without this the full-width rule
+   the collapsed state needs silently defeats the flex-end above it — the child
+   already fills the row, so there is nothing left for the alignment to move. */
+.expanded .railHeader > * {
+  width: auto;
+}
+
+.wsScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.wsGroupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding: 5px 17px 1px;
+}
+
+.wsGroupTitle {
+  color: var(--hd-chrome-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* Revealed on hover, like every group action — and still reachable by
+   keyboard, since focus-visible brings it back. */
+/* Two stages, both measured. The wrapper fades in when the pointer enters the
+   group header; the button itself then takes a fill when pointed at. Geometry is
+   the spec's small minimal button — 24px tall, 0 8px, 4px radius, 14px/400 —
+   not the 12px label this used to be. */
+.viewAll {
+  height: 24px;
+  padding: 0 8px;
+  border: none;
+  border-radius: var(--hd-radius);
+  background: none;
+  color: var(--hd-chrome-muted);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 120ms,
+    background-color 120ms,
+    color 120ms;
+}
+
+.wsGroupHeader:hover .viewAll,
+.viewAll:focus-visible {
+  opacity: 1;
+}
+
+/* rgba(95, 107, 124, 0.24) with white text — Blueprint's dark minimal-button
+   hover, which is what View all resolves to. */
+.viewAll:hover {
+  background: rgba(95, 107, 124, 0.24);
+  color: #fff;
+}
+
+.wsRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* `:not(active)` — an active row keeps its recess
+   under the pointer rather than lifting, so hovering never disguises where you
+   are. */
+.wsRow:not(.wsRowActive):hover {
+  background: var(--hd-chrome-hover);
+}
+
+/* The recess paints the whole 229px row —
+   on the button it stopped 27px short, where the star sits. */
+.wsRowActive,
+.wsRowActive:hover {
+  background: var(--hd-chrome-recessed);
+}
+
+.wsRowActive .wsEntry {
+  font-weight: 600;
+}
+
+.wsEntry {
+  display: flex;
+  flex: 1;
+  /* `width: 100%` as well as `flex: 1`. The scroll container and the footer are
+     block, not flex, so `flex: 1` governed nothing there and each button shrank
+     to its own text — Catalog painted 109px of hover in a 229px column. Inside
+     a .wsRow the flex still does the work; this only matters where there is no
+     flex parent. */
+  width: 100%;
+  align-items: center;
+  /* 12px: the icon starts at 17 and the label at 45, so the
+     gap between them is 12 and every label in the column lines up. */
+  gap: 12px;
+  min-width: 0;
+  height: 32px;
+  padding: 0 17px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 36px, measured: a favouritable entry is taller than a plain one because it
+   has to hold the star without crowding the label. */
+.wsEntryFav {
+  height: 36px;
+}
+
+/* Standalone entries — the destinations at the top and the utilities in the
+   footer — paint their own hover, since they are the full width of the sidebar.
+   Cluster entries are not: they sit inside a .wsRow beside a star and stop 27px
+   short, so for those the *row* paints and the button must not, or the
+   highlight visibly fails to reach the end. */
+.wsEntry:hover {
+  background: var(--hd-chrome-hover);
+}
+
+.wsRow .wsEntry:hover {
+  background: transparent;
+}
+
+/* An application's tile: 24px, the app's own colour, its glyph on top. Sized
+   against the 16px slot the object rows use, so the two kinds of row are
+   distinguishable before you read either label. */
+.wsAppIcon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  /* Occupies the 16px slot and overflows it evenly. Every label measures 164px
+     wide — all 18 entries, app rows included — so a
+     24px app tile does not push its label past where a 16px resource icon puts
+     one. Without this the application row's label sat 8px right of every row
+     under it. */
+  margin: 0 -4px;
+  border-radius: var(--hd-radius);
+  /* A wash, not a block. An app tile is its own colour at 10% alpha behind a
+     full-strength glyph of that same colour. A saturated tile with a
+     contrasting glyph, which is what this was, is the inverse of that: it
+     shouts where the wash sits back. */
+  background: color-mix(in srgb, var(--c, var(--bp-palette-blue-3)) 10%, transparent);
+  color: var(--c, var(--bp-palette-blue-3));
+}
+
+/* The catalog's avatar at sidebar scale: same shape, same radius, same weight,
+   16px instead of 24 so it occupies the icon slot every other entry uses and
+   the labels stay on one inset. */
+.wsAvatar {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--hd-radius);
+  background: var(--c, #5c7080);
+  color: #fff;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Connected, as a dot on the badge's corner. The ring in the rail's own colour
+   separates it from the badge without needing a gap — the same treatment the
+   notification count uses. */
+.wsAvatarOn {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bp-palette-green-4);
+  box-shadow: 0 0 0 1.5px var(--hd-chrome-bg);
+}
+
+.wsName {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Hidden until the row is hovered. Everything in these groups is a favourite,
+   so a star on every row at rest is a column of identical gold marks stating
+   what the group's title already says; it earns its place only when you are
+   pointing at the row it would remove.
+
+   The obvious treatment here is `display: none`. This uses opacity, which looks the same
+   and leaves the button in the tab order — a control a keyboard cannot reach is
+   a control that does not exist, and unfavouriting is the only way out of this
+   group. View all is opacity-based for the same reason, so the two are
+   consistent. */
+.wsStar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  margin-right: 13px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--bp-palette-gold-5);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 120ms;
+}
+
+.wsRow:hover .wsStar,
+.wsStar:focus-visible {
+  opacity: 1;
+}
+
+/* 10px 0 and three 32px entries — a 116px footer. */
+.wsFooter {
+  flex: none;
+  padding: 10px 0;
+  border-top: 1px solid var(--hd-chrome-border);
+}
+
+/* Entries wrapped by a popover target (Notifications, Add cluster) sit inside an
+   inline element that sizes to its content, so the row has to be stretched from
+   the container the same way the collapsed rail's is. */
+.wsScroll > *,
+.wsFooter > * {
+  width: 100%;
+}
+
+/* An empty state, not a disabled item — the same treatment the notifications
+   popover uses, muted at full strength on the white surface rather than
+   Blueprint's disabled grey, which is set for the dark theme. */
+.emptyMenu {
+  padding: 4px 8px;
+  color: var(--bp-palette-gray-1);
+  line-height: 22px;
+}
