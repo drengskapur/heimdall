@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1](https://github.com/drengskapur/heimdall/compare/v0.9.0...v0.9.1) (2026-10-18)
+
+
+### Bug fixes
+
+* close the CodeQL findings and the open dependency advisories ([#27](https://github.com/drengskapur/heimdall/issues/27)) ([6171495](https://github.com/drengskapur/heimdall/commit/61714952480d83c2034968017788e620823ddd8f))
+
 ## [0.9.0](https://github.com/drengskapur/heimdall/compare/v0.8.1...v0.9.0) (2026-08-15)
 
 
