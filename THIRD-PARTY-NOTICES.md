@@ -11,18 +11,18 @@ installed tree. Do not edit it by hand — run `npm run licenses:generate`.
 
 | Package | Version | License |
 | --- | --- | --- |
-| [@blueprintjs/core](https://github.com/palantir/blueprint) | 6.18.0 | Apache-2.0 |
-| [@blueprintjs/icons](https://github.com/palantir/blueprint) | 6.13.0 | Apache-2.0 |
-| [@blueprintjs/select](https://github.com/palantir/blueprint) | 6.3.4 | Apache-2.0 |
-| [@blueprintjs/table](https://github.com/palantir/blueprint) | 6.2.4 | Apache-2.0 |
+| [@blueprintjs/core](https://github.com/palantir/blueprint) | 6.21.0 | Apache-2.0 |
+| [@blueprintjs/icons](https://github.com/palantir/blueprint) | 6.14.1 | Apache-2.0 |
+| [@blueprintjs/select](https://github.com/palantir/blueprint) | 6.4.0 | Apache-2.0 |
+| [@blueprintjs/table](https://github.com/palantir/blueprint) | 6.3.0 | Apache-2.0 |
 | [@xterm/addon-fit](https://github.com/xtermjs/xterm.js/tree/master/addons/addon-fit) | 0.11.0 | MIT |
 | [@xterm/addon-web-links](https://github.com/xtermjs/xterm.js/tree/master/addons/addon-web-links) | 0.12.0 | MIT |
 | [@xterm/xterm](https://github.com/xtermjs/xterm.js) | 6.0.0 | MIT |
-| [react](https://react.dev/) | 19.2.8 | MIT |
-| [react-dom](https://react.dev/) | 19.2.8 | MIT |
-| [undici](https://undici.nodejs.org) | 8.10.0 | MIT |
-| [ws](https://github.com/websockets/ws) | 8.21.3 | MIT |
-| [yaml](https://eemeli.org/yaml/) | 2.9.0 | ISC |
+| [react](https://react.dev/) | 19.3.0 | MIT |
+| [react-dom](https://react.dev/) | 19.3.0 | MIT |
+| [undici](https://undici.nodejs.org) | 8.11.2 | MIT |
+| [ws](https://github.com/websockets/ws) | 8.22.0 | MIT |
+| [yaml](https://eemeli.org/yaml/) | 2.9.1 | ISC |
 
 ## @blueprintjs/core
 

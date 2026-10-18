@@ -7,8 +7,8 @@
     "component": {
       "type": "application",
       "name": "heimdall",
-      "version": "0.8.0",
-      "bom-ref": "heimdall@0.8.0",
+      "version": "0.9.0",
+      "bom-ref": "heimdall@0.9.0",
       "author": "Drengskapur",
       "description": "Heimdall — an installable, offline-first Progressive Web App port of Freelens, the open-source Kubernetes IDE (a Lens fork).",
       "licenses": [
@@ -19,7 +19,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/heimdall@0.8.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fdrengskapur%2Fheimdall.git",
+      "purl": "pkg:npm/heimdall@0.9.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fdrengskapur%2Fheimdall.git",
       "externalReferences": [
         {
           "url": "https://github.com/drengskapur/heimdall/issues",
@@ -61,7 +61,7 @@
       "name": "runtime",
       "group": "@babel",
       "version": "7.29.7",
-      "bom-ref": "heimdall@0.8.0|@babel/runtime@7.29.7",
+      "bom-ref": "heimdall@0.9.0|@babel/runtime@7.29.7",
       "licenses": [
         {
           "license": {
@@ -90,7 +90,7 @@
       "name": "colors",
       "group": "@blueprintjs",
       "version": "5.1.16",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
       "licenses": [
         {
           "license": {
@@ -118,7 +118,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -154,8 +154,8 @@
       "type": "library",
       "name": "core",
       "group": "@blueprintjs",
-      "version": "6.18.0",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+      "version": "6.21.0",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/core@6.21.0",
       "licenses": [
         {
           "license": {
@@ -164,15 +164,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40blueprintjs/core@6.18.0",
+      "purl": "pkg:npm/%40blueprintjs/core@6.21.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@blueprintjs/core/-/core-6.18.0.tgz",
+          "url": "https://registry.npmjs.org/@blueprintjs/core/-/core-6.21.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "11054a5a5fd116b3c77c3e3605c89cbf1ab08f087e3a7352ae85ce7669c9642f853f5c6571ac0e8d3977f1ec2024468267ab7172a8b0fc21807edefff3327845"
+              "content": "b3846b4d18abfb97337bbea81d9a748e0a1d935511ed1cb371b7439252220d5d6cc20753bce238719c5c5493614011dd53d4a5d3009d29b5f0a372749d2121bc"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -183,7 +183,7 @@
           "type": "library",
           "name": "react-popper",
           "version": "2.3.0",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/core@6.21.0|react-popper@2.3.0",
           "licenses": [
             {
               "license": {
@@ -217,7 +217,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/core@6.21.0|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -253,8 +253,8 @@
       "type": "library",
       "name": "icons",
       "group": "@blueprintjs",
-      "version": "6.13.0",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+      "version": "6.14.1",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/icons@6.14.1",
       "licenses": [
         {
           "license": {
@@ -263,15 +263,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40blueprintjs/icons@6.13.0",
+      "purl": "pkg:npm/%40blueprintjs/icons@6.14.1",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@blueprintjs/icons/-/icons-6.13.0.tgz",
+          "url": "https://registry.npmjs.org/@blueprintjs/icons/-/icons-6.14.1.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "c0442000314fc2e7ca88a785fcbe4adb56ca828bae21b21d60fbcc3c5bf6b6deeb792b8211fb57d1d66981afb6d496382af109233fb1b55268a8c99705eb22c1"
+              "content": "f741f2a082316814e3fb8c211543d4fa591d28b4b1fd1e46a526db56e836c4364d4b2eaca6dbc01524e62155af7459c523c4f59a524f327880ff23f6b391a066"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -282,7 +282,7 @@
           "type": "library",
           "name": "change-case",
           "version": "4.1.2",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/icons@6.14.1|change-case@4.1.2",
           "licenses": [
             {
               "license": {
@@ -316,7 +316,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/icons@6.14.1|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -352,8 +352,8 @@
       "type": "library",
       "name": "select",
       "group": "@blueprintjs",
-      "version": "6.3.4",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+      "version": "6.4.0",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/select@6.4.0",
       "licenses": [
         {
           "license": {
@@ -362,15 +362,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40blueprintjs/select@6.3.4",
+      "purl": "pkg:npm/%40blueprintjs/select@6.4.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@blueprintjs/select/-/select-6.3.4.tgz",
+          "url": "https://registry.npmjs.org/@blueprintjs/select/-/select-6.4.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "bc96ba32b5e03f242de0f45cf59e9cd6f68700a24c235ce5a15a61e5e28e7efed88d26f55a56c7fdb1562ae9c0371a9296771fba0e857da1e421187b5186755a"
+              "content": "b6118498afa4870a75ea860de42f295f34570f7bb932ef753430ba9d892ab70be038cf46887f80aa881e4ee7f251dc60a7e2df443b4f66412081c07ba15d708e"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -381,7 +381,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/select@6.4.0|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -417,8 +417,8 @@
       "type": "library",
       "name": "table",
       "group": "@blueprintjs",
-      "version": "6.2.4",
-      "bom-ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+      "version": "6.3.0",
+      "bom-ref": "heimdall@0.9.0|@blueprintjs/table@6.3.0",
       "licenses": [
         {
           "license": {
@@ -427,15 +427,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40blueprintjs/table@6.2.4",
+      "purl": "pkg:npm/%40blueprintjs/table@6.3.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@blueprintjs/table/-/table-6.2.4.tgz",
+          "url": "https://registry.npmjs.org/@blueprintjs/table/-/table-6.3.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "8a04d8d1cd9fc8fabae8043f801564c90d85eeae7b7faaaf2313596bacd52f5cc307380ab21d5ff27ca870c748bfe95ea5de8349f942ef20d083e75f53d59c43"
+              "content": "dd45326880f5153bdd482f8773eebad19f9489bd03c9dbaf8eac96a1784d27284f71ac7baef2dd000e576ce38eea03880a5ec836d9870be94257277c7a6a34de"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -446,7 +446,7 @@
           "type": "library",
           "name": "tslib",
           "version": "2.6.3",
-          "bom-ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
+          "bom-ref": "heimdall@0.9.0|@blueprintjs/table@6.3.0|tslib@2.6.3",
           "licenses": [
             {
               "license": {
@@ -483,7 +483,7 @@
       "name": "core",
       "group": "@floating-ui",
       "version": "1.8.0",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/core@1.8.0",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/core@1.8.0",
       "licenses": [
         {
           "license": {
@@ -512,7 +512,7 @@
       "name": "dom",
       "group": "@floating-ui",
       "version": "1.8.0",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/dom@1.8.0",
       "licenses": [
         {
           "license": {
@@ -541,7 +541,7 @@
       "name": "react-dom",
       "group": "@floating-ui",
       "version": "2.1.9",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/react-dom@2.1.9",
       "licenses": [
         {
           "license": {
@@ -570,7 +570,7 @@
       "name": "react",
       "group": "@floating-ui",
       "version": "0.27.20",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/react@0.27.20",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/react@0.27.20",
       "licenses": [
         {
           "license": {
@@ -599,7 +599,7 @@
       "name": "utils",
       "group": "@floating-ui",
       "version": "0.2.12",
-      "bom-ref": "heimdall@0.8.0|@floating-ui/utils@0.2.12",
+      "bom-ref": "heimdall@0.9.0|@floating-ui/utils@0.2.12",
       "licenses": [
         {
           "license": {
@@ -628,7 +628,7 @@
       "name": "core",
       "group": "@popperjs",
       "version": "2.11.8",
-      "bom-ref": "heimdall@0.8.0|@popperjs/core@2.11.8",
+      "bom-ref": "heimdall@0.9.0|@popperjs/core@2.11.8",
       "licenses": [
         {
           "license": {
@@ -656,8 +656,8 @@
       "type": "library",
       "name": "react",
       "group": "@types",
-      "version": "19.2.18",
-      "bom-ref": "heimdall@0.8.0|@types/react@19.2.18",
+      "version": "19.3.0",
+      "bom-ref": "heimdall@0.9.0|@types/react@19.3.0",
       "licenses": [
         {
           "license": {
@@ -666,15 +666,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/react@19.2.18",
+      "purl": "pkg:npm/%40types/react@19.3.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@types/react/-/react-19.2.18.tgz",
+          "url": "https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "027cdb04446cacb2ad9365d27d36d844b8d03ddcb5d7a4adcb8abe4fe069dc80b897a8cd06fade54f0079a9abdaa15d033b09764f8cb56618cc3db32fa1c50df"
+              "content": "374ac50ae1fd628c46f7f9bad65f4c7e924a7e62ce554d1e9bb8a9233e9346049292f45e2c1f6f2fce4607ecabf01b3995eaa9be0f7a252c05e194b5b38be242"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -686,7 +686,7 @@
       "name": "addon-fit",
       "group": "@xterm",
       "version": "0.11.0",
-      "bom-ref": "heimdall@0.8.0|@xterm/addon-fit@0.11.0",
+      "bom-ref": "heimdall@0.9.0|@xterm/addon-fit@0.11.0",
       "licenses": [
         {
           "license": {
@@ -715,7 +715,7 @@
       "name": "addon-web-links",
       "group": "@xterm",
       "version": "0.12.0",
-      "bom-ref": "heimdall@0.8.0|@xterm/addon-web-links@0.12.0",
+      "bom-ref": "heimdall@0.9.0|@xterm/addon-web-links@0.12.0",
       "licenses": [
         {
           "license": {
@@ -744,7 +744,7 @@
       "name": "xterm",
       "group": "@xterm",
       "version": "6.0.0",
-      "bom-ref": "heimdall@0.8.0|@xterm/xterm@6.0.0",
+      "bom-ref": "heimdall@0.9.0|@xterm/xterm@6.0.0",
       "licenses": [
         {
           "license": {
@@ -772,7 +772,7 @@
       "type": "library",
       "name": "camel-case",
       "version": "4.1.2",
-      "bom-ref": "heimdall@0.8.0|camel-case@4.1.2",
+      "bom-ref": "heimdall@0.9.0|camel-case@4.1.2",
       "licenses": [
         {
           "license": {
@@ -800,7 +800,7 @@
       "type": "library",
       "name": "capital-case",
       "version": "1.0.4",
-      "bom-ref": "heimdall@0.8.0|capital-case@1.0.4",
+      "bom-ref": "heimdall@0.9.0|capital-case@1.0.4",
       "licenses": [
         {
           "license": {
@@ -828,7 +828,7 @@
       "type": "library",
       "name": "classnames",
       "version": "2.5.1",
-      "bom-ref": "heimdall@0.8.0|classnames@2.5.1",
+      "bom-ref": "heimdall@0.9.0|classnames@2.5.1",
       "licenses": [
         {
           "license": {
@@ -856,7 +856,7 @@
       "type": "library",
       "name": "constant-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|constant-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|constant-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -884,7 +884,7 @@
       "type": "library",
       "name": "csstype",
       "version": "3.2.3",
-      "bom-ref": "heimdall@0.8.0|csstype@3.2.3",
+      "bom-ref": "heimdall@0.9.0|csstype@3.2.3",
       "licenses": [
         {
           "license": {
@@ -912,7 +912,7 @@
       "type": "library",
       "name": "dom-helpers",
       "version": "5.2.1",
-      "bom-ref": "heimdall@0.8.0|dom-helpers@5.2.1",
+      "bom-ref": "heimdall@0.9.0|dom-helpers@5.2.1",
       "licenses": [
         {
           "license": {
@@ -940,7 +940,7 @@
       "type": "library",
       "name": "dot-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|dot-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|dot-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -968,7 +968,7 @@
       "type": "library",
       "name": "header-case",
       "version": "2.0.4",
-      "bom-ref": "heimdall@0.8.0|header-case@2.0.4",
+      "bom-ref": "heimdall@0.9.0|header-case@2.0.4",
       "licenses": [
         {
           "license": {
@@ -996,7 +996,7 @@
       "type": "library",
       "name": "js-tokens",
       "version": "4.0.0",
-      "bom-ref": "heimdall@0.8.0|js-tokens@4.0.0",
+      "bom-ref": "heimdall@0.9.0|js-tokens@4.0.0",
       "licenses": [
         {
           "license": {
@@ -1024,7 +1024,7 @@
       "type": "library",
       "name": "loose-envify",
       "version": "1.4.0",
-      "bom-ref": "heimdall@0.8.0|loose-envify@1.4.0",
+      "bom-ref": "heimdall@0.9.0|loose-envify@1.4.0",
       "licenses": [
         {
           "license": {
@@ -1052,7 +1052,7 @@
       "type": "library",
       "name": "lower-case",
       "version": "2.0.2",
-      "bom-ref": "heimdall@0.8.0|lower-case@2.0.2",
+      "bom-ref": "heimdall@0.9.0|lower-case@2.0.2",
       "licenses": [
         {
           "license": {
@@ -1080,7 +1080,7 @@
       "type": "library",
       "name": "no-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|no-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|no-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1108,7 +1108,7 @@
       "type": "library",
       "name": "normalize.css",
       "version": "8.0.1",
-      "bom-ref": "heimdall@0.8.0|normalize.css@8.0.1",
+      "bom-ref": "heimdall@0.9.0|normalize.css@8.0.1",
       "licenses": [
         {
           "license": {
@@ -1136,7 +1136,7 @@
       "type": "library",
       "name": "object-assign",
       "version": "4.1.1",
-      "bom-ref": "heimdall@0.8.0|object-assign@4.1.1",
+      "bom-ref": "heimdall@0.9.0|object-assign@4.1.1",
       "licenses": [
         {
           "license": {
@@ -1164,7 +1164,7 @@
       "type": "library",
       "name": "param-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|param-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|param-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1192,7 +1192,7 @@
       "type": "library",
       "name": "pascal-case",
       "version": "3.1.2",
-      "bom-ref": "heimdall@0.8.0|pascal-case@3.1.2",
+      "bom-ref": "heimdall@0.9.0|pascal-case@3.1.2",
       "licenses": [
         {
           "license": {
@@ -1220,7 +1220,7 @@
       "type": "library",
       "name": "path-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|path-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|path-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1248,7 +1248,7 @@
       "type": "library",
       "name": "prop-types",
       "version": "15.8.1",
-      "bom-ref": "heimdall@0.8.0|prop-types@15.8.1",
+      "bom-ref": "heimdall@0.9.0|prop-types@15.8.1",
       "licenses": [
         {
           "license": {
@@ -1275,8 +1275,8 @@
     {
       "type": "library",
       "name": "react-dom",
-      "version": "19.2.8",
-      "bom-ref": "heimdall@0.8.0|react-dom@19.2.8",
+      "version": "19.3.0",
+      "bom-ref": "heimdall@0.9.0|react-dom@19.3.0",
       "licenses": [
         {
           "license": {
@@ -1285,15 +1285,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/react-dom@19.2.8",
+      "purl": "pkg:npm/react-dom@19.3.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.8.tgz",
+          "url": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "ad5a6b8a67c6046dc347e4ead08406d834f93f12ad8755881839a3e723e6973af86017bbbb213e0eee2856a4c35d948718619746d4c910649278fc9008c06095"
+              "content": "24393c76089fe753a31680c4ef4f8e4fd202c98afeebd1e59a284dc29d7e36c7db9dadede6c22209af59264b43990e3fd5bfeb9f6ea1200476b985c332be6bd1"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1304,7 +1304,7 @@
       "type": "library",
       "name": "react-fast-compare",
       "version": "3.2.2",
-      "bom-ref": "heimdall@0.8.0|react-fast-compare@3.2.2",
+      "bom-ref": "heimdall@0.9.0|react-fast-compare@3.2.2",
       "licenses": [
         {
           "license": {
@@ -1332,7 +1332,7 @@
       "type": "library",
       "name": "react-innertext",
       "version": "1.1.5",
-      "bom-ref": "heimdall@0.8.0|react-innertext@1.1.5",
+      "bom-ref": "heimdall@0.9.0|react-innertext@1.1.5",
       "licenses": [
         {
           "license": {
@@ -1360,7 +1360,7 @@
       "type": "library",
       "name": "react-is",
       "version": "16.13.1",
-      "bom-ref": "heimdall@0.8.0|react-is@16.13.1",
+      "bom-ref": "heimdall@0.9.0|react-is@16.13.1",
       "licenses": [
         {
           "license": {
@@ -1388,7 +1388,7 @@
       "type": "library",
       "name": "react-transition-group",
       "version": "4.4.5",
-      "bom-ref": "heimdall@0.8.0|react-transition-group@4.4.5",
+      "bom-ref": "heimdall@0.9.0|react-transition-group@4.4.5",
       "licenses": [
         {
           "license": {
@@ -1415,8 +1415,8 @@
     {
       "type": "library",
       "name": "react",
-      "version": "19.2.8",
-      "bom-ref": "heimdall@0.8.0|react@19.2.8",
+      "version": "19.3.0",
+      "bom-ref": "heimdall@0.9.0|react@19.3.0",
       "licenses": [
         {
           "license": {
@@ -1425,15 +1425,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/react@19.2.8",
+      "purl": "pkg:npm/react@19.3.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/react/-/react-19.2.8.tgz",
+          "url": "https://registry.npmjs.org/react/-/react-19.3.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "3d66980352ffabdbb6bbbc58422f98dcbdd87e789eed7c8b79a248095d4c183e8ba6bb01c5c02a1a3632af4798de9f9076c03ec7f22b92de1089ff03eb7f926f"
+              "content": "13c2d471bb415addb46db9766281dfc7864305dc554df38ab42667f5c0d227897afe7ba8029729201723e3bb76c19a155fc836647b8c1db892860091d53e52a2"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1443,8 +1443,8 @@
     {
       "type": "library",
       "name": "scheduler",
-      "version": "0.27.0",
-      "bom-ref": "heimdall@0.8.0|scheduler@0.27.0",
+      "version": "0.28.0",
+      "bom-ref": "heimdall@0.9.0|scheduler@0.28.0",
       "licenses": [
         {
           "license": {
@@ -1453,15 +1453,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/scheduler@0.27.0",
+      "purl": "pkg:npm/scheduler@0.28.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/scheduler/-/scheduler-0.27.0.tgz",
+          "url": "https://registry.npmjs.org/scheduler/-/scheduler-0.28.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "78dbfe5ab55b2aed5fdef6d8253ff1b62179b320391cf20cb5ff48818fe72a0d2c5aacc0504bea63fc66ece71973fa9a7cbc7f88ef4580e99e480a78bf9b62fd"
+              "content": "8eea2b7c2988908c3cb53fa9e415d29ba3c98d017fc9c11898acb3511088b7f45a64884bf8fba56d0f58bb6cf51dd3890dda834e5c40d7ec4a0661d726c73303"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1472,7 +1472,7 @@
       "type": "library",
       "name": "sentence-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|sentence-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|sentence-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1500,7 +1500,7 @@
       "type": "library",
       "name": "snake-case",
       "version": "3.0.4",
-      "bom-ref": "heimdall@0.8.0|snake-case@3.0.4",
+      "bom-ref": "heimdall@0.9.0|snake-case@3.0.4",
       "licenses": [
         {
           "license": {
@@ -1528,7 +1528,7 @@
       "type": "library",
       "name": "tabbable",
       "version": "6.5.0",
-      "bom-ref": "heimdall@0.8.0|tabbable@6.5.0",
+      "bom-ref": "heimdall@0.9.0|tabbable@6.5.0",
       "licenses": [
         {
           "license": {
@@ -1556,7 +1556,7 @@
       "type": "library",
       "name": "tslib",
       "version": "2.8.1",
-      "bom-ref": "heimdall@0.8.0|tslib@2.8.1",
+      "bom-ref": "heimdall@0.9.0|tslib@2.8.1",
       "licenses": [
         {
           "license": {
@@ -1583,8 +1583,8 @@
     {
       "type": "library",
       "name": "undici",
-      "version": "8.10.0",
-      "bom-ref": "heimdall@0.8.0|undici@8.10.0",
+      "version": "8.11.2",
+      "bom-ref": "heimdall@0.9.0|undici@8.11.2",
       "licenses": [
         {
           "license": {
@@ -1593,15 +1593,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/undici@8.10.0",
+      "purl": "pkg:npm/undici@8.11.2",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/undici/-/undici-8.10.0.tgz",
+          "url": "https://registry.npmjs.org/undici/-/undici-8.11.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "1ef96d1ddedabcad77408c3fa0b7b8aa838bca8552a1a7ea2768d83abb4c44191b613df57a2050f0ed1e851299884642304c8b150348003a600960b97c02ef61"
+              "content": "bb8501dbf22b29d53a945c6e9879a6a356b77c240ee6dcd0965468adfa114badedc61ac1ef14e94a7d4f7edc02e2a10790e6aa3fde5f0965b8949cf012bc3385"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1612,7 +1612,7 @@
       "type": "library",
       "name": "upper-case-first",
       "version": "2.0.2",
-      "bom-ref": "heimdall@0.8.0|upper-case-first@2.0.2",
+      "bom-ref": "heimdall@0.9.0|upper-case-first@2.0.2",
       "licenses": [
         {
           "license": {
@@ -1640,7 +1640,7 @@
       "type": "library",
       "name": "upper-case",
       "version": "2.0.2",
-      "bom-ref": "heimdall@0.8.0|upper-case@2.0.2",
+      "bom-ref": "heimdall@0.9.0|upper-case@2.0.2",
       "licenses": [
         {
           "license": {
@@ -1668,7 +1668,7 @@
       "type": "library",
       "name": "warning",
       "version": "4.0.3",
-      "bom-ref": "heimdall@0.8.0|warning@4.0.3",
+      "bom-ref": "heimdall@0.9.0|warning@4.0.3",
       "licenses": [
         {
           "license": {
@@ -1695,8 +1695,8 @@
     {
       "type": "library",
       "name": "ws",
-      "version": "8.21.3",
-      "bom-ref": "heimdall@0.8.0|ws@8.21.3",
+      "version": "8.22.0",
+      "bom-ref": "heimdall@0.9.0|ws@8.22.0",
       "licenses": [
         {
           "license": {
@@ -1705,15 +1705,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/ws@8.21.3",
+      "purl": "pkg:npm/ws@8.22.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/ws/-/ws-8.21.3.tgz",
+          "url": "https://registry.npmjs.org/ws/-/ws-8.22.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "db4d5367f90f5b1a0faff38a5a3aae651d5258a5dcbf1747f9ed71af1f3d6f761b9b32cc1422df9da1b51c52205b324e11667b32fa4afbea1d66e7e0611e7447"
+              "content": "61d82073df3bf913b40275ad67fed6abd16d36f72b2f56ff44ed2e77d9968d43e00ebb00030412179d6c9b6866d57a1f6d4ff88e4a4612c2c5b1967153ed433a"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1723,8 +1723,8 @@
     {
       "type": "library",
       "name": "yaml",
-      "version": "2.9.0",
-      "bom-ref": "heimdall@0.8.0|yaml@2.9.0",
+      "version": "2.9.1",
+      "bom-ref": "heimdall@0.9.0|yaml@2.9.1",
       "licenses": [
         {
           "license": {
@@ -1733,15 +1733,15 @@
           }
         }
       ],
-      "purl": "pkg:npm/yaml@2.9.0",
+      "purl": "pkg:npm/yaml@2.9.1",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/yaml/-/yaml-2.9.0.tgz",
+          "url": "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "d80be1357de66fccdde99cbb20d4ed4a9975175e475ba5a7aa3d2cad696428b729625fe03083098b2b86ab629e236605c543e376507edcb735d2c78c2ed2f870"
+              "content": "dcdc4df3eefc39dcdb4fb0bf5a31acc9f3c0b4968ddc5343b16c6fed8ee6703b13fe83a6816f01a72410145067bd91378fd63649dcf550b14b7b32fb11bdb217"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1751,370 +1751,370 @@
   ],
   "dependencies": [
     {
-      "ref": "heimdall@0.8.0",
+      "ref": "heimdall@0.9.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@blueprintjs/select@6.3.4",
-        "heimdall@0.8.0|@blueprintjs/table@6.2.4",
-        "heimdall@0.8.0|@xterm/addon-fit@0.11.0",
-        "heimdall@0.8.0|@xterm/addon-web-links@0.12.0",
-        "heimdall@0.8.0|@xterm/xterm@6.0.0",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|undici@8.10.0",
-        "heimdall@0.8.0|ws@8.21.3",
-        "heimdall@0.8.0|yaml@2.9.0"
+        "heimdall@0.9.0|@blueprintjs/core@6.21.0",
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1",
+        "heimdall@0.9.0|@blueprintjs/select@6.4.0",
+        "heimdall@0.9.0|@blueprintjs/table@6.3.0",
+        "heimdall@0.9.0|@xterm/addon-fit@0.11.0",
+        "heimdall@0.9.0|@xterm/addon-web-links@0.12.0",
+        "heimdall@0.9.0|@xterm/xterm@6.0.0",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react@19.3.0",
+        "heimdall@0.9.0|undici@8.11.2",
+        "heimdall@0.9.0|ws@8.22.0",
+        "heimdall@0.9.0|yaml@2.9.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@babel/runtime@7.29.7"
+      "ref": "heimdall@0.9.0|@babel/runtime@7.29.7"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
+      "ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
+        "heimdall@0.9.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/colors@5.1.16|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0",
+      "ref": "heimdall@0.9.0|@blueprintjs/core@6.21.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@floating-ui/react@0.27.20",
-        "heimdall@0.8.0|@popperjs/core@2.11.8",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|normalize.css@8.0.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react-transition-group@4.4.5",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
+        "heimdall@0.9.0|@blueprintjs/core@6.21.0|react-popper@2.3.0",
+        "heimdall@0.9.0|@blueprintjs/core@6.21.0|tslib@2.6.3",
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1",
+        "heimdall@0.9.0|@floating-ui/react@0.27.20",
+        "heimdall@0.9.0|@popperjs/core@2.11.8",
+        "heimdall@0.9.0|@types/react@19.3.0",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|normalize.css@8.0.1",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react-transition-group@4.4.5",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|react-popper@2.3.0",
+      "ref": "heimdall@0.9.0|@blueprintjs/core@6.21.0|react-popper@2.3.0",
       "dependsOn": [
-        "heimdall@0.8.0|@popperjs/core@2.11.8",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react-fast-compare@3.2.2",
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|warning@4.0.3"
+        "heimdall@0.9.0|@popperjs/core@2.11.8",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react-fast-compare@3.2.2",
+        "heimdall@0.9.0|react@19.3.0",
+        "heimdall@0.9.0|warning@4.0.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/core@6.18.0|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/core@6.21.0|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
+      "ref": "heimdall@0.9.0|@blueprintjs/icons@6.14.1",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1|change-case@4.1.2",
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1|tslib@2.6.3",
+        "heimdall@0.9.0|@types/react@19.3.0",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|change-case@4.1.2",
+      "ref": "heimdall@0.9.0|@blueprintjs/icons@6.14.1|change-case@4.1.2",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3",
-        "heimdall@0.8.0|camel-case@4.1.2",
-        "heimdall@0.8.0|capital-case@1.0.4",
-        "heimdall@0.8.0|constant-case@3.0.4",
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|header-case@2.0.4",
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|param-case@3.0.4",
-        "heimdall@0.8.0|pascal-case@3.1.2",
-        "heimdall@0.8.0|path-case@3.0.4",
-        "heimdall@0.8.0|sentence-case@3.0.4",
-        "heimdall@0.8.0|snake-case@3.0.4"
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1|tslib@2.6.3",
+        "heimdall@0.9.0|camel-case@4.1.2",
+        "heimdall@0.9.0|capital-case@1.0.4",
+        "heimdall@0.9.0|constant-case@3.0.4",
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|header-case@2.0.4",
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|param-case@3.0.4",
+        "heimdall@0.9.0|pascal-case@3.1.2",
+        "heimdall@0.9.0|path-case@3.0.4",
+        "heimdall@0.9.0|sentence-case@3.0.4",
+        "heimdall@0.9.0|snake-case@3.0.4"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/icons@6.13.0|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/icons@6.14.1|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4",
+      "ref": "heimdall@0.9.0|@blueprintjs/select@6.4.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/colors@5.1.16",
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/colors@5.1.16",
+        "heimdall@0.9.0|@blueprintjs/core@6.21.0",
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1",
+        "heimdall@0.9.0|@blueprintjs/select@6.4.0|tslib@2.6.3",
+        "heimdall@0.9.0|@types/react@19.3.0",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/select@6.3.4|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/select@6.4.0|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4",
+      "ref": "heimdall@0.9.0|@blueprintjs/table@6.3.0",
       "dependsOn": [
-        "heimdall@0.8.0|@blueprintjs/core@6.18.0",
-        "heimdall@0.8.0|@blueprintjs/icons@6.13.0",
-        "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3",
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|classnames@2.5.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react-innertext@1.1.5",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@blueprintjs/core@6.21.0",
+        "heimdall@0.9.0|@blueprintjs/icons@6.14.1",
+        "heimdall@0.9.0|@blueprintjs/table@6.3.0|tslib@2.6.3",
+        "heimdall@0.9.0|@types/react@19.3.0",
+        "heimdall@0.9.0|classnames@2.5.1",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react-innertext@1.1.5",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@blueprintjs/table@6.2.4|tslib@2.6.3"
+      "ref": "heimdall@0.9.0|@blueprintjs/table@6.3.0|tslib@2.6.3"
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/core@1.8.0",
+      "ref": "heimdall@0.9.0|@floating-ui/core@1.8.0",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+        "heimdall@0.9.0|@floating-ui/utils@0.2.12"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/dom@1.8.0",
+      "ref": "heimdall@0.9.0|@floating-ui/dom@1.8.0",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/core@1.8.0",
-        "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+        "heimdall@0.9.0|@floating-ui/core@1.8.0",
+        "heimdall@0.9.0|@floating-ui/utils@0.2.12"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
+      "ref": "heimdall@0.9.0|@floating-ui/react-dom@2.1.9",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/dom@1.8.0",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@floating-ui/dom@1.8.0",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/react@0.27.20",
+      "ref": "heimdall@0.9.0|@floating-ui/react@0.27.20",
       "dependsOn": [
-        "heimdall@0.8.0|@floating-ui/react-dom@2.1.9",
-        "heimdall@0.8.0|@floating-ui/utils@0.2.12",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|tabbable@6.5.0"
+        "heimdall@0.9.0|@floating-ui/react-dom@2.1.9",
+        "heimdall@0.9.0|@floating-ui/utils@0.2.12",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react@19.3.0",
+        "heimdall@0.9.0|tabbable@6.5.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@floating-ui/utils@0.2.12"
+      "ref": "heimdall@0.9.0|@floating-ui/utils@0.2.12"
     },
     {
-      "ref": "heimdall@0.8.0|@popperjs/core@2.11.8"
+      "ref": "heimdall@0.9.0|@popperjs/core@2.11.8"
     },
     {
-      "ref": "heimdall@0.8.0|@types/react@19.2.18",
+      "ref": "heimdall@0.9.0|@types/react@19.3.0",
       "dependsOn": [
-        "heimdall@0.8.0|csstype@3.2.3"
+        "heimdall@0.9.0|csstype@3.2.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|@xterm/addon-fit@0.11.0"
+      "ref": "heimdall@0.9.0|@xterm/addon-fit@0.11.0"
     },
     {
-      "ref": "heimdall@0.8.0|@xterm/addon-web-links@0.12.0"
+      "ref": "heimdall@0.9.0|@xterm/addon-web-links@0.12.0"
     },
     {
-      "ref": "heimdall@0.8.0|@xterm/xterm@6.0.0"
+      "ref": "heimdall@0.9.0|@xterm/xterm@6.0.0"
     },
     {
-      "ref": "heimdall@0.8.0|camel-case@4.1.2",
+      "ref": "heimdall@0.9.0|camel-case@4.1.2",
       "dependsOn": [
-        "heimdall@0.8.0|pascal-case@3.1.2",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|pascal-case@3.1.2",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|capital-case@1.0.4",
+      "ref": "heimdall@0.9.0|capital-case@1.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1",
-        "heimdall@0.8.0|upper-case-first@2.0.2"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1",
+        "heimdall@0.9.0|upper-case-first@2.0.2"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|classnames@2.5.1"
+      "ref": "heimdall@0.9.0|classnames@2.5.1"
     },
     {
-      "ref": "heimdall@0.8.0|constant-case@3.0.4",
+      "ref": "heimdall@0.9.0|constant-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1",
-        "heimdall@0.8.0|upper-case@2.0.2"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1",
+        "heimdall@0.9.0|upper-case@2.0.2"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|csstype@3.2.3"
+      "ref": "heimdall@0.9.0|csstype@3.2.3"
     },
     {
-      "ref": "heimdall@0.8.0|dom-helpers@5.2.1",
+      "ref": "heimdall@0.9.0|dom-helpers@5.2.1",
       "dependsOn": [
-        "heimdall@0.8.0|@babel/runtime@7.29.7",
-        "heimdall@0.8.0|csstype@3.2.3"
+        "heimdall@0.9.0|@babel/runtime@7.29.7",
+        "heimdall@0.9.0|csstype@3.2.3"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|dot-case@3.0.4",
+      "ref": "heimdall@0.9.0|dot-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|header-case@2.0.4",
+      "ref": "heimdall@0.9.0|header-case@2.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|capital-case@1.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|capital-case@1.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|js-tokens@4.0.0"
+      "ref": "heimdall@0.9.0|js-tokens@4.0.0"
     },
     {
-      "ref": "heimdall@0.8.0|loose-envify@1.4.0",
+      "ref": "heimdall@0.9.0|loose-envify@1.4.0",
       "dependsOn": [
-        "heimdall@0.8.0|js-tokens@4.0.0"
+        "heimdall@0.9.0|js-tokens@4.0.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|lower-case@2.0.2",
+      "ref": "heimdall@0.9.0|lower-case@2.0.2",
       "dependsOn": [
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|no-case@3.0.4",
+      "ref": "heimdall@0.9.0|no-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|lower-case@2.0.2",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|lower-case@2.0.2",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|normalize.css@8.0.1"
+      "ref": "heimdall@0.9.0|normalize.css@8.0.1"
     },
     {
-      "ref": "heimdall@0.8.0|object-assign@4.1.1"
+      "ref": "heimdall@0.9.0|object-assign@4.1.1"
     },
     {
-      "ref": "heimdall@0.8.0|param-case@3.0.4",
+      "ref": "heimdall@0.9.0|param-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|pascal-case@3.1.2",
+      "ref": "heimdall@0.9.0|pascal-case@3.1.2",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|path-case@3.0.4",
+      "ref": "heimdall@0.9.0|path-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|prop-types@15.8.1",
+      "ref": "heimdall@0.9.0|prop-types@15.8.1",
       "dependsOn": [
-        "heimdall@0.8.0|loose-envify@1.4.0",
-        "heimdall@0.8.0|object-assign@4.1.1",
-        "heimdall@0.8.0|react-is@16.13.1"
+        "heimdall@0.9.0|loose-envify@1.4.0",
+        "heimdall@0.9.0|object-assign@4.1.1",
+        "heimdall@0.9.0|react-is@16.13.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react-dom@19.2.8",
+      "ref": "heimdall@0.9.0|react-dom@19.3.0",
       "dependsOn": [
-        "heimdall@0.8.0|react@19.2.8",
-        "heimdall@0.8.0|scheduler@0.27.0"
+        "heimdall@0.9.0|react@19.3.0",
+        "heimdall@0.9.0|scheduler@0.28.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react-fast-compare@3.2.2"
+      "ref": "heimdall@0.9.0|react-fast-compare@3.2.2"
     },
     {
-      "ref": "heimdall@0.8.0|react-innertext@1.1.5",
+      "ref": "heimdall@0.9.0|react-innertext@1.1.5",
       "dependsOn": [
-        "heimdall@0.8.0|@types/react@19.2.18",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@types/react@19.3.0",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react-is@16.13.1"
+      "ref": "heimdall@0.9.0|react-is@16.13.1"
     },
     {
-      "ref": "heimdall@0.8.0|react-transition-group@4.4.5",
+      "ref": "heimdall@0.9.0|react-transition-group@4.4.5",
       "dependsOn": [
-        "heimdall@0.8.0|@babel/runtime@7.29.7",
-        "heimdall@0.8.0|dom-helpers@5.2.1",
-        "heimdall@0.8.0|loose-envify@1.4.0",
-        "heimdall@0.8.0|prop-types@15.8.1",
-        "heimdall@0.8.0|react-dom@19.2.8",
-        "heimdall@0.8.0|react@19.2.8"
+        "heimdall@0.9.0|@babel/runtime@7.29.7",
+        "heimdall@0.9.0|dom-helpers@5.2.1",
+        "heimdall@0.9.0|loose-envify@1.4.0",
+        "heimdall@0.9.0|prop-types@15.8.1",
+        "heimdall@0.9.0|react-dom@19.3.0",
+        "heimdall@0.9.0|react@19.3.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|react@19.2.8"
+      "ref": "heimdall@0.9.0|react@19.3.0"
     },
     {
-      "ref": "heimdall@0.8.0|scheduler@0.27.0"
+      "ref": "heimdall@0.9.0|scheduler@0.28.0"
     },
     {
-      "ref": "heimdall@0.8.0|sentence-case@3.0.4",
+      "ref": "heimdall@0.9.0|sentence-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|no-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1",
-        "heimdall@0.8.0|upper-case-first@2.0.2"
+        "heimdall@0.9.0|no-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1",
+        "heimdall@0.9.0|upper-case-first@2.0.2"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|snake-case@3.0.4",
+      "ref": "heimdall@0.9.0|snake-case@3.0.4",
       "dependsOn": [
-        "heimdall@0.8.0|dot-case@3.0.4",
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|dot-case@3.0.4",
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|tabbable@6.5.0"
+      "ref": "heimdall@0.9.0|tabbable@6.5.0"
     },
     {
-      "ref": "heimdall@0.8.0|tslib@2.8.1"
+      "ref": "heimdall@0.9.0|tslib@2.8.1"
     },
     {
-      "ref": "heimdall@0.8.0|undici@8.10.0"
+      "ref": "heimdall@0.9.0|undici@8.11.2"
     },
     {
-      "ref": "heimdall@0.8.0|upper-case-first@2.0.2",
+      "ref": "heimdall@0.9.0|upper-case-first@2.0.2",
       "dependsOn": [
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|upper-case@2.0.2",
+      "ref": "heimdall@0.9.0|upper-case@2.0.2",
       "dependsOn": [
-        "heimdall@0.8.0|tslib@2.8.1"
+        "heimdall@0.9.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|warning@4.0.3",
+      "ref": "heimdall@0.9.0|warning@4.0.3",
       "dependsOn": [
-        "heimdall@0.8.0|loose-envify@1.4.0"
+        "heimdall@0.9.0|loose-envify@1.4.0"
       ]
     },
     {
-      "ref": "heimdall@0.8.0|ws@8.21.3"
+      "ref": "heimdall@0.9.0|ws@8.22.0"
     },
     {
-      "ref": "heimdall@0.8.0|yaml@2.9.0"
+      "ref": "heimdall@0.9.0|yaml@2.9.1"
     }
   ]
 }

@@ -7,7 +7,7 @@ import { resolve } from "node:path";
  * application ships.
  *
  * A consumer of a built SPA cannot see what went into the bundle. The SBOM is
- * the machine-readable answer: 58 components with their versions, licenses and
+ * the machine-readable answer: 51 components with their versions, licenses and
  * package URLs, which is what a vulnerability scanner needs to tell someone
  * whether a newly disclosed CVE reaches them.
  *
