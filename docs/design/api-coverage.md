@@ -8,7 +8,7 @@
 
 - **Lens sidebar parity:** 37 / 37 of the kinds Lens curates into its sidebar (that exist in v1.36) — **100%**. This is the parity number that matters.
 - **Raw Kubernetes surface:** 37 / 68 listable kinds (54%). The remainder are API-discovery / CRD-only kinds Lens doesn't surface as sidebar views either.
-- **UI registry pages:** 39
+- **UI registry pages:** 46
 - **App-level operations:** 7 / 7 generated & typed
 - **Typed mapper seams:** 6 / 6 consume generated OpenAPI types
 

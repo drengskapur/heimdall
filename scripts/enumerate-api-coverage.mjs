@@ -260,6 +260,21 @@ if (process.argv.includes("--json")) {
     ),
   );
 } else if (process.argv.includes("--md")) {
+  /** A summary line as one markdown table cell.
+   *
+   *  Backslash first, then pipe. Escaping only the pipe leaves the backslash
+   *  the escape is made of unescaped, so a summary ending in one — `a\` —
+   *  becomes `a\|`, and the escape that was meant to protect the delimiter is
+   *  itself consumed as an escape for it, silently merging two columns.
+   *  Truncation happens before escaping, not after: an 80-character cut taken
+   *  afterwards can fall between a backslash and the character it escapes and
+   *  reintroduce the same bug from the other end. */
+  const cell = text =>
+    String(text ?? "")
+      .replace(/[\r\n]+/g, " ")
+      .slice(0, 80)
+      .replace(/\\/g, "\\\\")
+      .replace(/\|/g, "\\|");
   const L = [];
   L.push("# API coverage — Heimdall vs. the Kubernetes + app API surface");
   L.push("");
@@ -309,7 +324,7 @@ if (process.argv.includes("--json")) {
   L.push("|---|---|---|---|---|");
   for (const o of app) {
     L.push(
-      `| \`${o.operationId}\` | ${o.method} | \`${o.path}\` | ${o.generated ? "✅" : "❌"} | ${o.summary.replace(/\|/g, "\\|").slice(0, 80)} |`,
+      `| \`${o.operationId}\` | ${o.method} | \`${o.path}\` | ${o.generated ? "✅" : "❌"} | ${cell(o.summary)} |`,
     );
   }
   L.push("");
