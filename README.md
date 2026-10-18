@@ -1,6 +1,9 @@
 # Heimdall
 
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/drengskapur/heimdall/badge)](https://scorecard.dev/viewer/?uri=github.com/drengskapur/heimdall)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/drengskapur/heimdall/badge)](https://scorecard.dev/viewer/?uri=github.com/drengskapur/heimdall)
+<!-- BEST PRACTICES BADGE: once bestpractices.dev assigns a project id, replace this comment with:
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/PROJECT_ID/badge)](https://www.bestpractices.dev/projects/PROJECT_ID)
+-->
 [![test](https://github.com/drengskapur/heimdall/actions/workflows/test.yml/badge.svg)](https://github.com/drengskapur/heimdall/actions/workflows/test.yml)
 [![CodeQL](https://github.com/drengskapur/heimdall/actions/workflows/codeql.yml/badge.svg)](https://github.com/drengskapur/heimdall/actions/workflows/codeql.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
@@ -47,7 +50,7 @@ its **chrome does not** — the shell is its own design system, specified in
 
 ## Prerequisites
 
-- Node.js `>= 22.13.0` (see [`.nvmrc`](.nvmrc))
+- Node.js `>= 22.19.0` (see [`.nvmrc`](.nvmrc))
 
 ## Running the app
 
@@ -132,7 +135,7 @@ Layered suites, fastest first:
 
 | Command | Level |
 | --- | --- |
-| `npm test` | Unit — domain / application / infrastructure, plus integration and streaming (no browser) |
+| `npm test` | Everything that needs no browser — domain / application / infrastructure units, integration, streaming, the statechart document, licence and SBOM drift, dead-code, and the UI suites |
 | `npm run typecheck` | `tsc` over the whole repository, held at zero errors |
 | `npm run test:integration` | Adapters + transport + mappers against an in-memory simulator |
 | `npm run test:e2e:sim` | Playwright end-to-end against the Kubernetes simulator |
@@ -183,7 +186,8 @@ gh attestation verify heimdall-<tag>-dist.tar.gz --repo drengskapur/heimdall
 That checks, against Sigstore's transparency log, that the archive was built by
 this repository's release workflow from the commit it claims. The same
 attestation is attached as `….intoto.jsonl` for tooling that consumes in-toto
-statements directly.
+statements directly. The [changelog](CHANGELOG.md) for a release names any
+publicly known vulnerability that release fixes.
 
 ## Contributing
 
@@ -215,8 +219,14 @@ trademark of Mirantis, Inc.; this is an independent, unaffiliated port.
 The packages bundled into the application carry their own permissive licenses,
 reproduced in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), and the shipped
 dependency tree is enumerated as a CycloneDX bill of materials in
-[`sbom.cdx.json`](sbom.cdx.json). Both are generated from the installed tree, so
-`npm test` fails if either falls out of date.
+[`sbom.cdx.json`](sbom.cdx.json). `npm test` fails if either falls out of date.
+
+The notices are read from the installed packages, since a licence only exists as
+a file on disk. The SBOM is built from `package-lock.json` rather than from
+`node_modules`, because the installed tree is not the same everywhere — optional
+dependencies land per platform, so a document generated on one machine could
+never match one generated on another, and the drift check would be unpassable
+rather than useful.
 
 ## Acknowledgements
 

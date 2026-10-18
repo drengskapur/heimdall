@@ -1,0 +1,18 @@
+name: Question
+description: Usage questions, and ideas you want to talk through before writing code.
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not report security vulnerabilities here — follow
+        [SECURITY.md](https://github.com/drengskapur/heimdall/blob/main/SECURITY.md)
+        instead, which routes them privately.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: What do you want to know
+      description: The question, and what you already tried.
+    validations:
+      required: true

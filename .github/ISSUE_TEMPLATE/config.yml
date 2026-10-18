@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question or idea
-    url: https://github.com/drengskapur/heimdall/discussions
+    url: https://github.com/drengskapur/heimdall/issues/new?template=question.yml
     about: Usage questions and ideas you want to talk through before writing code.
   - name: Security vulnerability
     url: https://github.com/drengskapur/heimdall/security/policy

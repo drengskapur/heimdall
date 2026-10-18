@@ -5,9 +5,10 @@ question goes.
 
 ## Questions and help
 
-Open a [discussion](https://github.com/drengskapur/heimdall/discussions) for
-usage questions, "is this supposed to work like this", and ideas you want to
-talk through before writing code.
+Open a [question](https://github.com/drengskapur/heimdall/issues/new?template=question.yml)
+for usage questions, "is this supposed to work like this", and ideas you want to
+talk through before writing code. Issues stay open until they are answered, so
+the thread is the archive.
 
 ## Bugs
 
