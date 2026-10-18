@@ -1,9 +1,7 @@
 # Heimdall
 
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/drengskapur/heimdall/badge)](https://scorecard.dev/viewer/?uri=github.com/drengskapur/heimdall)
-<!-- BEST PRACTICES BADGE: once bestpractices.dev assigns a project id, replace this comment with:
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/PROJECT_ID/badge)](https://www.bestpractices.dev/projects/PROJECT_ID)
--->
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/15654/badge)](https://www.bestpractices.dev/projects/15654)
 [![test](https://github.com/drengskapur/heimdall/actions/workflows/test.yml/badge.svg)](https://github.com/drengskapur/heimdall/actions/workflows/test.yml)
 [![CodeQL](https://github.com/drengskapur/heimdall/actions/workflows/codeql.yml/badge.svg)](https://github.com/drengskapur/heimdall/actions/workflows/codeql.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
