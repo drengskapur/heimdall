@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.2](https://github.com/drengskapur/heimdall/compare/v0.9.1...v0.9.2) (2026-10-18)
+
+
+### Documentation
+
+* add OpenSSF Best Practices badge ([#29](https://github.com/drengskapur/heimdall/issues/29)) ([73b373f](https://github.com/drengskapur/heimdall/commit/73b373f10af0c9b3ffa836856c78afbd23ae7774))
+
 ## [0.9.1](https://github.com/drengskapur/heimdall/compare/v0.9.0...v0.9.1) (2026-10-18)
 
 
