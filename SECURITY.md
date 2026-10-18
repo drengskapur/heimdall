@@ -72,3 +72,7 @@ Fixes are developed in a private fork, released together with a GitHub Security
 Advisory and a CVE where one applies, and backported to the latest release. The
 advisory names the affected versions, the fix, and any mitigation available to
 someone who cannot upgrade immediately.
+
+A publicly known vulnerability — in this project, or in a dependency the
+release ships — is fixed, or has a documented mitigation, within 60 days of the
+report. The release notes name the vulnerability that release fixes.

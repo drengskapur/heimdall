@@ -10,7 +10,7 @@ test suites, and the conventions the project follows.
 
 ## Prerequisites
 
-- Node.js `>= 22.13.0` (a `.nvmrc` pins the major; `nvm use` will pick it up)
+- Node.js `>= 22.19.0` (a `.nvmrc` pins the major; `nvm use` will pick it up)
 
 ## Getting started
 
@@ -54,6 +54,29 @@ Heavier, optional suites:
 
 The typecheck gate (`npm run typecheck`, the whole repository) is held at **zero errors** and runs
 in CI — keep it green.
+
+## How a change lands
+
+Open a pull request against `main`. Title it as a Conventional Commit (`fix:`,
+`feat:`, `docs:`) — release-please reads the merged title when it writes the
+changelog and chooses the next version.
+
+CI runs on the pull request and again when it merges: formatting, lint,
+typecheck, the test suite, the simulator end-to-end tests, dependency review,
+and CodeQL. A warning fails the build. eslint is invoked with `--max-warnings 0`,
+and `tsc` is held at zero errors, so "it compiles with warnings" is not a
+passing state. [CodeQL](https://github.com/drengskapur/heimdall/blob/main/.github/workflows/codeql.yml)
+runs the `security-extended` queries, for JavaScript/TypeScript and for GitHub
+Actions, on every pull request and every push to `main`.
+
+A maintainer merges the pull request once those checks are green.
+
+Commits made in the GitHub web editor must carry a `Signed-off-by` line — the
+repository rejects them without one. `git commit -s` adds the same line.
+
+New behaviour needs a test that fails if the behaviour is removed. A bug fix
+should include the test that reproduced the bug. That is the policy, and CI is
+what enforces the suite; it does not write the missing test for you.
 
 ## Conventions
 

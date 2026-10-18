@@ -1,6 +1,9 @@
 # Heimdall
 
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/drengskapur/heimdall/badge)](https://scorecard.dev/viewer/?uri=github.com/drengskapur/heimdall)
+<!-- BEST PRACTICES BADGE: once bestpractices.dev assigns a project id, replace this comment with:
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/PROJECT_ID/badge)](https://www.bestpractices.dev/projects/PROJECT_ID)
+-->
 [![test](https://github.com/drengskapur/heimdall/actions/workflows/test.yml/badge.svg)](https://github.com/drengskapur/heimdall/actions/workflows/test.yml)
 [![CodeQL](https://github.com/drengskapur/heimdall/actions/workflows/codeql.yml/badge.svg)](https://github.com/drengskapur/heimdall/actions/workflows/codeql.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
@@ -47,7 +50,7 @@ its **chrome does not** — the shell is its own design system, specified in
 
 ## Prerequisites
 
-- Node.js `>= 22.13.0` (see [`.nvmrc`](.nvmrc))
+- Node.js `>= 22.19.0` (see [`.nvmrc`](.nvmrc))
 
 ## Running the app
 
@@ -183,7 +186,8 @@ gh attestation verify heimdall-<tag>-dist.tar.gz --repo drengskapur/heimdall
 That checks, against Sigstore's transparency log, that the archive was built by
 this repository's release workflow from the commit it claims. The same
 attestation is attached as `….intoto.jsonl` for tooling that consumes in-toto
-statements directly.
+statements directly. The [changelog](CHANGELOG.md) for a release names any
+publicly known vulnerability that release fixes.
 
 ## Contributing
 
